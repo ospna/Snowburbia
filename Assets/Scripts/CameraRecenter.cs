@@ -18,20 +18,20 @@ public class CameraRecenter : MonoBehaviour
     {
         if(Input.GetAxis("CameraRecenter") == 1)
         {
-            cameraFL.m_RecenterToTargetHeading.m_enabled = true;
+            cameraFL.m_YAxisRecentering.m_enabled = true;
         }
         else
         {
-            cameraFL.m_RecenterToTargetHeading.m_enabled = false;
+            cameraFL.m_YAxisRecentering.m_enabled = false;
         }
 
         if (Input.GetButton("CameraRecenter"))
         {
-            cameraFL.m_RecenterToTargetHeading.m_enabled = true;
+            cameraFL.m_YAxisRecentering.m_enabled = true;
         }
         else
         {
-            cameraFL.m_RecenterToTargetHeading.m_enabled = false;
+            cameraFL.m_YAxisRecentering.m_enabled = false;
         }
     }
 }

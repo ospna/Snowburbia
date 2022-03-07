@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,14 +40,27 @@ public class PlayerController : MonoBehaviour
             {
                 direction.y = jumpForce;
                 animator.SetBool("isJumping", true);
+                animator.SetBool("isGrounded", false);
             }
             else
             {
                 animator.SetBool("isJumping", false);
+                animator.SetBool("isGrounded", true);
             }
         }
 
-        if(horizontalInput != 0)
+        if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0)
+        {
+            animator.SetBool("isThrowing", true);
+        }
+        else
+        {
+            animator.SetBool("isThrowing", false);
+        }
+
+        controller.Move(direction * Time.deltaTime);
+
+        if (horizontalInput != 0)
         {
             animator.SetBool("isMoving", true);
             Quaternion newRotation = Quaternion.LookRotation(new Vector3(horizontalInput, 0, 0));
@@ -56,7 +70,17 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
+    }
 
-        controller.Move(direction * Time.deltaTime);
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

@@ -28,6 +28,7 @@ public class TP_PlayerController : MonoBehaviour
     private float? jumpButtonPressedTime;
     private bool isGrounded;
     private bool isJumping;
+    private bool isThrowing;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -104,6 +105,17 @@ public class TP_PlayerController : MonoBehaviour
                 animator.SetBool("isFalling", true);
             }
             */
+        }
+
+        if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0)
+        {
+            animator.SetBool("isThrowing", true);
+            isThrowing = true;
+        }
+        else
+        {
+            animator.SetBool("isThrowing", false);
+            isThrowing = false;
         }
 
         Vector3 velocity = movementDirection * speed;
