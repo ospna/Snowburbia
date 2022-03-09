@@ -15,20 +15,20 @@ public class TP_PlayerController : MonoBehaviour
     private float jumpSpeed;
 
     [SerializeField]
-    private float jumpButtonGracePeriod;
-
-    [SerializeField]
     private Transform cameraTransform;
 
     private Animator animator;
     private CharacterController characterController;
+    private AudioSource audioSrc;
     private float ySpeed;
     private float originalStepOffset;
+    private float jumpButtonGracePeriod;
     private float? lastGroundedTime;
     private float? jumpButtonPressedTime;
     private bool isGrounded;
     private bool isJumping;
     private bool isThrowing;
+    private bool isMoving;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -40,6 +40,7 @@ public class TP_PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +50,8 @@ public class TP_PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+
+        // slow down
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -57,8 +60,8 @@ public class TP_PlayerController : MonoBehaviour
         }
 
         animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, Time.deltaTime);
-
         float speed = inputMagnitude * maximumSpeed;
+
         movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
         movementDirection.Normalize();
 
@@ -126,13 +129,24 @@ public class TP_PlayerController : MonoBehaviour
         if (movementDirection != Vector3.zero)
         {
             animator.SetBool("isMoving", true);
+            isMoving = true;
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+            if (isMoving)
+            {
+                if (!audioSrc.isPlaying)
+                    audioSrc.Play();
+            }
         }
         else
         {
             animator.SetBool("isMoving", false);
+            isMoving = false;
+            if (!isMoving)
+            {
+                audioSrc.Stop();
+            }
         }
     }
 

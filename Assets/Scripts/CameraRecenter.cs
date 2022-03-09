@@ -16,16 +16,7 @@ public class CameraRecenter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("CameraRecenter") == 1)
-        {
-            cameraFL.m_YAxisRecentering.m_enabled = true;
-        }
-        else
-        {
-            cameraFL.m_YAxisRecentering.m_enabled = false;
-        }
-
-        if (Input.GetButton("CameraRecenter"))
+        if(Input.GetAxis("CameraRecenter") == 1 || Input.GetButton("CameraRecenter"))
         {
             cameraFL.m_YAxisRecentering.m_enabled = true;
         }
