@@ -41,6 +41,9 @@ public class TP_PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
         audioSrc = GetComponent<AudioSource>();
+
+        GameObject BallGround = GameObject.FindGameObjectWithTag("BallGround");
+        Physics.IgnoreCollision(BallGround.GetComponent<MeshCollider>(), GetComponent<CharacterController>());
     }
 
     // Update is called once per frame
