@@ -11,10 +11,10 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 direction;
 
-    public float speed =3 ;
+    public float speed = 3;
     public float jumpForce = 10;
     public float gravity = -20;
-    public float inputMagnitude;
+    //public float inputMagnitude;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -42,16 +42,6 @@ public class PlayerController : MonoBehaviour
 
         bool isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
         direction.y += gravity * Time.deltaTime;
-
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, 0);
-
-        // slow down
-        float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
-
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            inputMagnitude /= 2;
-        }
 
         if (isGrounded)
         {
