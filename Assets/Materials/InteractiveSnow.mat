@@ -37,10 +37,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - SnowBrightness: 1.25
-    - SnowPower: 1.93
+    - SnowBrightness: 1.75
+    - SnowPower: 1.7
     - SnowScale: 85
-    - VertexOffset: 0.15
+    - VertexOffset: 0.19
     m_Colors:
     - SnowColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
