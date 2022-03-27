@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - BallGround
+  - AwayGoalZone
+  - HomeGoalZone
+  - SoccerBall
+  - AI
   layers:
   - Default
   - TransparentFX
@@ -15,9 +19,9 @@ TagManager:
   - Ground
   - Player
   - BallGround
-  - 
-  - 
-  - 
+  - Boundaries
+  - AwayGoalZone
+  - HomeGoalZone
   - 
   - 
   - 

@@ -598,7 +598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3509914674160658540
 Transform:
   m_ObjectHideFlags: 0
@@ -1062,7 +1062,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.05
+  m_Height: 0.9
   m_Radius: 0.25
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1965aa82572ff64c9460f6b7865ea68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMagnitude: 1
+  forceMagnitude: 2
 --- !u!1 &4669218907988298239
 GameObject:
   m_ObjectHideFlags: 0
