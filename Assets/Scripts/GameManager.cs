@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static int playerScore = 0;
     public static int aiScore = 0;
-    public float timer = 100000;
+    public float timer = 90;
     public bool gamePaused = false;
+    public bool matchOver;
 
     public TextMeshProUGUI hometeamScoreText;
     public TextMeshProUGUI awayteamScoreText;
@@ -17,10 +18,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI winnerText;
     public string score;
 
-    public bool matchOver;
-
-    public GameObject ball, AI, player;
-    public GameObject canvas;
+    public GameObject ball, AI, GK, LB, RB, CM, player;
+    public GameObject FinalScore;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +27,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Match());
         ball = GameObject.FindGameObjectWithTag("SoccerBall");
         AI = GameObject.FindGameObjectWithTag("AI");
+        GK = GameObject.FindGameObjectWithTag("GK");
+        LB = GameObject.FindGameObjectWithTag("LB");
+        RB = GameObject.FindGameObjectWithTag("RB");
+        CM = GameObject.FindGameObjectWithTag("CM");
         player = GameObject.FindGameObjectWithTag("Player");
-        //canvas.SetActive(false);
+        FinalScore.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,24 +64,28 @@ public class GameManager : MonoBehaviour
         {
             AI.SetActive(false);
             player.SetActive(false);
+            GK.SetActive(false);
+            LB.SetActive(false);
+            RB.SetActive(false);
+            CM.SetActive(false);
             ball.SetActive(false);
-            canvas.SetActive(true);
+            FinalScore.SetActive(true);
 
             if (playerScore > aiScore)
             {
-                winnerText.text = "The Player wins!";
+                winnerText.text = "The Home team wins, what a victory!";
             }
             else if (playerScore < aiScore)
             {
-                winnerText.text = "The AI took home the 3 points.";
+                winnerText.text = "The Away team got away with the 3 points today.";
             }
             else if (playerScore == aiScore)
             {
-                winnerText.text = "It's a bore draw.";
+                winnerText.text = "And that's that, it's a bore draw.";
             }
 
-            aiScore = 0;
-            playerScore = 0;
+            //aiScore = 0;
+            //playerScore = 0;
 
         }
     }

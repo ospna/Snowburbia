@@ -9,6 +9,10 @@ TagManager:
   - HomeGoalZone
   - SoccerBall
   - AI
+  - LB
+  - RB
+  - CM
+  - GK
   layers:
   - Default
   - TransparentFX
