@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public float inputMagnitude;
+    public Vector3 movementDirection;
+
 
     // Start is called before the first frame update
     void Start()

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
     public static int playerScore = 0;
     public static int aiScore = 0;
-    public float timer = 90;
+    public float timer = 0;
+    public float min, sec;
+    public float timerSpeed = 1f;
     public bool gamePaused = false;
     public bool matchOver;
+    public CinemachineFreeLook cmCamera;
 
     public TextMeshProUGUI hometeamScoreText;
     public TextMeshProUGUI awayteamScoreText;
@@ -41,6 +45,7 @@ public class GameManager : MonoBehaviour
         hometeamScoreText.text = "" + playerScore;
         awayteamScoreText.text = "" + aiScore;
         gametimerText.text = "" + timer;
+        //gametimerText.text = string.Format("{0:00}:{1:00}", min, sec);
     }
 
     IEnumerator Match()
@@ -48,11 +53,20 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            if (timer > 0 && !gamePaused)
+            if (timer < 90 && !gamePaused)
             {
-                timer--;
+                timer++;
+                /*
+                timer += Time.fixedDeltaTime * timerSpeed;
+                min = (int)(timer / 60 % 60);
+                sec = (int)(timer % 60);
+
+                //gametimerText.text = string.Format("{0:00}:{1:00}", min, sec);
+                 */
+                //yield return null;
+               
             }
-            else if (timer == 0)
+            else if (timer == 90)
             {
                 matchOver = true;
                 Debug.Log("Game Over");
@@ -62,6 +76,9 @@ public class GameManager : MonoBehaviour
 
         if (matchOver == true)
         {
+
+            Cursor.lockState = CursorLockMode.None;
+            cmCamera.enabled = false;
             AI.SetActive(false);
             player.SetActive(false);
             GK.SetActive(false);

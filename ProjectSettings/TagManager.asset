@@ -13,6 +13,11 @@ TagManager:
   - RB
   - CM
   - GK
+  - AI_LB
+  - AI_RB
+  - AI_CM
+  - AI_GK
+  - HoldBall
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class hitBallForPlayer : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
 	[Header("Shot Power Information")]
 	public float shootspeed = 1000f;
@@ -27,6 +27,7 @@ public class hitBallForPlayer : MonoBehaviour
 	public GameObject ball;
 	//public Camera playercamera;
 	public Rigidbody rb;
+    public GameObject holdBall;
 
     /*
 	[Header("Audio")]
@@ -35,13 +36,15 @@ public class hitBallForPlayer : MonoBehaviour
 	public AudioSource dribbleSound;
     */
 
-	[Header("Bool")]
+    [Header("Bool")]
 	public bool isKicked = false;
 	public bool addCurve = false;
 	public bool addDip = false;
+    public bool playerHasBall = false;
+    public bool passPlayed = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		rb = ball.GetComponent<Rigidbody>();
 		player = this.gameObject;
 	}
@@ -64,7 +67,6 @@ public class hitBallForPlayer : MonoBehaviour
 			addCurve = true;
 		}
 
-
 		if (Input.GetKeyDown(powerShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
 			rb.AddForce(-player.transform.up * powerShotSpeedDown * Time.deltaTime, ForceMode.Impulse);
@@ -72,6 +74,7 @@ public class hitBallForPlayer : MonoBehaviour
 			//footballSound.Play ();
 			addDip = true;
 		}
+
 		if (Input.GetKeyDown(lobShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
 			rb.AddForce(player.transform.up * lobSpeedUp * Time.deltaTime, ForceMode.Impulse);
@@ -120,8 +123,21 @@ public class hitBallForPlayer : MonoBehaviour
 			//dribbleSound.Play ();
 			rb.AddForce(player.transform.forward * 0 + player.GetComponent<Rigidbody>().velocity * dribbleSpeed, ForceMode.Impulse);
 			player.GetComponent<Rigidbody>().AddForce(-player.transform.forward * 100f,  ForceMode.Impulse);
-		}
-	}
+            playerHasBall = true;
+        }
+    }
+
+    void OnCollisionExit(Collision exit)
+    {
+        if (exit.gameObject.tag == "SoccerBall")
+        {
+            //dribbleSound.Play ();
+            ball.transform.SetParent(holdBall.transform, true);
+            ball.transform.SetParent(null, true);
+            //ball.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
+            playerHasBall = false;
+        }
+    }
 
     /*
 	IEnumerator iskickedStopTimer()
@@ -138,7 +154,7 @@ public class hitBallForPlayer : MonoBehaviour
 	}
     */
 
-	IEnumerator DipAdd() 
+    IEnumerator DipAdd() 
 	{
 		rb.AddForce (-player.transform.up * 0.1f, ForceMode.Impulse);
 		yield return new WaitForSeconds (1.5f);
@@ -147,8 +163,9 @@ public class hitBallForPlayer : MonoBehaviour
 
 	IEnumerator CurveAdd()
     {
-		rb.AddForce (-player.transform.right* Random.Range (curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
-		yield return new WaitForSeconds (1.5f);
+		rb.AddForce(-player.transform.right* Random.Range (curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
+        rb.AddForce(player.transform.right * Random.Range(curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
+        yield return new WaitForSeconds (1.5f);
 		addCurve = false;
 	
 	}
