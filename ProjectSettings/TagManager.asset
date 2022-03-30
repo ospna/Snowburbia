@@ -20,6 +20,10 @@ TagManager:
   - HoldBall
   - Home_Goal
   - LostPossession
+  - LB_HoldBall
+  - RB_HoldBall
+  - CM_HoldBall
+  - GK_HoldBall
   layers:
   - Default
   - TransparentFX

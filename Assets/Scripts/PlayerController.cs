@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public float inputMagnitude;
-    public Vector3 movementDirection;
+    //public Vector3 movementDirection;
 
 
     // Start is called before the first frame update
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

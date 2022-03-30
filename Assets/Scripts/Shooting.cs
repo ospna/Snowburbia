@@ -128,6 +128,7 @@ public class Shooting : MonoBehaviour
 		//	bounceSound.Play();
 
 		//}
+        /*
 
 		if (hit.gameObject.tag == "SoccerBall")
         {
@@ -137,7 +138,7 @@ public class Shooting : MonoBehaviour
 			player.GetComponent<Rigidbody>().AddForce(-player.transform.forward * 100f,  ForceMode.Impulse);
             playerHasBall = true;
 
-            */
+            
             Rigidbody rigidbody = hit.collider.attachedRigidbody;
 
             if (rigidbody != null)
@@ -150,6 +151,7 @@ public class Shooting : MonoBehaviour
             }
             
         }
+        */
     }
 
 

@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Passing : MonoBehaviour
 {
+    /*
     private Passing[] otherPlayers;
     private Shooting[] players;
     private HoldBall[] possesion;
 
     private GameObject ball;
-    private PlayerController playerMovement;
+    //private PlayerController playerMovement;
     private SphereCollider sphereCollider;
 
     public GameObject holdBall;
@@ -66,7 +67,8 @@ public class Passing : MonoBehaviour
     private void PassBallToPlayer(Passing targetPlayer)
     {
         Vector3 direction = DirectionToPlayer(targetPlayer);
-        ball.transform.SetParent(null);
+        ball.transform.SetParent(holdBall.transform, true);
+        ball.transform.SetParent(null, true);
         //ball.GetComponent<Rigidbody>().isKinematic = false;
         ball.GetComponent<Rigidbody>().AddForce(direction * passingForce);
 
@@ -81,7 +83,7 @@ public class Passing : MonoBehaviour
             .FirstOrDefault();
 
         return closestAngle;
-        */
+        *
 
         Passing selectedPlayer = null;
         float angle = Mathf.Infinity;
@@ -109,4 +111,5 @@ public class Passing : MonoBehaviour
     {
         return Vector3.Normalize(player.transform.position - ball.transform.position);
     }
+    */
 }

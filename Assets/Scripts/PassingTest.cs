@@ -5,12 +5,13 @@ public class PassingTest : MonoBehaviour
 {
     private PassingTest[] allOtherPlayers;
     private SoccerBall ball;
-    public float passForce = 10f;
+    public float passForce = 100f;
 
     public GameObject holdBall;
 
     public bool playerHasBall = true;
     public bool passPlayed = false;
+
     RaycastHit hit;
 
     private void Awake()
@@ -137,7 +138,7 @@ public class PassingTest : MonoBehaviour
             //ball.GetComponent<Rigidbody>().isKinematic = true;
             //ball.transform.SetParent(transform);
             ball.transform.parent = holdBall.transform;
-            holdBall.transform.localPosition = new Vector3(0, 0.1f, 0.5f);
+            holdBall.transform.localPosition = new Vector3(0, 0, 0.2f);
         }
     }
 }
