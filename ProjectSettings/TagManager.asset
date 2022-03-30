@@ -18,6 +18,8 @@ TagManager:
   - AI_CM
   - AI_GK
   - HoldBall
+  - Home_Goal
+  - LostPossession
   layers:
   - Default
   - TransparentFX

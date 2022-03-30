@@ -3344,8 +3344,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 90
+  min: 0
+  sec: 0
+  timerSpeed: 1
   gamePaused: 0
   matchOver: 0
+  cmCamera: {fileID: 0}
   hometeamScoreText: {fileID: 0}
   awayteamScoreText: {fileID: 0}
   gametimerText: {fileID: 0}
@@ -3962,7 +3966,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84d5e87b30066e642aca1479a7ca10a5, type: 2}
+  - {fileID: 2100000, guid: a36b3626db750a946b1124ef04b66c36, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

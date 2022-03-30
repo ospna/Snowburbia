@@ -7,10 +7,13 @@ public class Passing : MonoBehaviour
 {
     private Passing[] otherPlayers;
     private Shooting[] players;
+    private HoldBall[] possesion;
 
     private GameObject ball;
     private PlayerController playerMovement;
     private SphereCollider sphereCollider;
+
+    public GameObject holdBall;
 
     [SerializeField]
     float passingForce;
@@ -23,37 +26,38 @@ public class Passing : MonoBehaviour
         ball = GameObject.FindGameObjectWithTag("SoccerBall");
 
         players = FindObjectsOfType<Shooting>();
+        possesion = FindObjectsOfType<HoldBall>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Shooting player in players)
+        foreach (HoldBall pos in possesion)
         {
-            if (player.playerHasBall)
+            if (pos.playerHasBall)
             {
-                sphereCollider = player.GetComponent<SphereCollider>();
+                sphereCollider = pos.GetComponent<SphereCollider>();
                 sphereCollider.enabled = true;
 
                 playerMovement = GetComponent<PlayerController>();
 
-                Debug.DrawRay(player.transform.position, playerMovement.movementDirection * 10f, Color.red);
+                Debug.DrawRay(pos.transform.position, playerMovement.movementDirection * 10f, Color.red);
                 Passing targetPlayer = FindPlayerInDirection(playerMovement.movementDirection);
 
                 if (targetPlayer != null)
                 {
-                    if (Input.GetButtonDown("Fire2"))
+                    if (Input.GetButtonDown("Fire1") )
                     {
-                        player.passPlayed = true;
+                        pos.passPlayed = true;
                         PassBallToPlayer(targetPlayer);
                     }
                 }
 
             }
 
-            if (!player.playerHasBall)
+            if (!pos.playerHasBall)
             {
-                sphereCollider = player.GetComponent<SphereCollider>();
+                sphereCollider = pos.GetComponent<SphereCollider>();
                 sphereCollider.enabled = false;
             }
         }
@@ -63,6 +67,7 @@ public class Passing : MonoBehaviour
     {
         Vector3 direction = DirectionToPlayer(targetPlayer);
         ball.transform.SetParent(null);
+        //ball.GetComponent<Rigidbody>().isKinematic = false;
         ball.GetComponent<Rigidbody>().AddForce(direction * passingForce);
 
         print("FORCE ADDED" + direction * passingForce);
@@ -70,16 +75,24 @@ public class Passing : MonoBehaviour
 
     Passing FindPlayerInDirection(Vector3 direction)
     {
+        /*
+        var closestAngle = otherPlayers
+            .OrderBy(t => Vector3.Angle(direction, DirectionToPlayer(t)))
+            .FirstOrDefault();
+
+        return closestAngle;
+        */
+
         Passing selectedPlayer = null;
         float angle = Mathf.Infinity;
 
         foreach(Passing player in otherPlayers)
         {
-            Vector3 directionToPlayer = DirectionToPlayer(player);
+            var directionToPlayer = DirectionToPlayer(player);
 
             Debug.DrawRay(transform.position, directionToPlayer, Color.blue);
 
-            float playerAngle = Vector3.Angle(direction, directionToPlayer);
+            var playerAngle = Vector3.Angle(direction, directionToPlayer);
 
             if(playerAngle < angle)
             {
@@ -96,5 +109,4 @@ public class Passing : MonoBehaviour
     {
         return Vector3.Normalize(player.transform.position - ball.transform.position);
     }
-
 }

@@ -16,7 +16,10 @@ public class Shooting : MonoBehaviour
 	public float lobTorqueUp = 500;
 	public float dribbleSpeed = 100;
 
-	[Header("Shot Key Code Info")]
+    [SerializeField]
+    private float forceMagnitude;
+
+    [Header("Shot Key Code Info")]
 	public KeyCode lobShotKeyCode = KeyCode.V;
 	public KeyCode normalShotKeyCode = KeyCode.X;
 	public KeyCode curveShotKeyCode = KeyCode.Z;
@@ -41,21 +44,26 @@ public class Shooting : MonoBehaviour
 	public bool addCurve = false;
 	public bool addDip = false;
     public bool playerHasBall = false;
-    public bool passPlayed = false;
 
     // Use this for initialization
     void Start () {
 		rb = ball.GetComponent<Rigidbody>();
 		player = this.gameObject;
 	}
-	
-	void OnTriggerStay(Collider other) {
+
+    private void OnTriggerEnter(Collider other)
+    {
+        holdBall.GetComponent<SphereCollider>().enabled = true;
+    }
+
+    void OnTriggerStay(Collider other) {
 		if (Input.GetKeyDown(normalShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
 			rb.AddForce(player.transform.forward * shootspeed * Time.deltaTime, ForceMode.Impulse);
 			//footballSound.Play ();
 			//isKicked = true;
 			addDip = true;
+            holdBall.GetComponent<SphereCollider>().enabled = false;
 		}
 
 		if (Input.GetKeyDown(curveShotKeyCode) && other.gameObject.tag == "SoccerBall")
@@ -65,7 +73,8 @@ public class Shooting : MonoBehaviour
 			//footballSound.Play ();
 			addDip = true;
 			addCurve = true;
-		}
+            holdBall.GetComponent<SphereCollider>().enabled = false;
+        }
 
 		if (Input.GetKeyDown(powerShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
@@ -73,7 +82,8 @@ public class Shooting : MonoBehaviour
 			rb.AddForce(player.transform.forward * powerShotSpeedForward * Time.deltaTime, ForceMode.Impulse);
 			//footballSound.Play ();
 			addDip = true;
-		}
+            holdBall.GetComponent<SphereCollider>().enabled = false;
+        }
 
 		if (Input.GetKeyDown(lobShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
@@ -82,7 +92,8 @@ public class Shooting : MonoBehaviour
 			rb.AddTorque(-player.transform.right * lobTorqueUp * Time.deltaTime, ForceMode.Impulse);
 			//footballSound.Play ();
 			addDip = true;
-		}
+            holdBall.GetComponent<SphereCollider>().enabled = false;
+        }
 	}
 
 	void Update()
@@ -106,11 +117,11 @@ public class Shooting : MonoBehaviour
 
 		if (addCurve == true)
         {
-			StartCoroutine (CurveAdd ());
+			StartCoroutine (CurveAdd());
 		}
 	}
 
-	void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision hit)
     {
 		//if (col.gameObject.tag == "Ground") {
 
@@ -118,23 +129,37 @@ public class Shooting : MonoBehaviour
 
 		//}
 
-		if (col.gameObject.tag == "SoccerBall")
+		if (hit.gameObject.tag == "SoccerBall")
         {
 			//dribbleSound.Play ();
+            /*
 			rb.AddForce(player.transform.forward * 0 + player.GetComponent<Rigidbody>().velocity * dribbleSpeed, ForceMode.Impulse);
 			player.GetComponent<Rigidbody>().AddForce(-player.transform.forward * 100f,  ForceMode.Impulse);
             playerHasBall = true;
+
+            */
+            Rigidbody rigidbody = hit.collider.attachedRigidbody;
+
+            if (rigidbody != null)
+            {
+                Vector3 forceDirection = hit.gameObject.transform.position - player.transform.position;
+                forceDirection.y = 0;
+                forceDirection.Normalize();
+
+                rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, player.transform.position, ForceMode.Impulse);
+            }
+            
         }
     }
 
-    void OnCollisionExit(Collision exit)
+
+    void OnTriggerExit(Collider exit)
     {
         if (exit.gameObject.tag == "SoccerBall")
         {
             //dribbleSound.Play ();
             ball.transform.SetParent(holdBall.transform, true);
             ball.transform.SetParent(null, true);
-            //ball.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
             playerHasBall = false;
         }
     }
@@ -164,10 +189,8 @@ public class Shooting : MonoBehaviour
 	IEnumerator CurveAdd()
     {
 		rb.AddForce(-player.transform.right* Random.Range (curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
-        rb.AddForce(player.transform.right * Random.Range(curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
         yield return new WaitForSeconds (1.5f);
 		addCurve = false;
-	
 	}
 }
 

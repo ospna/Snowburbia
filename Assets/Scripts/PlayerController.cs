@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            inputMagnitude /= 2;
+            inputMagnitude *= 2;
         }
 
         animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, Time.deltaTime);
