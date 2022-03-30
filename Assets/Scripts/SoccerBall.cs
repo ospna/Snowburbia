@@ -78,6 +78,18 @@ public class SoccerBall : MonoBehaviour
             gm.gamePaused = true;
             Invoke("Reset", 3f);
         }
+
+        /*
+        if (collision.gameObject.tag == "LostPossession")
+        {
+            this.transform.SetParent(holdBall.transform, true);
+            this.transform.SetParent(null, true);
+            playerHasBall = false;
+
+            cmFreeLook.m_LookAt = this.transform;
+            cmFreeLook.m_Follow = this.transform;
+        }
+        */
     }
 
     private void OnTriggerStay(Collider other)
@@ -87,6 +99,7 @@ public class SoccerBall : MonoBehaviour
             transform.parent = holdBall.transform;
             transform.localPosition = new Vector3(0, 0.1f, 0.5f);
             transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
             cmFreeLook.m_LookAt = playerFocus;
@@ -104,6 +117,7 @@ public class SoccerBall : MonoBehaviour
             transform.parent = cm_holdBall.transform;
             transform.localPosition = new Vector3(0, 0.1f, 0.5f);
             transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
             cmFreeLook.m_LookAt = cmFocus;
@@ -121,6 +135,7 @@ public class SoccerBall : MonoBehaviour
             transform.parent = lb_holdBall.transform;
             transform.localPosition = new Vector3(0, 0.1f, 0.5f);
             transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
             cmFreeLook.m_LookAt = lbFocus;
@@ -138,6 +153,7 @@ public class SoccerBall : MonoBehaviour
             transform.parent = rb_holdBall.transform;
             transform.localPosition = new Vector3(0, 0.1f, 0.5f);
             transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
             cmFreeLook.m_LookAt = rbFocus;
@@ -155,6 +171,7 @@ public class SoccerBall : MonoBehaviour
             transform.parent = gk_holdBall.transform;
             transform.localPosition = new Vector3(0, 0.1f, 0.5f);
             transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
             cmFreeLook.m_LookAt = gkFocus;
@@ -168,6 +185,7 @@ public class SoccerBall : MonoBehaviour
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "HoldBall")
@@ -175,9 +193,6 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
-
-            cmFreeLook.m_LookAt = this.transform;
-            cmFreeLook.m_Follow = this.transform;
         }
 
         if (other.gameObject.tag == "CM_HoldBall")
@@ -185,9 +200,6 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(cm_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
-
-            cmFreeLook.m_LookAt = this.transform;
-            cmFreeLook.m_Follow = this.transform;
         }
 
         if (other.gameObject.tag == "LB_HoldBall")
@@ -195,9 +207,6 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(lb_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
-
-            cmFreeLook.m_LookAt = this.transform;
-            cmFreeLook.m_Follow = this.transform;
         }
 
         if (other.gameObject.tag == "RB_HoldBall")
@@ -205,9 +214,6 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(rb_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
-
-            cmFreeLook.m_LookAt = this.transform;
-            cmFreeLook.m_Follow = this.transform;
         }
 
         if (other.gameObject.tag == "GK_HoldBall")
@@ -215,9 +221,6 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(gk_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
-
-            cmFreeLook.m_LookAt = this.transform;
-            cmFreeLook.m_Follow = this.transform;
         }
 
     }

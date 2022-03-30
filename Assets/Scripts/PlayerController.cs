@@ -42,8 +42,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
-        audioSrc = GetComponent<AudioSource>();
 
+        //audioSrc = GetComponent<AudioSource>();
         //GameObject BallGround = GameObject.FindGameObjectWithTag("BallGround");
         //Physics.IgnoreCollision(BallGround.GetComponent<MeshCollider>(), GetComponent<CharacterController>());
     }
@@ -140,18 +140,19 @@ public class PlayerController : MonoBehaviour
 
             if (isMoving)
             {
-                if (!audioSrc.isPlaying)
-                    audioSrc.Play();
+                //if (!audioSrc.isPlaying)
+                   // audioSrc.Play();
             }
         }
         else
         {
             animator.SetBool("isMoving", false);
             isMoving = false;
-            if (!isMoving)
+           /* if (!isMoving)
             {
                 audioSrc.Stop();
             }
+            */
         }
     }
 

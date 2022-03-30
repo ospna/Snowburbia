@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
 
     [SerializeField]
     private float forceMagnitude;
+    private GameObject player;
 
     [Header("Shot Key Code Info")]
 	public KeyCode lobShotKeyCode = KeyCode.V;
@@ -26,7 +27,7 @@ public class Shooting : MonoBehaviour
 	public KeyCode powerShotKeyCode = KeyCode.C;
 
 	[Header("References")]
-	public GameObject player;
+	//public GameObject player;
 	public GameObject ball;
 	//public Camera playercamera;
 	public Rigidbody rb;
@@ -56,7 +57,10 @@ public class Shooting : MonoBehaviour
         holdBall.GetComponent<SphereCollider>().enabled = true;
     }
 
-    void OnTriggerStay(Collider other) {
+    void OnTriggerStay(Collider other)
+    {
+
+        // Normal Shot
 		if (Input.GetKeyDown(normalShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
 			rb.AddForce(player.transform.forward * shootspeed * Time.deltaTime, ForceMode.Impulse);
@@ -66,6 +70,7 @@ public class Shooting : MonoBehaviour
             holdBall.GetComponent<SphereCollider>().enabled = false;
 		}
 
+        // Curved Shot
 		if (Input.GetKeyDown(curveShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
 			rb.AddForce(player.transform.forward * shootspeed * Time.deltaTime, ForceMode.Impulse);
@@ -76,6 +81,7 @@ public class Shooting : MonoBehaviour
             holdBall.GetComponent<SphereCollider>().enabled = false;
         }
 
+        // Power Driven Shot
 		if (Input.GetKeyDown(powerShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
 			rb.AddForce(-player.transform.up * powerShotSpeedDown * Time.deltaTime, ForceMode.Impulse);
@@ -85,6 +91,7 @@ public class Shooting : MonoBehaviour
             holdBall.GetComponent<SphereCollider>().enabled = false;
         }
 
+        // Lob/Chip Shot
 		if (Input.GetKeyDown(lobShotKeyCode) && other.gameObject.tag == "SoccerBall")
         {
 			rb.AddForce(player.transform.up * lobSpeedUp * Time.deltaTime, ForceMode.Impulse);
@@ -98,10 +105,6 @@ public class Shooting : MonoBehaviour
 
 	void Update()
     {
-		if (Input.GetKeyDown(KeyCode.Escape))
-        {
-			Application.Quit ();
-		}
 
         /*
 		if (isKicked == true)
@@ -121,6 +124,7 @@ public class Shooting : MonoBehaviour
 		}
 	}
 
+    /*
     private void OnCollisionEnter(Collision hit)
     {
 		//if (col.gameObject.tag == "Ground") {
@@ -151,8 +155,9 @@ public class Shooting : MonoBehaviour
             }
             
         }
-        */
+        /
     }
+*/
 
 
     void OnTriggerExit(Collider exit)
@@ -183,14 +188,14 @@ public class Shooting : MonoBehaviour
 
     IEnumerator DipAdd() 
 	{
-		rb.AddForce (-player.transform.up * 0.1f, ForceMode.Impulse);
+		rb.AddForce(-player.transform.up * 0.1f, ForceMode.Impulse);
 		yield return new WaitForSeconds (1.5f);
 		addDip = false;
 	}
 
 	IEnumerator CurveAdd()
     {
-		rb.AddForce(-player.transform.right* Random.Range (curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
+		rb.AddForce(-player.transform.right * Random.Range (curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
         yield return new WaitForSeconds (1.5f);
 		addCurve = false;
 	}
