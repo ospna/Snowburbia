@@ -25,7 +25,7 @@ public class OpponentAIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        opponentAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
