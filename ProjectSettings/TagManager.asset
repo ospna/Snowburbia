@@ -24,6 +24,11 @@ TagManager:
   - RB_HoldBall
   - CM_HoldBall
   - GK_HoldBall
+  - AI_HoldBall
+  - AI_LB_HoldBall
+  - AI_RB_HoldBall
+  - AI_CM_HoldBall
+  - AI_GK_HoldBall
   layers:
   - Default
   - TransparentFX

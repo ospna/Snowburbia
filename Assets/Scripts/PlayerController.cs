@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private float? jumpButtonPressedTime;
     private bool isGrounded;
     private bool isJumping;
-    private bool isThrowing;
     private bool isMoving;
 
     public Transform groundCheck;
@@ -92,15 +91,16 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", false);
             isJumping = false;
 
-            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
-            {
-                ySpeed = jumpSpeed;
-                animator.SetBool("isJumping", true);
-                isJumping = true;
-                jumpButtonPressedTime = null;
-                lastGroundedTime = null;
-            }
+        if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
+        {
+            ySpeed = jumpSpeed;
+            animator.SetBool("isJumping", true);
+            isJumping = true;
+            jumpButtonPressedTime = null;
+            lastGroundedTime = null;
+
         }
+    }
         else
         {
             characterController.stepOffset = 0;
@@ -113,17 +113,6 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isFalling", true);
             }
             */
-        }
-
-        if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0)
-        {
-            animator.SetBool("isThrowing", true);
-            isThrowing = true;
-        }
-        else
-        {
-            animator.SetBool("isThrowing", false);
-            isThrowing = false;
         }
 
         Vector3 velocity = movementDirection * speed;

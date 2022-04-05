@@ -16,6 +16,11 @@ public class SoccerBall : MonoBehaviour
     [SerializeField] private GameObject LB;
     [SerializeField] private GameObject RB;
     [SerializeField] private GameObject CM;
+    [SerializeField] private GameObject AI;
+    [SerializeField] private GameObject AI_GK;
+    [SerializeField] private GameObject AI_LB;
+    [SerializeField] private GameObject AI_RB;
+    [SerializeField] private GameObject AI_CM;
 
 
     [SerializeField] public Transform playerFocus;
@@ -24,12 +29,24 @@ public class SoccerBall : MonoBehaviour
     [SerializeField] public Transform cmFocus;
     [SerializeField] public Transform gkFocus;
 
+    [SerializeField] public Transform ai_playerFocus;
+    [SerializeField] public Transform ai_lbFocus;
+    [SerializeField] public Transform ai_rbFocus;
+    [SerializeField] public Transform ai_cmFocus;
+    [SerializeField] public Transform ai_gkFocus;
+
     public GameObject GoalText;
     public GameObject holdBall;
     public GameObject lb_holdBall;
     public GameObject rb_holdBall;
     public GameObject cm_holdBall;
     public GameObject gk_holdBall;
+
+    public GameObject ai_holdBall;
+    public GameObject ai_lb_holdBall;
+    public GameObject ai_rb_holdBall;
+    public GameObject ai_cm_holdBall;
+    public GameObject ai_gk_holdBall;
 
     public bool gameActive = true;
     public bool playerHasBall = false;
@@ -183,6 +200,98 @@ public class SoccerBall : MonoBehaviour
             RB.GetComponent<PlayerController>().enabled = false;
             GK.GetComponent<PlayerController>().enabled = true;
         }
+
+        // -------------------------- AI --------------------------------------- //
+
+        if (other.gameObject.tag == "AI_HoldBall")
+        {
+            transform.parent = ai_holdBall.transform;
+            transform.localPosition = new Vector3(0, 0.1f, 0.5f);
+            transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
+            playerHasBall = true;
+
+            cmFreeLook.m_LookAt = ai_playerFocus;
+            cmFreeLook.m_Follow = ai_playerFocus;
+
+            AI.GetComponent<PlayerController>().enabled = true;
+            AI_CM.GetComponent<PlayerController>().enabled = false;
+            AI_LB.GetComponent<PlayerController>().enabled = false;
+            AI_RB.GetComponent<PlayerController>().enabled = false;
+            AI_GK.GetComponent<PlayerController>().enabled = false;
+        }
+
+        if (other.gameObject.tag == "AI_CM_HoldBall")
+        {
+            transform.parent = ai_cm_holdBall.transform;
+            transform.localPosition = new Vector3(0, 0.1f, 0.5f);
+            transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
+            playerHasBall = true;
+
+            cmFreeLook.m_LookAt = ai_cmFocus;
+            cmFreeLook.m_Follow = ai_cmFocus;
+
+            AI.GetComponent<PlayerController>().enabled = false;
+            AI_CM.GetComponent<PlayerController>().enabled = true;
+            AI_LB.GetComponent<PlayerController>().enabled = false;
+            AI_RB.GetComponent<PlayerController>().enabled = false;
+            AI_GK.GetComponent<PlayerController>().enabled = false;
+        }
+
+        if (other.gameObject.tag == "AI_LB_HoldBall")
+        {
+            transform.parent = ai_lb_holdBall.transform;
+            transform.localPosition = new Vector3(0, 0.1f, 0.5f);
+            transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
+            playerHasBall = true;
+
+            cmFreeLook.m_LookAt = ai_lbFocus;
+            cmFreeLook.m_Follow = ai_lbFocus;
+
+            AI.GetComponent<PlayerController>().enabled = false;
+            AI_CM.GetComponent<PlayerController>().enabled = false;
+            AI_LB.GetComponent<PlayerController>().enabled = true;
+            AI_RB.GetComponent<PlayerController>().enabled = false;
+            AI_GK.GetComponent<PlayerController>().enabled = false;
+        }
+
+        if (other.gameObject.tag == "AI_RB_HoldBall")
+        {
+            transform.parent = ai_rb_holdBall.transform;
+            transform.localPosition = new Vector3(0, 0.1f, 0.5f);
+            transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
+            playerHasBall = true;
+
+            cmFreeLook.m_LookAt = ai_rbFocus;
+            cmFreeLook.m_Follow = ai_rbFocus;
+
+            AI.GetComponent<PlayerController>().enabled = false;
+            AI_CM.GetComponent<PlayerController>().enabled = false;
+            AI_LB.GetComponent<PlayerController>().enabled = false;
+            AI_RB.GetComponent<PlayerController>().enabled = true;
+            AI_GK.GetComponent<PlayerController>().enabled = false;
+        }
+
+        if (other.gameObject.tag == "AI_GK_HoldBall")
+        {
+            transform.parent = ai_gk_holdBall.transform;
+            transform.localPosition = new Vector3(0, 0.1f, 0.5f);
+            transform.localRotation = Quaternion.identity;
+            rigBod.velocity = Vector3.zero;
+            playerHasBall = true;
+
+            cmFreeLook.m_LookAt = ai_gkFocus;
+            cmFreeLook.m_Follow = ai_gkFocus;
+
+            AI.GetComponent<PlayerController>().enabled = false;
+            AI_CM.GetComponent<PlayerController>().enabled = false;
+            AI_LB.GetComponent<PlayerController>().enabled = false;
+            AI_RB.GetComponent<PlayerController>().enabled = false;
+            AI_GK.GetComponent<PlayerController>().enabled = true;
+        }
     }
 
 
@@ -219,6 +328,43 @@ public class SoccerBall : MonoBehaviour
         if (other.gameObject.tag == "GK_HoldBall")
         {
             this.transform.SetParent(gk_holdBall.transform, true);
+            this.transform.SetParent(null, true);
+            playerHasBall = false;
+        }
+
+        // -------------------------- AI --------------------------------------- //
+
+        if (other.gameObject.tag == "AI_HoldBall")
+        {
+            this.transform.SetParent(ai_holdBall.transform, true);
+            this.transform.SetParent(null, true);
+            playerHasBall = false;
+        }
+
+        if (other.gameObject.tag == "AI_M_HoldBall")
+        {
+            this.transform.SetParent(ai_cm_holdBall.transform, true);
+            this.transform.SetParent(null, true);
+            playerHasBall = false;
+        }
+
+        if (other.gameObject.tag == "AI_LB_HoldBall")
+        {
+            this.transform.SetParent(ai_lb_holdBall.transform, true);
+            this.transform.SetParent(null, true);
+            playerHasBall = false;
+        }
+
+        if (other.gameObject.tag == "AI_RB_HoldBall")
+        {
+            this.transform.SetParent(ai_rb_holdBall.transform, true);
+            this.transform.SetParent(null, true);
+            playerHasBall = false;
+        }
+
+        if (other.gameObject.tag == "AI_GK_HoldBall")
+        {
+            this.transform.SetParent(ai_gk_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
         }
