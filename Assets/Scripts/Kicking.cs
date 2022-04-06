@@ -5,18 +5,20 @@ using UnityEngine;
 public class Kicking : MonoBehaviour
 {
 	[Header("Pass and Shot Power Information")]
-    public float passspeed = 500;
-    public float shootspeed = 1000;
-	public float curveShotPowerUp = 400;
-	public float shootSpeedForward = 250;
-	public float shootSpeedDown = 250;
-	public float chipSpeedUp = 1000;
-	public float chipSpeedForward = 500;
-	public float curveMin;
+    public float passspeed = 50;
+    public float shootspeed = 100;
+	public float curveShotPowerUp = 40;
+	public float shootSpeedForward = 25;
+	public float shootSpeedDown = 25;
+	public float chipSpeedUp = 400;
+	public float chipSpeedForward = 200;
+    public float chipTorqueUp = 100;
+    public float dribbleSpeed = 100;
+    public float curveMin;
 	public float curveMax;
-	public float chipTorqueUp = 500;
-	public float dribbleSpeed = 100;
     private float forceMagnitude;
+
+    private float holdDownStartTime;
 
     [Header("Game Objects")]
     private GameObject player;
@@ -55,85 +57,149 @@ public class Kicking : MonoBehaviour
 		rb = ball.GetComponent<Rigidbody>();
 		player = this.gameObject;
         animator = GetComponent<Animator>();
-
     }
+
+    void FixedUpdate()
+    {
+        if (addDip == true)
+        {
+            StartCoroutine(DipAdd());
+        }
+
+        if (addCurve == true)
+        {
+            StartCoroutine(CurveAdd());
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.tag == "SoccerBall")
+        {
+            // Pass with Right Mouse Button Click
+            if (Input.GetKeyDown(passKeyCode))
+            {
+                rb.AddForce(player.transform.forward * passspeed * Time.deltaTime, ForceMode.Impulse);
+                //kickingSound.Play();
+                addDip = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isPassing", true);
+                isPassing = true;
+            }
+
+            // Shoot with Left Mouse Button Click
+            if (Input.GetKeyDown(shootKeyCode))
+            {
+                rb.AddForce(-player.transform.up * shootSpeedDown * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * shootSpeedForward * Time.deltaTime, ForceMode.Impulse);
+                //kickingSound.Play();
+                addDip = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isShooting", true);
+                isShooting = true;
+            }
+
+            /*FAILED POWER-UP
+            // Pass with RMB
+            if (Input.GetMouseButtonDown(1))
+            {
+                //rb.AddForce(player.transform.forward * passspeed * Time.deltaTime, ForceMode.Impulse);
+                //kickingSound.Play();
+                /*
+                addDip = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isPassing", true);
+                isPassing = true;
+                /
+
+                holdDownStartTime = Time.time;
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                float holdDownTime = Time.time - holdDownStartTime;
+                rb.AddForce(player.transform.forward * CalculateHoldDownForce(holdDownTime));
+                //CalculateHoldDownForce(holdDownTime)
+                addDip = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isPassing", true);
+                isPassing = true;
+            }
+
+            // Shoot with LMB
+            if (Input.GetMouseButtonDown(0))
+            {
+                rb.AddForce(-player.transform.up * shootSpeedDown * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * shootSpeedForward * Time.deltaTime, ForceMode.Impulse);
+                //kickingSound.Play();
+                addDip = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isShooting", true);
+                isShooting = true;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+
+            }
+            */
+
+            // Curved Shot
+            if (Input.GetKeyDown(curveShotKeyCode))
+            {
+                rb.AddForce(player.transform.forward * shootspeed * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.up * curveShotPowerUp * Time.deltaTime, ForceMode.Impulse);
+                //kickingSound.Play();
+                addDip = true;
+                addCurve = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isShooting", true);
+                isShooting = true;
+            }
+
+            // Chip Shot
+            if (Input.GetKeyDown(chipShotKeyCode))
+            {
+                rb.AddForce(player.transform.up * chipSpeedUp * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * chipSpeedForward * Time.deltaTime, ForceMode.Impulse);
+                rb.AddTorque(-player.transform.right * chipTorqueUp * Time.deltaTime, ForceMode.Impulse);
+                //chipSound.Play();
+                addDip = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isChipping", true);
+                isChipping = true;
+            }
+        }
+	}
 
     private void OnTriggerEnter(Collider other)
     {
         holdBall.GetComponent<SphereCollider>().enabled = true;
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerExit(Collider exit)
     {
-
-        // Pass
-		if (Input.GetKeyDown(passKeyCode) && other.gameObject.tag == "SoccerBall")
+        if (exit.gameObject.tag == "SoccerBall")
         {
-			rb.AddForce(player.transform.forward * passspeed * Time.deltaTime, ForceMode.Impulse);
-            //kickingSound.Play();
-            addDip = true;
-            holdBall.GetComponent<SphereCollider>().enabled = false;
+            //dribbleSound.Play ();
+            ball.transform.SetParent(holdBall.transform, true);
+            ball.transform.SetParent(null, true);
+            playerHasBall = false;
 
-            animator.SetBool("isPassing", true);
-            isPassing = true;
+            animator.SetBool("isPassing", false);
+            isPassing = false;
         }
+    }
 
-        // Shot
-        if (Input.GetKeyDown(shootKeyCode) && other.gameObject.tag == "SoccerBall")
-        {
-            rb.AddForce(-player.transform.up * shootSpeedDown * Time.deltaTime, ForceMode.Impulse);
-            rb.AddForce(player.transform.forward * shootSpeedForward * Time.deltaTime, ForceMode.Impulse);
-            //kickingSound.Play();
-            addDip = true;
-            holdBall.GetComponent<SphereCollider>().enabled = false;
-
-            animator.SetBool("isShooting", true);
-            isShooting = true;
-        }
-
-        // Curved Shot
-        if (Input.GetKeyDown(curveShotKeyCode) && other.gameObject.tag == "SoccerBall")
-        {
-			rb.AddForce(player.transform.forward * shootspeed * Time.deltaTime, ForceMode.Impulse);
-			rb.AddForce(player.transform.up * curveShotPowerUp * Time.deltaTime, ForceMode.Impulse);
-            //kickingSound.Play();
-            addDip = true;
-			addCurve = true;
-            holdBall.GetComponent<SphereCollider>().enabled = false;
-
-            animator.SetBool("isShooting", true);
-            isShooting = true;
-        }
-
-        // Chip Shot
-		if (Input.GetKeyDown(chipShotKeyCode) && other.gameObject.tag == "SoccerBall")
-        {
-			rb.AddForce(player.transform.up * chipSpeedUp * Time.deltaTime, ForceMode.Impulse);
-			rb.AddForce(player.transform.forward * chipSpeedForward * Time.deltaTime, ForceMode.Impulse);
-			rb.AddTorque(-player.transform.right * chipTorqueUp * Time.deltaTime, ForceMode.Impulse);
-            //chipSound.Play();
-            addDip = true;
-            holdBall.GetComponent<SphereCollider>().enabled = false;
-
-            animator.SetBool("isChipping", true);
-            isChipping = true;
-        }
-	}
-
-	void Update()
-    {
-		if (addDip == true)
-        {
-			StartCoroutine (DipAdd ());
-		}
-
-		if (addCurve == true)
-        {
-			StartCoroutine (CurveAdd());
-		}
-	}
-
-    /*
+    /*      USED FOR PSYCHICS BASED DRIBBLING
     private void OnCollisionEnter(Collision hit)
     {
 		//if (col.gameObject.tag == "Ground") {
@@ -163,19 +229,17 @@ public class Kicking : MonoBehaviour
     }
     */
 
-    void OnTriggerExit(Collider exit)
-    {
-        if (exit.gameObject.tag == "SoccerBall")
-        {
-            //dribbleSound.Play ();
-            ball.transform.SetParent(holdBall.transform, true);
-            ball.transform.SetParent(null, true);
-            playerHasBall = false;
 
-            animator.SetBool("isPassing", false);
-            isPassing = false;
-        }
+        /*
+    private float CalculateHoldDownForce(float holdTime)
+    {
+        float maxForceHoldDownTime = 2f;
+        float holdTimeNormalize = Mathf.Clamp01(holdTime / maxForceHoldDownTime);
+
+        float force = holdTimeNormalize * 500f;
+        return force;
     }
+    */
 
     IEnumerator DipAdd() 
 	{

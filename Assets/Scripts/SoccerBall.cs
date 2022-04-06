@@ -302,6 +302,9 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
+
+            transform.localRotation = Quaternion.identity;
+
         }
 
         if (other.gameObject.tag == "CM_HoldBall")

@@ -1318,26 +1318,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd5d326710cde41aea1d031ae11689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootspeed: 1000
-  curveShotPowerUp: 500
-  powerShotSpeedForward: 1500
-  powerShotSpeedDown: 250
-  lobSpeedUp: 750
-  lobSpeedForward: 500
-  curveMin: 5
-  curveMax: 20
-  lobTorqueUp: 5
+  passspeed: 50
+  shootspeed: 100
+  curveShotPowerUp: 50
+  shootSpeedForward: 25
+  shootSpeedDown: 25
+  chipSpeedUp: 400
+  chipSpeedForward: 250
+  chipTorqueUp: 100
   dribbleSpeed: 1.5
-  forceMagnitude: 0
-  lobShotKeyCode: 118
-  normalShotKeyCode: 120
+  curveMin: 5
+  curveMax: 15
+  passKeyCode: 324
   curveShotKeyCode: 122
-  powerShotKeyCode: 99
-  player: {fileID: 3894061686398466433}
+  shootKeyCode: 323
+  chipShotKeyCode: 99
   ball: {fileID: 0}
   rb: {fileID: 0}
   holdBall: {fileID: 756232439347027069}
-  isKicked: 0
+  kickingSound: {fileID: 0}
+  chipSound: {fileID: 0}
   addCurve: 0
   addDip: 0
   playerHasBall: 0

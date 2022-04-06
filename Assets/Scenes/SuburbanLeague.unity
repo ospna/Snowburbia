@@ -1271,7 +1271,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117327339}
-  m_LocalRotation: {x: 0.059090123, y: 0.70463353, z: -0.059090126, w: 0.7046335}
+  m_LocalRotation: {x: 0.059090115, y: 0.70463353, z: -0.05909012, w: 0.7046335}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2865,7 +2865,7 @@ GameObject:
   - component: {fileID: 388545760}
   m_Layer: 0
   m_Name: HoldBall
-  m_TagString: HoldBall
+  m_TagString: AI_RB_HoldBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3320,7 +3320,7 @@ GameObject:
   - component: {fileID: 491746784}
   m_Layer: 0
   m_Name: HoldBall
-  m_TagString: HoldBall
+  m_TagString: AI_LB_HoldBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3453,7 +3453,7 @@ GameObject:
   - component: {fileID: 493022523}
   m_Layer: 0
   m_Name: HoldBall
-  m_TagString: HoldBall
+  m_TagString: AI_CM_HoldBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4056,25 +4056,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd5d326710cde41aea1d031ae11689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passspeed: 500
   shootspeed: 1000
   curveShotPowerUp: 500
-  powerShotSpeedForward: 1500
-  powerShotSpeedDown: 250
-  lobSpeedUp: 750
-  lobSpeedForward: 500
+  shootSpeedForward: 250
+  shootSpeedDown: 250
+  chipSpeedUp: 1000
+  chipSpeedForward: 500
+  chipTorqueUp: 500
+  dribbleSpeed: 1.5
   curveMin: 5
   curveMax: 20
-  lobTorqueUp: 5
-  dribbleSpeed: 1.5
-  forceMagnitude: 0
-  lobShotKeyCode: 118
-  normalShotKeyCode: 120
+  passKeyCode: 324
   curveShotKeyCode: 122
-  powerShotKeyCode: 99
+  shootKeyCode: 323
+  chipShotKeyCode: 99
   ball: {fileID: 1598936492}
   rb: {fileID: 1598936497}
   holdBall: {fileID: 1518141856}
-  isKicked: 0
+  kickingSound: {fileID: 0}
+  chipSound: {fileID: 0}
   addCurve: 0
   addDip: 0
   playerHasBall: 0
@@ -7551,25 +7552,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd5d326710cde41aea1d031ae11689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passspeed: 500
   shootspeed: 1000
   curveShotPowerUp: 500
-  powerShotSpeedForward: 1500
-  powerShotSpeedDown: 250
-  lobSpeedUp: 750
-  lobSpeedForward: 500
+  shootSpeedForward: 250
+  shootSpeedDown: 250
+  chipSpeedUp: 1000
+  chipSpeedForward: 500
+  chipTorqueUp: 500
+  dribbleSpeed: 1.5
   curveMin: 5
   curveMax: 20
-  lobTorqueUp: 5
-  dribbleSpeed: 1.5
-  forceMagnitude: 0
-  lobShotKeyCode: 118
-  normalShotKeyCode: 120
+  passKeyCode: 324
   curveShotKeyCode: 122
-  powerShotKeyCode: 99
+  shootKeyCode: 323
+  chipShotKeyCode: 99
   ball: {fileID: 1598936492}
   rb: {fileID: 1598936497}
   holdBall: {fileID: 388545758}
-  isKicked: 0
+  kickingSound: {fileID: 0}
+  chipSound: {fileID: 0}
   addCurve: 0
   addDip: 0
   playerHasBall: 0
@@ -8690,8 +8692,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1357200849, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: m_Drag
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357200849, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: m_Mass
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1598936493, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: cmFocus
@@ -8779,7 +8785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4935240531098310, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 7.36
       objectReference: {fileID: 0}
     - target: {fileID: 4935240531098310, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8813,6 +8819,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 135134225773752490, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: ab067d58b2c9a8b4c9b26c2cfab2fbe0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
 --- !u!1 &1368111862 stripped
@@ -9703,25 +9713,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd5d326710cde41aea1d031ae11689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passspeed: 500
   shootspeed: 1000
   curveShotPowerUp: 500
-  powerShotSpeedForward: 1500
-  powerShotSpeedDown: 250
-  lobSpeedUp: 750
-  lobSpeedForward: 500
+  shootSpeedForward: 250
+  shootSpeedDown: 250
+  chipSpeedUp: 1000
+  chipSpeedForward: 500
+  chipTorqueUp: 500
+  dribbleSpeed: 1.5
   curveMin: 5
   curveMax: 20
-  lobTorqueUp: 5
-  dribbleSpeed: 1.5
-  forceMagnitude: 0
-  lobShotKeyCode: 118
-  normalShotKeyCode: 120
+  passKeyCode: 324
   curveShotKeyCode: 122
-  powerShotKeyCode: 99
+  shootKeyCode: 323
+  chipShotKeyCode: 99
   ball: {fileID: 1598936492}
   rb: {fileID: 1598936497}
   holdBall: {fileID: 491746782}
-  isKicked: 0
+  kickingSound: {fileID: 0}
+  chipSound: {fileID: 0}
   addCurve: 0
   addDip: 0
   playerHasBall: 0
@@ -9789,7 +9800,7 @@ GameObject:
   - component: {fileID: 1518141858}
   m_Layer: 0
   m_Name: HoldBall
-  m_TagString: HoldBall
+  m_TagString: AI_GK_HoldBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11785,25 +11796,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd5d326710cde41aea1d031ae11689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passspeed: 500
   shootspeed: 1000
   curveShotPowerUp: 500
-  powerShotSpeedForward: 1500
-  powerShotSpeedDown: 250
-  lobSpeedUp: 750
-  lobSpeedForward: 500
+  shootSpeedForward: 250
+  shootSpeedDown: 250
+  chipSpeedUp: 1000
+  chipSpeedForward: 500
+  chipTorqueUp: 500
+  dribbleSpeed: 1.5
   curveMin: 5
   curveMax: 20
-  lobTorqueUp: 5
-  dribbleSpeed: 1.5
-  forceMagnitude: 0
-  lobShotKeyCode: 118
-  normalShotKeyCode: 120
+  passKeyCode: 324
   curveShotKeyCode: 122
-  powerShotKeyCode: 99
+  shootKeyCode: 323
+  chipShotKeyCode: 99
   ball: {fileID: 1598936492}
   rb: {fileID: 1598936497}
   holdBall: {fileID: 493022521}
-  isKicked: 0
+  kickingSound: {fileID: 0}
+  chipSound: {fileID: 0}
   addCurve: 0
   addDip: 0
   playerHasBall: 0
@@ -14300,6 +14312,10 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1598936492}
+    - target: {fileID: 756232440138879427, guid: 406820c3597e3c74682be603b2c67a75, type: 3}
+      propertyPath: chipTorqueUp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3894061686398466432, guid: 406820c3597e3c74682be603b2c67a75, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -14451,7 +14467,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148533226336}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a43e945f21617fe41b1c61ca9dbf2461, type: 3}
   m_Name: 
@@ -14477,25 +14493,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd5d326710cde41aea1d031ae11689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passspeed: 500
   shootspeed: 1000
   curveShotPowerUp: 500
-  powerShotSpeedForward: 1500
-  powerShotSpeedDown: 250
-  lobSpeedUp: 750
-  lobSpeedForward: 500
+  shootSpeedForward: 250
+  shootSpeedDown: 250
+  chipSpeedUp: 1000
+  chipSpeedForward: 500
+  chipTorqueUp: 500
+  dribbleSpeed: 1.5
   curveMin: 5
   curveMax: 20
-  lobTorqueUp: 5
-  dribbleSpeed: 1.5
-  forceMagnitude: 0
-  lobShotKeyCode: 118
-  normalShotKeyCode: 120
+  passKeyCode: 324
   curveShotKeyCode: 122
-  powerShotKeyCode: 99
+  shootKeyCode: 323
+  chipShotKeyCode: 99
   ball: {fileID: 1598936492}
   rb: {fileID: 1598936497}
   holdBall: {fileID: 1680103480}
-  isKicked: 0
+  kickingSound: {fileID: 0}
+  chipSound: {fileID: 0}
   addCurve: 0
   addDip: 0
   playerHasBall: 0
@@ -14976,6 +14993,38 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1598936492}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: passspeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: shootspeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: chipSpeedUp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: chipTorqueUp
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: shootSpeedDown
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: chipSpeedForward
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: curveShotPowerUp
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948895697000879007, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
+      propertyPath: shootSpeedForward
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de62932d176211e4aad788d5597f0cdc, type: 3}
 --- !u!1001 &8455965682498759725
