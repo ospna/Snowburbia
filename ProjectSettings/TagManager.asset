@@ -29,6 +29,7 @@ TagManager:
   - AI_RB_HoldBall
   - AI_CM_HoldBall
   - AI_GK_HoldBall
+  - PlayerIndicator
   layers:
   - Default
   - TransparentFX

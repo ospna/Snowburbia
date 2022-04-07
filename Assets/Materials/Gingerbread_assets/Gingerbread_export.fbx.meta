@@ -77,7 +77,39 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
+    human:
+    - boneName: decorative_GRP
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: extrudedSurface6
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: extrudedSurface5
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pSphere2
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: Gingerbread_export(Clone)
       parentName: 
@@ -94,21 +126,6 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: button_GRP
-      parentName: decorative_GRP
-      position: {x: -0, y: -0.01606071, z: -0.006319453}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pSphere2
-      parentName: button_GRP
-      position: {x: -0, y: 0.56999993, z: 0.03164273}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 0.15, y: 0.15, z: 0.05}
-    - name: pSphere3
-      parentName: button_GRP
-      position: {x: -0, y: 0.46272814, z: 0.03164273}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 0.15, y: 0.15, z: 0.05}
     - name: extrudedSurface3
       parentName: decorative_GRP
       position: {x: -0.2104293, y: 0.60355115, z: 0}
@@ -127,12 +144,32 @@ ModelImporter:
     - name: extrudedSurface6
       parentName: decorative_GRP
       position: {x: -0.12232942, y: 0.15678442, z: 0.037684094}
-      rotation: {x: 0.79065067, y: 0.61162704, z: 0.02551753, w: -0.011517168}
+      rotation: {x: 0.7906507, y: 0.6116271, z: 0.025517533, w: -0.011517169}
       scale: {x: 1.1081398, y: 1.2345771, z: 0.94864595}
+    - name: button_GRP
+      parentName: decorative_GRP
+      position: {x: -0, y: -0.01606071, z: -0.006319453}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pSphere3
+      parentName: button_GRP
+      position: {x: -0, y: 0.46272814, z: 0.03164273}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.15, y: 0.15, z: 0.05}
+    - name: pSphere2
+      parentName: button_GRP
+      position: {x: -0, y: 0.56999993, z: 0.03164273}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.15, y: 0.15, z: 0.05}
     - name: face_GRP
       parentName: Gingerbread_export(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mouth
+      parentName: face_GRP
+      position: {x: -0.001102519, y: 0.81214863, z: 0.061478633}
+      rotation: {x: 0.04931207, y: 0.04931207, z: -0.70538527, w: 0.70538527}
       scale: {x: 1, y: 1, z: 1}
     - name: eye_GRP
       parentName: face_GRP
@@ -154,20 +191,15 @@ ModelImporter:
       position: {x: 0.00393985, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: left_brow
-      parentName: eyebrows_GRP
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: right_brow
       parentName: eyebrows_GRP
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mouth
-      parentName: face_GRP
-      position: {x: -0.001102519, y: 0.81214863, z: 0.061478633}
-      rotation: {x: 0.04931207, y: 0.04931207, z: -0.70538527, w: 0.70538527}
+    - name: left_brow
+      parentName: eyebrows_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -182,7 +214,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 0
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1

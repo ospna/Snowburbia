@@ -13,8 +13,8 @@ public class OpponentAIScript : MonoBehaviour
     {
         goalkeeper,
         defenders,
-        midfielders,
-        attackers,
+        midfielder,
+        attacker,
         keepPossesion
     }
 
@@ -41,11 +41,11 @@ public class OpponentAIScript : MonoBehaviour
                 {
                     break;
                 }
-            case opponentStates.midfielders:
+            case opponentStates.midfielder:
                 {
                     break;
                 }
-            case opponentStates.attackers:
+            case opponentStates.attacker:
                 {
                     opponentAgent.SetDestination(opponentGoal.transform.position);
                     break;

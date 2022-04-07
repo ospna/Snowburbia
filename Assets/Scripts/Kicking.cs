@@ -80,7 +80,7 @@ public class Kicking : MonoBehaviour
             // Pass with Right Mouse Button Click
             if (Input.GetKeyDown(passKeyCode))
             {
-                rb.AddForce(player.transform.forward * passSpeed * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * passSpeed, ForceMode.Force);
                 //kickingSound.Play();
                 addDip = true;
                 holdBall.GetComponent<SphereCollider>().enabled = false;
@@ -92,8 +92,8 @@ public class Kicking : MonoBehaviour
             // Shoot with Left Mouse Button Click
             if (Input.GetKeyDown(shootKeyCode))
             {
-                rb.AddForce(-player.transform.up * shootSpeedDown * Time.deltaTime, ForceMode.Impulse);
-                rb.AddForce(player.transform.forward * shootSpeedForward * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(-player.transform.up * shootSpeedDown, ForceMode.Force);
+                rb.AddForce(player.transform.forward * shootSpeedForward, ForceMode.Force);
                 //kickingSound.Play();
                 addDip = true;
                 holdBall.GetComponent<SphereCollider>().enabled = false;
@@ -153,8 +153,8 @@ public class Kicking : MonoBehaviour
             // Curved Shot
             if (Input.GetKeyDown(curveShotKeyCode))
             {
-                rb.AddForce(player.transform.forward * curveShootSpeed * Time.deltaTime, ForceMode.Impulse);
-                rb.AddForce(player.transform.up * curveShotPower * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * curveShootSpeed, ForceMode.Force);
+                rb.AddForce(player.transform.up * curveShotPower, ForceMode.Force);
                 //kickingSound.Play();
                 addDip = true;
                 addCurve = true;
@@ -167,9 +167,9 @@ public class Kicking : MonoBehaviour
             // Chip Shot
             if (Input.GetKeyDown(chipShotKeyCode))
             {
-                rb.AddForce(player.transform.up * chipSpeedUp * Time.deltaTime, ForceMode.Impulse);
-                rb.AddForce(player.transform.forward * chipSpeedForward * Time.deltaTime, ForceMode.Impulse);
-                rb.AddTorque(-player.transform.right * chipTorqueUp * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.up * chipSpeedUp, ForceMode.Force);
+                rb.AddForce(player.transform.forward * chipSpeedForward, ForceMode.Force);
+                rb.AddTorque(-player.transform.right * chipTorqueUp , ForceMode.Force);
                 //chipSound.Play();
                 addDip = true;
                 holdBall.GetComponent<SphereCollider>().enabled = false;

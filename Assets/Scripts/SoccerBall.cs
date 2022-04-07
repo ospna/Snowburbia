@@ -10,17 +10,19 @@ public class SoccerBall : MonoBehaviour
     //Vector3 AIstartPos;
     Rigidbody rigBod;
 
-    [SerializeField] private CinemachineFreeLook cmFreeLook;
-    [SerializeField] private GameObject Player;
-    [SerializeField] private GameObject GK;
-    [SerializeField] private GameObject LB;
-    [SerializeField] private GameObject RB;
-    [SerializeField] private GameObject CM;
-    [SerializeField] private GameObject AI;
-    [SerializeField] private GameObject AI_GK;
-    [SerializeField] private GameObject AI_LB;
-    [SerializeField] private GameObject AI_RB;
-    [SerializeField] private GameObject AI_CM;
+    public CinemachineFreeLook cmFreeLook;
+    private GameObject Player;
+    private GameObject GK;
+    private GameObject LB;
+    private GameObject RB;
+    private GameObject CM;
+    private GameObject AI;
+    private GameObject AI_GK;
+    private GameObject AI_LB;
+    private GameObject AI_RB;
+    private GameObject AI_CM;
+
+    public GameObject PlayerIndicator;
 
 
     [SerializeField] public Transform playerFocus;
@@ -62,6 +64,14 @@ public class SoccerBall : MonoBehaviour
         RB = GameObject.FindGameObjectWithTag("RB");
         CM = GameObject.FindGameObjectWithTag("CM");
 
+        AI = GameObject.FindGameObjectWithTag("AI");
+        AI_GK = GameObject.FindGameObjectWithTag("AI_GK");
+        AI_LB = GameObject.FindGameObjectWithTag("AI_LB");
+        AI_RB = GameObject.FindGameObjectWithTag("AI_RB");
+        AI_CM = GameObject.FindGameObjectWithTag("AI_CM");
+        PlayerIndicator = GameObject.FindGameObjectWithTag("PlayerIndicator");
+
+
         // holdBall = GameObject.FindGameObjectsWithTag("HoldBall");
         rigBod = GetComponent<Rigidbody>();
         startPos = transform.position;
@@ -83,7 +93,7 @@ public class SoccerBall : MonoBehaviour
             gameActive = false;
             this.gameObject.SetActive(false);
             gm.gamePaused = true;
-            Invoke("Reset", 3f);
+            Invoke("Reset", 5f);
         }
 
         if (collision.gameObject.tag == "AwayGoalZone")
@@ -93,7 +103,7 @@ public class SoccerBall : MonoBehaviour
             gameActive = false;
             this.gameObject.SetActive(false);
             gm.gamePaused = true;
-            Invoke("Reset", 3f);
+            Invoke("Reset", 5f);
         }
 
         /*
@@ -119,6 +129,21 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
+            PlayerIndicator = GameObject.Find("Home_Team/Player/PlayerIndicator");
+            PlayerIndicator.SetActive(true);
+
+            PlayerIndicator = GameObject.Find("Home_Team/CM/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/LB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/RB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
             cmFreeLook.m_LookAt = playerFocus;
             cmFreeLook.m_Follow = playerFocus;
 
@@ -136,6 +161,21 @@ public class SoccerBall : MonoBehaviour
             transform.localRotation = Quaternion.identity;
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
+
+            PlayerIndicator = GameObject.Find("Home_Team/Player/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/CM/PlayerIndicator");
+            PlayerIndicator.SetActive(true);
+
+            PlayerIndicator = GameObject.Find("Home_Team/LB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/RB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
 
             cmFreeLook.m_LookAt = cmFocus;
             cmFreeLook.m_Follow = cmFocus;
@@ -155,6 +195,21 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
+            PlayerIndicator = GameObject.Find("Home_Team/Player/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/CM/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/LB/PlayerIndicator");
+            PlayerIndicator.SetActive(true);
+
+            PlayerIndicator = GameObject.Find("Home_Team/RB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
             cmFreeLook.m_LookAt = lbFocus;
             cmFreeLook.m_Follow = lbFocus;
 
@@ -173,6 +228,21 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
+            PlayerIndicator = GameObject.Find("Home_Team/Player/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/CM/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/LB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/RB/PlayerIndicator");
+            PlayerIndicator.SetActive(true);
+
+            PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
             cmFreeLook.m_LookAt = rbFocus;
             cmFreeLook.m_Follow = rbFocus;
 
@@ -190,6 +260,21 @@ public class SoccerBall : MonoBehaviour
             transform.localRotation = Quaternion.identity;
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
+
+            PlayerIndicator = GameObject.Find("Home_Team/Player/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/CM/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/LB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/RB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
+
+            PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
+            PlayerIndicator.SetActive(true);
 
             cmFreeLook.m_LookAt = gkFocus;
             cmFreeLook.m_Follow = gkFocus;
@@ -302,9 +387,8 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
-
-            transform.localRotation = Quaternion.identity;
-
+            PlayerIndicator = GameObject.Find("Home_Team/Player/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
         }
 
         if (other.gameObject.tag == "CM_HoldBall")
@@ -312,6 +396,8 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(cm_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
+            PlayerIndicator = GameObject.Find("Home_Team/CM/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
         }
 
         if (other.gameObject.tag == "LB_HoldBall")
@@ -319,6 +405,8 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(lb_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
+            PlayerIndicator = GameObject.Find("Home_Team/LB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
         }
 
         if (other.gameObject.tag == "RB_HoldBall")
@@ -326,6 +414,8 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(rb_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
+            PlayerIndicator = GameObject.Find("Home_Team/RB/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
         }
 
         if (other.gameObject.tag == "GK_HoldBall")
@@ -333,6 +423,8 @@ public class SoccerBall : MonoBehaviour
             this.transform.SetParent(gk_holdBall.transform, true);
             this.transform.SetParent(null, true);
             playerHasBall = false;
+            PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
+            PlayerIndicator.SetActive(false);
         }
 
         // -------------------------- AI --------------------------------------- //
@@ -376,17 +468,23 @@ public class SoccerBall : MonoBehaviour
 
     public void Reset()
     {
+    
         this.gameObject.SetActive(true);
         rigBod.velocity = Vector3.zero;
         this.transform.SetParent(holdBall.transform, true);
         this.transform.SetParent(null, true);
         transform.position = startPos;
-        gm.player.transform.position = new Vector3(-2, 0, 0);
-        gm.GK.transform.position = new Vector3(-18, 0, 0);
-        gm.LB.transform.position = new Vector3(-12, 0, 4);
-        gm.RB.transform.position = new Vector3(-12, 0, -4);
-        gm.CM.transform.position = new Vector3(-6, 0, 0);
-        gm.AI.transform.position = new Vector3(2, 0, 0);
+        Player.transform.position = new Vector3(-2, 0, 0);
+        GK.transform.position = new Vector3(-18, 0, 0);
+        LB.transform.position = new Vector3(-12, 0, 4);
+        RB.transform.position = new Vector3(-12, 0, -4);
+        CM.transform.position = new Vector3(-6, 0, 0);
+        AI.transform.position = new Vector3(2, 0, 0);
+        AI_GK.transform.position = new Vector3(18, 0, 0);
+        AI_LB.transform.position = new Vector3(12, 0, -4);
+        AI_RB.transform.position = new Vector3(12, 0, 4);
+        AI_CM.transform.position = new Vector3(6, 0, 0);
+
         GoalText.SetActive(false);
         gm.gamePaused = false;
         gameActive = true;
