@@ -1318,17 +1318,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd5d326710cde41aea1d031ae11689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passspeed: 50
-  shootspeed: 100
-  curveShotPowerUp: 50
-  shootSpeedForward: 25
-  shootSpeedDown: 25
+  passSpeed: 500
+  curveShootSpeed: 500
+  curveShotPower: 350
+  shootSpeedForward: 600
+  shootSpeedDown: 50
   chipSpeedUp: 400
-  chipSpeedForward: 250
-  chipTorqueUp: 100
+  chipSpeedForward: 350
+  chipTorqueUp: 150
   dribbleSpeed: 1.5
   curveMin: 5
-  curveMax: 15
+  curveMax: 10
   passKeyCode: 324
   curveShotKeyCode: 122
   shootKeyCode: 323

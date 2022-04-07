@@ -5,14 +5,14 @@ using UnityEngine;
 public class Kicking : MonoBehaviour
 {
 	[Header("Pass and Shot Power Information")]
-    public float passspeed = 50;
-    public float shootspeed = 100;
-	public float curveShotPowerUp = 40;
-	public float shootSpeedForward = 25;
-	public float shootSpeedDown = 25;
+    public float passSpeed = 500;
+    public float curveShootSpeed = 500;
+	public float curveShotPower = 350;
+	public float shootSpeedForward = 600;
+    public float shootSpeedDown = 50;
 	public float chipSpeedUp = 400;
-	public float chipSpeedForward = 200;
-    public float chipTorqueUp = 100;
+	public float chipSpeedForward = 350;
+    public float chipTorqueUp = 150;
     public float dribbleSpeed = 100;
     public float curveMin;
 	public float curveMax;
@@ -80,7 +80,7 @@ public class Kicking : MonoBehaviour
             // Pass with Right Mouse Button Click
             if (Input.GetKeyDown(passKeyCode))
             {
-                rb.AddForce(player.transform.forward * passspeed * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * passSpeed * Time.deltaTime, ForceMode.Impulse);
                 //kickingSound.Play();
                 addDip = true;
                 holdBall.GetComponent<SphereCollider>().enabled = false;
@@ -153,8 +153,8 @@ public class Kicking : MonoBehaviour
             // Curved Shot
             if (Input.GetKeyDown(curveShotKeyCode))
             {
-                rb.AddForce(player.transform.forward * shootspeed * Time.deltaTime, ForceMode.Impulse);
-                rb.AddForce(player.transform.up * curveShotPowerUp * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * curveShootSpeed * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(player.transform.up * curveShotPower * Time.deltaTime, ForceMode.Impulse);
                 //kickingSound.Play();
                 addDip = true;
                 addCurve = true;
