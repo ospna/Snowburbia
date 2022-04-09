@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -70,7 +70,8 @@ public class PlayerController : MonoBehaviour
         movementDirection.Normalize();
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
-
+        
+        /** Take out jumping
         if (characterController.isGrounded)
         {
             lastGroundedTime = Time.time;
@@ -80,9 +81,9 @@ public class PlayerController : MonoBehaviour
         {
             jumpButtonPressedTime = Time.time;
         }
+        
 
-
-        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
+        if (Time.time - lastGroundedTime </= jumpButtonGracePeriod)
         {
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.5f;
@@ -113,8 +114,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isFalling", true);
             }
             */
-        }
-
+    
         Vector3 velocity = movementDirection * speed;
         velocity.y = ySpeed;
 

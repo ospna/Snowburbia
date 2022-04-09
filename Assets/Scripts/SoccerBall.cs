@@ -10,7 +10,8 @@ public class SoccerBall : MonoBehaviour
     //Vector3 AIstartPos;
     Rigidbody rigBod;
 
-    public CinemachineFreeLook cmFreeLook;
+    //public CinemachineFreeLook cmFreeLook;
+    private CinemachineVirtualCamera vCam;
     private GameObject Player;
     private GameObject GK;
     private GameObject LB;
@@ -144,8 +145,9 @@ public class SoccerBall : MonoBehaviour
             PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
             PlayerIndicator.SetActive(false);
 
-            cmFreeLook.m_LookAt = playerFocus;
-            cmFreeLook.m_Follow = playerFocus;
+            //vCam.m_Follow = playerFocus;
+            //cmFreeLook.m_LookAt = playerFocus;
+            //cmFreeLook.m_Follow = playerFocus;
 
             Player.GetComponent<PlayerController>().enabled = true;
             CM.GetComponent<PlayerController>().enabled = false;
@@ -177,8 +179,9 @@ public class SoccerBall : MonoBehaviour
             PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
             PlayerIndicator.SetActive(false);
 
-            cmFreeLook.m_LookAt = cmFocus;
-            cmFreeLook.m_Follow = cmFocus;
+            //vCam.m_Follow = cmFocus;
+            //cmFreeLook.m_LookAt = cmFocus;
+            //cmFreeLook.m_Follow = cmFocus;
 
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = true;
@@ -210,8 +213,8 @@ public class SoccerBall : MonoBehaviour
             PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
             PlayerIndicator.SetActive(false);
 
-            cmFreeLook.m_LookAt = lbFocus;
-            cmFreeLook.m_Follow = lbFocus;
+            //cmFreeLook.m_LookAt = lbFocus;
+            //cmFreeLook.m_Follow = lbFocus;
 
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = false;
@@ -243,8 +246,8 @@ public class SoccerBall : MonoBehaviour
             PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
             PlayerIndicator.SetActive(false);
 
-            cmFreeLook.m_LookAt = rbFocus;
-            cmFreeLook.m_Follow = rbFocus;
+           // cmFreeLook.m_LookAt = rbFocus;
+            //cmFreeLook.m_Follow = rbFocus;
 
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = false;
@@ -276,8 +279,8 @@ public class SoccerBall : MonoBehaviour
             PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
             PlayerIndicator.SetActive(true);
 
-            cmFreeLook.m_LookAt = gkFocus;
-            cmFreeLook.m_Follow = gkFocus;
+            //cmFreeLook.m_LookAt = gkFocus;
+            //cmFreeLook.m_Follow = gkFocus;
 
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = false;
@@ -296,8 +299,8 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
-            cmFreeLook.m_LookAt = ai_playerFocus;
-            cmFreeLook.m_Follow = ai_playerFocus;
+            //cmFreeLook.m_LookAt = ai_playerFocus;
+            //cmFreeLook.m_Follow = ai_playerFocus;
 
             AI.GetComponent<PlayerController>().enabled = true;
             AI_CM.GetComponent<PlayerController>().enabled = false;
@@ -314,8 +317,8 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
-            cmFreeLook.m_LookAt = ai_cmFocus;
-            cmFreeLook.m_Follow = ai_cmFocus;
+            //cmFreeLook.m_LookAt = ai_cmFocus;
+            //cmFreeLook.m_Follow = ai_cmFocus;
 
             AI.GetComponent<PlayerController>().enabled = false;
             AI_CM.GetComponent<PlayerController>().enabled = true;
@@ -332,8 +335,8 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
-            cmFreeLook.m_LookAt = ai_lbFocus;
-            cmFreeLook.m_Follow = ai_lbFocus;
+            //cmFreeLook.m_LookAt = ai_lbFocus;
+            //cmFreeLook.m_Follow = ai_lbFocus;
 
             AI.GetComponent<PlayerController>().enabled = false;
             AI_CM.GetComponent<PlayerController>().enabled = false;
@@ -350,8 +353,8 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
-            cmFreeLook.m_LookAt = ai_rbFocus;
-            cmFreeLook.m_Follow = ai_rbFocus;
+            //cmFreeLook.m_LookAt = ai_rbFocus;
+            //cmFreeLook.m_Follow = ai_rbFocus;
 
             AI.GetComponent<PlayerController>().enabled = false;
             AI_CM.GetComponent<PlayerController>().enabled = false;
@@ -368,8 +371,8 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = true;
 
-            cmFreeLook.m_LookAt = ai_gkFocus;
-            cmFreeLook.m_Follow = ai_gkFocus;
+            //cmFreeLook.m_LookAt = ai_gkFocus;
+            //cmFreeLook.m_Follow = ai_gkFocus;
 
             AI.GetComponent<PlayerController>().enabled = false;
             AI_CM.GetComponent<PlayerController>().enabled = false;

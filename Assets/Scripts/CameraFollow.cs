@@ -12,12 +12,12 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("SoccerBall").transform;
         offset = transform.position - target.position;
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         //transform.position = target.position + offset;
         Vector3 desiredPos = target.position + offset;
