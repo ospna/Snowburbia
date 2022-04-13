@@ -2,28 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
-public class OpponentAIScript : MonoBehaviour
+public class OpponentAIScript : AIController
 {
-    [SerializeField]
-    enum opponentStates
-    {
-        roam,
-        pressure,
-        watch,
-        possession,
-        attacker,
-        midfielder,
-        defender,
-        goalkeeper
-    }
-
-    opponentStates currentState;
-
-    [SerializeField]
-    NavMeshAgent opponentAgent;
-
     //public Transform ballTransform;
     public GameObject ball;
     public GameObject home18;
@@ -49,20 +30,26 @@ public class OpponentAIScript : MonoBehaviour
     public float sightRange, attackRange, radius;
     public bool ballInSightRange, ballInAttackRange;
 
-    private Vector3 startingPosition;
-    private Vector3 roamPosition;
+    //private Vector3 startingPosition;
+    //private Vector3 roamPosition;
 
     private void Awake()
     {
         ball = GameObject.FindGameObjectWithTag("SoccerBall");
-        opponentAgent = GetComponent<NavMeshAgent>();
+        //aiData.opponentAgent = GetComponent<NavMeshAgent>();
         //rigBod = SoccerBall.GetComponent<Rigidbody>();
 
-        currentState = opponentStates.roam;
+        //currentState = opponentStates.roam;
     }
 
     private void Start()
     {
+        aiData.opponentAgent = GetComponent<NavMeshAgent>();
+        if (aiData.opponentAgent != null)
+        {
+            aiData.opponentAgent.speed = aiData.roamSpeed;
+            aiData.opponentAgent.SetDestination(RandomNavMeshLocation());
+        }
         ///startingPosition = transform.position;
         //roamPosition = GetRoamingPosition();
         //aiHasball = sb.aiPlayerHasBall;
@@ -71,9 +58,15 @@ public class OpponentAIScript : MonoBehaviour
 
     private void Update()
     {
-        ballInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsBall);
-        ballInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsBall);
+        //ballInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsBall);
+        //ballInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsBall);
 
+        if (aiData.opponentAgent != null && aiData.opponentAgent.remainingDistance <= aiData.opponentAgent.stoppingDistance)
+        {
+            aiData.opponentAgent.SetDestination(RandomNavMeshLocation());
+        }
+
+        /*
         switch (currentState)
         {
             default:
@@ -86,7 +79,7 @@ public class OpponentAIScript : MonoBehaviour
 
                     if (movePointSet)
                     {
-                        opponentAgent.SetDestination(movePoint);
+                        aiData.opponentAgent.SetDestination(movePoint);
                     }
 
                     Vector3 distanceToMovePoint = transform.position - movePoint;
@@ -101,7 +94,7 @@ public class OpponentAIScript : MonoBehaviour
                 }
             case opponentStates.pressure:
                 {
-                    opponentAgent.destination = ball.transform.position;
+                    aiData.opponentAgent.destination = ball.transform.position;
 
                     break;
                 }
@@ -117,7 +110,7 @@ public class OpponentAIScript : MonoBehaviour
                 }
             case opponentStates.attacker:
                 {
-                    opponentAgent.SetDestination(home18.transform.position);
+                    aiData.opponentAgent.SetDestination(home18.transform.position);
                     break;
                 }
             case opponentStates.midfielder:
@@ -153,9 +146,9 @@ public class OpponentAIScript : MonoBehaviour
         //ScoreGoal();
 
         /*
-        if (!opponentAgent.hasPath)
+        if (!aiData.opponentAgent.hasPath)
         {
-            opponentAgent.SetDestination(GetPoint.Instance.GetRandomPoint(transform, radius));
+            aiData.opponentAgent.SetDestination(GetPoint.Instance.GetRandomPoint(transform, radius));
         }
         */
         
@@ -186,7 +179,7 @@ public class OpponentAIScript : MonoBehaviour
 
         if (movePointSet)
         {
-            opponentAgent.SetDestination(movePoint);
+            aiData.opponentAgent.SetDestination(movePoint);
         }
 
         Vector3 distanceToMovePoint = transform.position - movePoint;
@@ -202,6 +195,7 @@ public class OpponentAIScript : MonoBehaviour
     }
     */
 
+    /*
     private void SearchMovePoint()
     {
         // calculate random point in range
@@ -219,11 +213,12 @@ public class OpponentAIScript : MonoBehaviour
     /*
     private void ChaseBall()
     {
-        opponentAgent.SetDestination(ball.transform.position);
+        aiData.opponentAgent.SetDestination(ball.transform.position);
 
     }
     */
 
+        /*
     private void AttackBall()
     {
         transform.LookAt(ball.transform.position);
@@ -251,7 +246,7 @@ public class OpponentAIScript : MonoBehaviour
     {
         if (aiHasball == true)
         {
-           opponentAgent.SetDestination(home18.position);
+           aiData.opponentAgent.SetDestination(home18.position);
         }
     }
 
@@ -262,4 +257,3 @@ public class OpponentAIScript : MonoBehaviour
 }
 */
     }
-}

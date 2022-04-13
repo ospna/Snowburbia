@@ -51,12 +51,15 @@ public class Kicking : MonoBehaviour
     private bool isShooting;
     private bool isChipping;
 
+    GameManager gm;
+
     // Use this for initialization
     void Start ()
     {
 		rb = ball.GetComponent<Rigidbody>();
 		player = this.gameObject;
         animator = GetComponent<Animator>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void FixedUpdate()
@@ -87,6 +90,7 @@ public class Kicking : MonoBehaviour
 
                 animator.SetBool("isPassing", true);
                 isPassing = true;
+
             }
 
             // Shoot with Left Mouse Button Click
@@ -194,8 +198,10 @@ public class Kicking : MonoBehaviour
             ball.transform.SetParent(null, true);
             playerHasBall = false;
 
-            animator.SetBool("isPassing", false);
-            isPassing = false;
+            gm.GetComponent<SwitchPlayer>().enabled = true;
+
+            //animator.SetBool("isPassing", false);
+            //isPassing = false;
         }
     }
 

@@ -152,6 +152,8 @@ public class SoccerBall : MonoBehaviour
             //cmFreeLook.m_LookAt = playerFocus;
             //cmFreeLook.m_Follow = playerFocus;
 
+            gm.GetComponent<SwitchPlayer>().enabled = false;
+
             Player.GetComponent<PlayerController>().enabled = true;
             CM.GetComponent<PlayerController>().enabled = false;
             LB.GetComponent<PlayerController>().enabled = false;
@@ -187,6 +189,7 @@ public class SoccerBall : MonoBehaviour
             //cmFreeLook.m_LookAt = cmFocus;
             //cmFreeLook.m_Follow = cmFocus;
 
+            gm.GetComponent<SwitchPlayer>().enabled = false;
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = true;
             LB.GetComponent<PlayerController>().enabled = false;
@@ -221,6 +224,7 @@ public class SoccerBall : MonoBehaviour
             //cmFreeLook.m_LookAt = lbFocus;
             //cmFreeLook.m_Follow = lbFocus;
 
+            gm.GetComponent<SwitchPlayer>().enabled = false;
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = false;
             LB.GetComponent<PlayerController>().enabled = true;
@@ -252,9 +256,10 @@ public class SoccerBall : MonoBehaviour
             PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
             PlayerIndicator.SetActive(false);
 
-           // cmFreeLook.m_LookAt = rbFocus;
+            // cmFreeLook.m_LookAt = rbFocus;
             //cmFreeLook.m_Follow = rbFocus;
 
+            gm.GetComponent<SwitchPlayer>().enabled = false;
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = false;
             LB.GetComponent<PlayerController>().enabled = false;
@@ -289,6 +294,7 @@ public class SoccerBall : MonoBehaviour
             //cmFreeLook.m_LookAt = gkFocus;
             //cmFreeLook.m_Follow = gkFocus;
 
+            gm.GetComponent<SwitchPlayer>().enabled = false;
             Player.GetComponent<PlayerController>().enabled = false;
             CM.GetComponent<PlayerController>().enabled = false;
             LB.GetComponent<PlayerController>().enabled = false;
@@ -306,6 +312,8 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = false;
             aiPlayerHasBall = true;
+
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "AI_CM_HoldBall")
@@ -316,6 +324,7 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = false;
             aiPlayerHasBall = true;
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "AI_LB_HoldBall")
@@ -326,6 +335,7 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             playerHasBall = false;
             aiPlayerHasBall = true;
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "AI_RB_HoldBall")
@@ -336,6 +346,7 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             aiPlayerHasBall = true;
             playerHasBall = false;
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "AI_GK_HoldBall")
@@ -346,6 +357,7 @@ public class SoccerBall : MonoBehaviour
             rigBod.velocity = Vector3.zero;
             aiPlayerHasBall = true;
             playerHasBall = false;
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
     }
 
@@ -359,6 +371,7 @@ public class SoccerBall : MonoBehaviour
             playerHasBall = false;
             PlayerIndicator = GameObject.Find("Home_Team/Player/PlayerIndicator");
             PlayerIndicator.SetActive(false);
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "CM_HoldBall")
@@ -368,6 +381,7 @@ public class SoccerBall : MonoBehaviour
             playerHasBall = false;
             PlayerIndicator = GameObject.Find("Home_Team/CM/PlayerIndicator");
             PlayerIndicator.SetActive(false);
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "LB_HoldBall")
@@ -377,6 +391,7 @@ public class SoccerBall : MonoBehaviour
             playerHasBall = false;
             PlayerIndicator = GameObject.Find("Home_Team/LB/PlayerIndicator");
             PlayerIndicator.SetActive(false);
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "RB_HoldBall")
@@ -386,6 +401,7 @@ public class SoccerBall : MonoBehaviour
             playerHasBall = false;
             PlayerIndicator = GameObject.Find("Home_Team/RB/PlayerIndicator");
             PlayerIndicator.SetActive(false);
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         if (other.gameObject.tag == "GK_HoldBall")
@@ -395,6 +411,7 @@ public class SoccerBall : MonoBehaviour
             playerHasBall = false;
             PlayerIndicator = GameObject.Find("Home_Team/GK/PlayerIndicator");
             PlayerIndicator.SetActive(false);
+            gm.GetComponent<SwitchPlayer>().enabled = true;
         }
 
         // -------------------------- AI --------------------------------------- //

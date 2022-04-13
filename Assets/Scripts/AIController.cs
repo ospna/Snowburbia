@@ -1,194 +1,101 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
-using UnityEngine.EventSystems;
-
+using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
-    [SerializeField]
-    private float maximumSpeed;
+    [SerializeField] protected AIData aiData;
 
-    [SerializeField]
-    private float rotationSpeed;
+    private void Idle() { }
 
-    [SerializeField]
-    private float jumpSpeed;
+    private void Roam() { }
 
-    [SerializeField]
-    private Transform cameraTransform;
+    private void Pressure() { }
 
-    private Animator animator;
-    private CharacterController characterController;
-    private AudioSource audioSrc;
-    private float ySpeed;
-    private float originalStepOffset;
-    private float jumpButtonGracePeriod;
-    private float? lastGroundedTime;
-    private float? jumpButtonPressedTime;
-    private bool isGrounded;
-    private bool isJumping;
-    private bool isThrowing;
-    private bool isMoving;
+    private void BackToPos() { }
 
-    public Transform groundCheck;
-    public LayerMask groundLayer;
-    public float inputMagnitude;
+    private void WatchBall() { }
 
-    private Vector3 startingPosition;
-    private Vector3 roamPosition;
+    private void KeepPossession() { }
 
-    private void Awake()
+    private void Tackle() { }
+
+    private void Pass() { }
+
+    private void TakeShot() { }
+
+    private void Defend() { }
+
+    private void SaveShot() { }
+
+
+    protected void SetState(AIState state)
     {
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        startingPosition = transform.position;
-        roamPosition = GetRoamingPosition();
-
-
-        animator = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
-        originalStepOffset = characterController.stepOffset;
-        audioSrc = GetComponent<AudioSource>();
-
-        //GameObject BallGround = GameObject.FindGameObjectWithTag("BallGround");
-        //Physics.IgnoreCollision(BallGround.GetComponent<MeshCollider>(), GetComponent<CharacterController>());
+        aiData.nextState = state;
+        if(aiData.nextState != aiData.currentState)
+        {
+            aiData.currentState = aiData.nextState;
+        }
     }
 
-    private Vector3 GetRoamingPosition()
+    protected void RunState()
     {
-       return startingPosition + GetRandomDir() * Random.Range(10f,70f);
-       
+        switch(aiData.currentState)
+        {
+            case AIState.Idle:
+                Idle();
+                break;
+            case AIState.Roam:
+                Roam();
+                break;
+            case AIState.Pressure:
+                Pressure();
+                break;
+            case AIState.BackToPos:
+                BackToPos();
+                break;
+            case AIState.WatchBall:
+                WatchBall();
+                break;
+            case AIState.KeepPossession:
+                KeepPossession();
+                break;
+            case AIState.Tackle:
+                Tackle();
+                break;
+            case AIState.Pass:
+                Pass();
+                break;
+            case AIState.TakeShot:
+                TakeShot();
+                break;
+            case AIState.Defend:
+                Defend();
+                break;
+            case AIState.SaveShot:
+                SaveShot();
+                break;
+        }
     }
 
-    // generate random normalized direction
-    public static Vector3 GetRandomDir()
+    private void RunAgent(Vector3 destination, float speed)
     {
-        return new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+        if(aiData.opponentAgent != null && aiData.opponentAgent.remainingDistance <= aiData.opponentAgent.stoppingDistance)
+        {
+            aiData.opponentAgent.speed = speed;
+            aiData.opponentAgent.SetDestination(destination);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected Vector3 RandomNavMeshLocation()
     {
+        Vector3 finalPos = Vector3.zero;
+        Vector3 randomPos = Random.insideUnitSphere * aiData.roamRadius;
+        randomPos += transform.position;
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-
-        // slow down
-        float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
-
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (NavMesh.SamplePosition(randomPos, out NavMeshHit hit, aiData.roamRadius, 1))
         {
-            inputMagnitude /= 2;
+            finalPos = hit.position;
         }
-
-        animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, Time.deltaTime);
-        float speed = inputMagnitude * maximumSpeed;
-
-        movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
-        movementDirection.Normalize();
-
-        ySpeed += Physics.gravity.y * Time.deltaTime;
-
-        if (characterController.isGrounded)
-        {
-            lastGroundedTime = Time.time;
-        }
-
-        /*
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpButtonPressedTime = Time.time;
-        }
-
-
-        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
-        {
-            characterController.stepOffset = originalStepOffset;
-            ySpeed = -0.5f;
-            animator.SetBool("isGrounded", true);
-            isGrounded = true;
-            animator.SetBool("isJumping", false);
-            isJumping = false;
-
-            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
-            {
-                ySpeed = jumpSpeed;
-                animator.SetBool("isJumping", true);
-                isJumping = true;
-                jumpButtonPressedTime = null;
-                lastGroundedTime = null;
-            }
-        }
-        else
-        {
-            characterController.stepOffset = 0;
-            animator.SetBool("isGrounded", false);
-            isGrounded = false;
-
-            /*  Save for falling animation later
-            if ((isJumping && ySpeed <0) || ySpeed < -2)
-            {
-                animator.SetBool("isFalling", true);
-            }
-            ///
-        }
-
-        if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0)
-        {
-            animator.SetBool("isThrowing", true);
-            isThrowing = true;
-        }
-        else
-        {
-            animator.SetBool("isThrowing", false);
-            isThrowing = false;
-        }
-
-        Vector3 velocity = movementDirection * speed;
-        velocity.y = ySpeed;
-
-        characterController.Move(velocity * Time.deltaTime);
-
-        if (movementDirection != Vector3.zero)
-        {
-            animator.SetBool("isMoving", true);
-            isMoving = true;
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-
-            if (isMoving)
-            {
-                if (!audioSrc.isPlaying)
-                    audioSrc.Play();
-            }
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-            isMoving = false;
-            if (!isMoving)
-            {
-                audioSrc.Stop();
-            }
-        }
-        */
-    }
-
-    private void OnApplicationFocus(bool focus)
-    {
-        if (focus)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        return finalPos;
     }
 }
