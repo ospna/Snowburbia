@@ -9,6 +9,8 @@ public class CameraFollow : MonoBehaviour
 
     public float smoothing = 0.15f;
 
+    public static object Instance { get; internal set; }
+
     // Start is called before the first frame update
     void Start()
     {

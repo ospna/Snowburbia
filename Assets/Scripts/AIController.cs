@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.EventSystems;
+
 
 public class AIController : MonoBehaviour
 {
@@ -34,9 +36,19 @@ public class AIController : MonoBehaviour
     public LayerMask groundLayer;
     public float inputMagnitude;
 
+    private Vector3 startingPosition;
+    private Vector3 roamPosition;
+
+    private void Awake()
+    {
+    }
     // Start is called before the first frame update
     void Start()
     {
+        startingPosition = transform.position;
+        roamPosition = GetRoamingPosition();
+
+
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
@@ -44,6 +56,18 @@ public class AIController : MonoBehaviour
 
         //GameObject BallGround = GameObject.FindGameObjectWithTag("BallGround");
         //Physics.IgnoreCollision(BallGround.GetComponent<MeshCollider>(), GetComponent<CharacterController>());
+    }
+
+    private Vector3 GetRoamingPosition()
+    {
+       return startingPosition + GetRandomDir() * Random.Range(10f,70f);
+       
+    }
+
+    // generate random normalized direction
+    public static Vector3 GetRandomDir()
+    {
+        return new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
     }
 
     // Update is called once per frame
