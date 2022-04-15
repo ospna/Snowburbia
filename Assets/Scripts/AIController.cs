@@ -5,27 +5,29 @@ public class AIController : MonoBehaviour
 {
     [SerializeField] protected AIData aiData;
 
-    private void Idle() { }
+    [SerializeField] protected OpponentAIScript aiScript;
 
-    private void Roam() { }
+    private void Idle() => RunAgent(transform.position, 0.0f);
 
-    private void Pressure() { }
+    private void Roam() => RunAgent(RandomNavMeshLocation(), aiData.roamSpeed);
 
-    private void BackToPos() { }
+    private void Pressure() => RunAgent(aiData.target.transform.position, aiData.pressureSpeed);
 
-    private void WatchBall() { }
+    private void BackToPos() => RunAgent(aiData.startPos, aiData.sprintSpeed);
 
-    private void KeepPossession() { }
+    private void WatchBall() => RunAgent(aiData.target.transform.position, aiData.pressureSpeed);
 
-    private void Tackle() { }
+    private void KeepPossession() { } //=> RunAgent(RandomNavMeshLocation(), aiData.roamSpeed);
 
-    private void Pass() { }
+    private void Tackle() => RunAgent(aiData.target.transform.position, aiData.pressureSpeed);
 
-    private void TakeShot() { }
+    private void Pass() { } //=> RunAgent(RandomNavMeshLocation(), aiData.roamSpeed);
 
-    private void Defend() { }
+    private void TakeShot() => RunAgent(aiData.opponentGoal, aiData.sprintSpeed);
 
-    private void SaveShot() { }
+    private void Defend() { } //  => RunAgent(RandomNavMeshLocation(), aiData.roamSpeed);
+
+    private void SaveShot() { } // => RunAgent(RandomNavMeshLocation(), aiData.roamSpeed);
 
 
     protected void SetState(AIState state)
@@ -54,6 +56,7 @@ public class AIController : MonoBehaviour
                 BackToPos();
                 break;
             case AIState.WatchBall:
+                aiScript.transform.LookAt(aiData.target.transform.position);
                 WatchBall();
                 break;
             case AIState.KeepPossession:
@@ -98,4 +101,5 @@ public class AIController : MonoBehaviour
         }
         return finalPos;
     }
+
 }

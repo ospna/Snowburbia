@@ -95,7 +95,8 @@ public class SoccerBall : MonoBehaviour
             GameManager.aiScore++;
             GoalText.SetActive(true);
             gameActive = false;
-            this.gameObject.SetActive(false);
+            collision.isTrigger = false;
+            //this.gameObject.SetActive(false);
             gm.gamePaused = true;
             Invoke("Reset", 5f);
         }
@@ -105,7 +106,8 @@ public class SoccerBall : MonoBehaviour
             GameManager.playerScore++;
             GoalText.SetActive(true);
             gameActive = false;
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
+            collision.isTrigger = false;
             gm.gamePaused = true;
             Invoke("Reset", 5f);
         }
@@ -474,6 +476,13 @@ public class SoccerBall : MonoBehaviour
 
         GoalText.SetActive(false);
         gm.gamePaused = false;
+
+        Collider awayCol = GameObject.FindGameObjectWithTag("AwayGoalZone").GetComponent<Collider>();
+        awayCol.isTrigger = true;
+
+        Collider homeCol = GameObject.FindGameObjectWithTag("HomeGoalZone").GetComponent<Collider>();
+        homeCol.isTrigger = true;
+
         gameActive = true;
         playerHasBall = false;
     }

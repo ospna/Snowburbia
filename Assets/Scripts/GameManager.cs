@@ -9,9 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public static int playerScore = 0;
     public static int aiScore = 0;
-    public float timer = 0;
-    public float min, sec;
-    public float timerSpeed = 1f;
     public bool gamePaused = false;
     public bool matchOver;
     public CinemachineFreeLook cmCamera;
@@ -24,6 +21,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject ball, AI, GK, LB, RB, CM, player;
     public GameObject FinalScore;
+
+    // A reference to the played minutes in the game
+    public int Minutes { get; set; }
+
+    // A reference to the played seconds in the game
+    public int Seconds { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -44,29 +47,33 @@ public class GameManager : MonoBehaviour
     {
         hometeamScoreText.text = "" + playerScore;
         awayteamScoreText.text = "" + aiScore;
-        gametimerText.text = "" + timer;
-        //gametimerText.text = string.Format("{0:00}:{1:00}", min, sec);
+        gametimerText.text = string.Format("{0:00}:{1:00}",
+                Minutes.ToString("00"),
+                Seconds.ToString("00"));
     }
 
     IEnumerator Match()
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
-            if (timer < 90 && !gamePaused)
+            yield return new WaitForSeconds(.05f);
+            if (Minutes < 60 && !gamePaused)
             {
-                timer++;
-                /*
-                timer += Time.fixedDeltaTime * timerSpeed;
-                min = (int)(timer / 60 % 60);
-                sec = (int)(timer % 60);
+                //if seconds reaches 60
+                //reset seconds, increment minutes
+                if (Seconds >= 59)
+                {
+                    Seconds = 0;
+                    ++Minutes;
+                }
+                else
+                {
+                    //increment seconds
+                    ++Seconds;
+                }
 
-                //gametimerText.text = string.Format("{0:00}:{1:00}", min, sec);
-                 */
-                //yield return null;
-               
             }
-            else if (timer == 90)
+            else if (Minutes == 60)
             {
                 matchOver = true;
                 Debug.Log("Game Over");

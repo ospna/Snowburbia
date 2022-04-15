@@ -30,6 +30,8 @@ TagManager:
   - AI_CM_HoldBall
   - AI_GK_HoldBall
   - PlayerIndicator
+  - HomeInsideBox
+  - AwayInsideBox
   layers:
   - Default
   - TransparentFX
