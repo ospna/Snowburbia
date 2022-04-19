@@ -24,18 +24,18 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMai
             if (Owner.TeamAway.IsUserControlled)
             {
                 if (Owner.TeamAway.Goals > Owner.TeamHome.Goals)
-                    message = "You Won";
+                    message = "You Won, what a extraordinary victory!";
                 else if (Owner.TeamAway.Goals < Owner.TeamHome.Goals)
-                    message = "You Lost";
+                    message = "You Lost, the Home team got away with the 3 points today.";
                 else
-                    message = "Draw";
+                    message = "And that's that, a draw.";
             }
             else if (Owner.TeamHome.IsUserControlled)
             {
                 if (Owner.TeamAway.Goals < Owner.TeamHome.Goals)
-                    message = "You Won";
+                    message = "You Won, what an extraordinary victory";
                 else if (Owner.TeamAway.Goals > Owner.TeamHome.Goals)
-                    message = "You Lost";
+                    message = "You Lost, the Away team got away with the 3 points today.";
                 else
                     message = "Draw";
             }

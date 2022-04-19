@@ -17,7 +17,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
             _ballKickAS.Play();
         }
 
-        public void PlayGoalScoredSound(string message)
+        public void PlayGoalScoredSound(string message, string message1)
         {
             _goalAS.Play();
         }

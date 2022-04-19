@@ -67,11 +67,14 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMai
         private void Instance_OnGoalScored()
         {
             //prepare the text
-            string info = string.Format("TeamA {0}-{1} TeamH", Owner.TeamAway.Goals, Owner.TeamHome.Goals);
+            //string info = string.Format("TeamA {0}-{1} TeamH", Owner.TeamAway.Goals, Owner.TeamHome.Goals);
+
+            string homeInfo = (Owner.TeamHome.Goals).ToString();
+            string awayInfo = (Owner.TeamAway.Goals).ToString();
 
             //invoke the goal-scored event
             GoalScored temp = Owner.OnGoalScored;
-            if (temp != null) temp.Invoke(info);
+            if (temp != null) temp.Invoke(homeInfo, awayInfo);
 
             // set the match status
             Owner.MatchStatus = MatchStatuses.GoalScored;

@@ -1,3 +1,5 @@
+using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +12,7 @@ public class ManageScenes : MonoBehaviour
 
     public static bool isPaused = false;
 
+    public GameObject inGameUI;
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public GameObject optionsMenu;
@@ -80,7 +83,7 @@ public class ManageScenes : MonoBehaviour
     {
         StartCoroutine(WaitForLoad());
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SuburbanLeague");
+        SceneManager.LoadScene("WSL");
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -88,6 +91,7 @@ public class ManageScenes : MonoBehaviour
     public void Resume()
     {
         pauseMenu.SetActive(false);
+        inGameUI.SetActive(true);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         isPaused = false;
@@ -97,11 +101,13 @@ public class ManageScenes : MonoBehaviour
     public void Pause()
     {
         pauseMenu.SetActive(true);
+        inGameUI.SetActive(false);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         isPaused = true;
     }
 
+    /*
     public void Settings()
     {
         settingsMenu.SetActive(true);
@@ -116,6 +122,7 @@ public class ManageScenes : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         WaitForLoad();
     }
+    */
 
     public void TitleScreen()
     {
@@ -125,6 +132,7 @@ public class ManageScenes : MonoBehaviour
         WaitForLoad();
     }
 
+    /*
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -132,10 +140,13 @@ public class ManageScenes : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         WaitForLoad();
     }
+    */
 
     public void OpenOptions()
     {
         optionsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        inGameUI.SetActive(false);
     }
 
     public void CloseOptions()
@@ -168,12 +179,14 @@ public class ManageScenes : MonoBehaviour
         resolutionLabel.text = resolutions[selectedRes].hor.ToString() + " x " + resolutions[selectedRes].vert.ToString();
     }
 
+    /*
     public void Home()
     {
         SceneManager.LoadScene("Home");
         Time.timeScale = 1f;
         WaitForLoad();
     }
+    */
 
     // Allows the user to quit the game
     public void Quit()

@@ -170,7 +170,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
         /// Goal scored delegate
         /// </summary>
         /// <param name="message"></param>
-        public delegate void GoalScored(string message);
+        public delegate void GoalScored(string message, string message1);
 
         /// <summary>
         /// Match end delegate
