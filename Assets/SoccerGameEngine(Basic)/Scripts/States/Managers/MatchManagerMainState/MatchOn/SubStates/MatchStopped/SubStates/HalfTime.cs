@@ -40,7 +40,9 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMai
         public void RaiseTheHalfTimeStartEvent()
         {
             //prepare an empty string
-            string message = string.Format("Team Away {0}-{1} Team Home", Owner.TeamAway.Goals, Owner.TeamHome.Goals);
+            //string message = string.Format("Team Away {0}-{1} Team Home", Owner.TeamAway.Goals, Owner.TeamHome.Goals);
+
+            string message = string.Format("Home: " + Owner.TeamHome.Goals + " Away: " + Owner.TeamAway.Goals);
 
             //raise the event
             EnterHalfTime temp = Owner.OnEnterHalfTime;

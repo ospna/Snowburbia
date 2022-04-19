@@ -14,7 +14,6 @@ public class ManageScenes : MonoBehaviour
 
     public GameObject inGameUI;
     public GameObject pauseMenu;
-    public GameObject settingsMenu;
     public GameObject optionsMenu;
     public Toggle fsTog;
 
@@ -84,7 +83,7 @@ public class ManageScenes : MonoBehaviour
         StartCoroutine(WaitForLoad());
         Time.timeScale = 1f;
         SceneManager.LoadScene("WSL");
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // We want to resume the game as normal
@@ -102,6 +101,7 @@ public class ManageScenes : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         inGameUI.SetActive(false);
+        optionsMenu.SetActive(false);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         isPaused = true;
@@ -147,6 +147,7 @@ public class ManageScenes : MonoBehaviour
         optionsMenu.SetActive(true);
         pauseMenu.SetActive(false);
         inGameUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void CloseOptions()

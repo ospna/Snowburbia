@@ -12,7 +12,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Triggers
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.tag == "Ball")
+            if(other.tag == "SoccerBall")
             {
                 //invoke that the wall has collided with the ball
                 Action temp = OnCollidedWithBall;

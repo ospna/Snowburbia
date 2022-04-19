@@ -64,7 +64,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
         /// <summary>
         /// A reference to how long each half length is in actual time(m)
         /// </summary>
-        public float ActualHalfLength { get; set; } = 3f;
+        public float ActualHalfLength { get; set; } = 2f;
 
         /// <summary>
         /// A reference to the normal half length
