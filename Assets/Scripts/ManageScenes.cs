@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class ManageScenes : MonoBehaviour
 {
@@ -10,7 +12,51 @@ public class ManageScenes : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject settingsMenu;
+    public GameObject optionsMenu;
+    public Toggle fsTog;
+
+    public List<ResItem> resolutions = new List<ResItem>();
+    private int selectedRes;
+    public TMP_Text resolutionLabel;
+
     //public GameObject gameUI;
+
+    void Start()
+    {
+        fsTog.isOn = Screen.fullScreen;
+
+        bool foundRes = false;
+        for(int i = 0; i < resolutions.Count; i++)
+        {
+            if (Screen.width == resolutions[i].hor && Screen.height == resolutions[i].vert)
+            {
+                foundRes = true;
+
+                selectedRes = i;
+
+                UpdateResText();
+            }
+        }
+
+        if(!foundRes)
+        {
+            ResItem newRes = new ResItem();
+            newRes.hor = Screen.width;
+            newRes.vert = Screen.height;
+
+            resolutions.Add(newRes);
+            selectedRes = resolutions.Count - 1;
+
+            UpdateResText();
+        }
+    }
+
+    public void ApplyGraphics()
+    {
+        //Screen.fullScreen = fsTog.isOn;
+
+        Screen.SetResolution(resolutions[selectedRes].hor, resolutions[selectedRes].vert, fsTog.isOn);
+    }
 
 
     // Once we press the escape button, we check to see if we are paused or not and if so,
@@ -65,9 +111,10 @@ public class ManageScenes : MonoBehaviour
 
     public void Back()
     {
-        settingsMenu.SetActive(false);
-        pauseMenu.SetActive(true);
-        isPaused = false;
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        WaitForLoad();
     }
 
     public void TitleScreen()
@@ -86,6 +133,41 @@ public class ManageScenes : MonoBehaviour
         WaitForLoad();
     }
 
+    public void OpenOptions()
+    {
+        optionsMenu.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+        optionsMenu.SetActive(false);
+    }
+
+    public void ResLeft()
+    {
+        selectedRes--;
+        if(selectedRes < 0)
+        {
+            selectedRes = 0;
+        }
+        UpdateResText();
+    }
+
+    public void ResRight()
+    {
+        selectedRes++;
+        if (selectedRes > resolutions.Count - 1)
+        {
+            selectedRes = resolutions.Count - 1;
+        }
+        UpdateResText();
+    }
+
+    public void UpdateResText()
+    {
+        resolutionLabel.text = resolutions[selectedRes].hor.ToString() + " x " + resolutions[selectedRes].vert.ToString();
+    }
+
     public void Home()
     {
         SceneManager.LoadScene("Home");
@@ -98,6 +180,12 @@ public class ManageScenes : MonoBehaviour
     {
         Debug.Log("Player has quit the game.");
         Application.Quit();
+    }
+
+    [System.Serializable]
+    public class ResItem
+    {
+        public int hor, vert;
     }
 
     IEnumerator WaitForLoad()
