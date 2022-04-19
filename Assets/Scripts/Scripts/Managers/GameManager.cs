@@ -143,12 +143,12 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
             string timeInfo = string.Empty;
 
             //prepare the message
-            string infoHalf = half == 1 ? "1st" : "2nd";
+            string infoHalf = half == 1 ? "" : "";
 
-            timeInfo = string.Format("{0} {1}:{2}", 
+            timeInfo = string.Format("{0}{1}:{2}", 
                 infoHalf, 
                 minutes.ToString("00"), 
-                seconds.ToString("00"));
+                seconds.ToString("00" + " "));
 
             //set the ui
             _matchOnPanel.gametimerText.text = timeInfo;

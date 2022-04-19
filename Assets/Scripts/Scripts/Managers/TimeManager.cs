@@ -69,10 +69,16 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
         {
             get
             {
+                /*
                 //prepare time
                 string formattedTime = string.Format("{0}:{1}",
                     Minutes.ToString("00"),
                     Seconds.ToString("00"));
+                    */
+
+                string formattedTime = string.Format("{0}:{1}",
+                  Minutes.ToString("00"),
+                  Seconds.ToString("00"));
 
                 //return result
                 return formattedTime;
