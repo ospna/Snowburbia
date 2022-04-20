@@ -92,7 +92,7 @@ public class ManageScenes : MonoBehaviour
         pauseMenu.SetActive(false);
         inGameUI.SetActive(true);
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         isPaused = false;
     }
 
@@ -103,7 +103,7 @@ public class ManageScenes : MonoBehaviour
         inGameUI.SetActive(false);
         optionsMenu.SetActive(false);
         Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         isPaused = true;
     }
 
@@ -128,7 +128,7 @@ public class ManageScenes : MonoBehaviour
     {
         SceneManager.LoadScene("TitleScreen");
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         WaitForLoad();
     }
 
@@ -147,7 +147,7 @@ public class ManageScenes : MonoBehaviour
         optionsMenu.SetActive(true);
         pauseMenu.SetActive(false);
         inGameUI.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
     }
 
     public void CloseOptions()

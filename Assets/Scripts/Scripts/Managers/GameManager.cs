@@ -17,7 +17,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
         HalfTimePanel _halfTimePanel;
 
         [SerializeField]
-        MainPanel _mainPanel;
+        StartPanel _startPanel;
 
         [SerializeField]
         MatchInfoPanel _matchInfoPanel;
@@ -83,7 +83,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
 
         private void Instance_OnEnterWaitForMatchOnInstruction()
         {
-            _mainPanel.Root.gameObject.SetActive(true);
+            _startPanel.Root.gameObject.SetActive(true);
         }
 
         private void Instance_OnExitHalfTime()
@@ -98,7 +98,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
 
         private void Instance_OnExitWaitForMatchOnInstruction()
         {
-            _mainPanel.Root.gameObject.SetActive(false);
+            _startPanel.Root.gameObject.SetActive(false);
         }
 
         private void _Instance_OnFinishBroadcastHalfStart()
@@ -124,6 +124,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
         private void Instance_OnMatchOver(string message)
         {
             _matchOverPanel.winnerText.text = message;
+            _matchOverPanel.MainGameUI.gameObject.SetActive(true);
             _matchOverPanel.Root.gameObject.SetActive(true);
         }
 
@@ -169,6 +170,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
             ActionUtility.Invoke_Action(OnMessageSwitchToMatchOn);
         }
 
+        /*
         /// <summary>
         /// Quits this game
         /// </summary>
@@ -191,6 +193,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
             //reload the current scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        */
 
         private void ShowInfoPanel(string message)
         {
@@ -203,14 +206,11 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
     public struct HalfTimePanel
     {
         public TextMeshProUGUI infoText;
-
-        //public Text TxtInfo;
-
         public Transform Root;
     }
 
     [Serializable]
-    public struct MainPanel
+    public struct StartPanel
     {
         public Transform Root;
     }
@@ -220,9 +220,6 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
     {
 
         public TextMeshProUGUI infoText;
-
-        //public Text TxtInfo;
-
         public Transform Root;
     }
 
@@ -233,11 +230,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
         public TextMeshProUGUI hometeamScoreText;
         public TextMeshProUGUI awayteamScoreText;
         public TextMeshProUGUI gametimerText;
-        
-        //public Text TxtScores;
-
-        //public Text TxtTime;
-
+       
         public Transform Root;
     }
 
@@ -246,8 +239,8 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
     {
         public TextMeshProUGUI winnerText;
 
-        //public Text TxtInfo;
-
         public Transform Root;
+
+        public Transform MainGameUI;
     }
 }

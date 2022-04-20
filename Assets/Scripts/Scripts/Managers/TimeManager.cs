@@ -9,7 +9,8 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
         /// <summary>
         /// A reference to the time update frequency of this instance
         /// </summary>
-        public float TimeUpdateFrequency { get; set; }
+        //public float TimeUpdateFrequency { get; set; }
+        public float TimeUpdateFrequency = 0.05f;
 
         /// <summary>
         /// A reference to the played minutes in the game
