@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Utilities.Enums
+namespace Assets.Scripts.Utilities.Enums
 {
-    public enum MatchStatuses
+    public enum PlayerTypes
     {
-        HalfExhausted, GoalScored
+        Goalkeeper, InFieldPlayer
     }
 }

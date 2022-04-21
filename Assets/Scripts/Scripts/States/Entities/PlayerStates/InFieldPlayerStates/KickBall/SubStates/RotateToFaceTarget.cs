@@ -2,7 +2,7 @@
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities.Enums;
+using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Base;
 using UnityEngine;
 

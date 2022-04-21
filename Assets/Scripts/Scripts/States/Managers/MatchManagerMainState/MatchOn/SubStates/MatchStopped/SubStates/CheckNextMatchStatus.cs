@@ -2,7 +2,7 @@
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOn.SubStates;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOn.SubStates.MatchStopped.SubStates;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities.Enums;
+using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Base;
 using RobustFSM.Interfaces;
 

@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
+using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 
 namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOver.MainState

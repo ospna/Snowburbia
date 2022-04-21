@@ -1,8 +1,8 @@
 ﻿using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities.Enums;
+using Assets.Scripts.Utilities;
+using Assets.Scripts.Utilities.Enums;
 using Patterns.Singleton;
 using RobustFSM.Interfaces;
 using System;

@@ -1,8 +1,8 @@
 ﻿using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities.Enums;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities.Objects;
+using Assets.Scripts.Utilities.Enums;
+using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 using UnityEngine;
 

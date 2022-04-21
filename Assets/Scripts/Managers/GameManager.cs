@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
+using Assets.Scripts.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;

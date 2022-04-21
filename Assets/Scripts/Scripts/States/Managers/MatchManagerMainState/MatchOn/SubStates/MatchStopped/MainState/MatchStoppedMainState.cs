@@ -3,7 +3,7 @@ using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOn.SubStates;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOn.SubStates.MatchStopped.SubStates;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchStopped.SubStates;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
+using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 
 namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchStopped.MainState

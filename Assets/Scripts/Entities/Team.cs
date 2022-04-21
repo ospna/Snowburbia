@@ -2,8 +2,8 @@
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Defend.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities.Enums;
+using Assets.Scripts.Utilities;
+using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Interfaces;
 using System;
 using System.Collections.Generic;

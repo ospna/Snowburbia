@@ -6,8 +6,8 @@ namespace Assets.Scripts.Entities
 {
     public class Goal : MonoBehaviour
     {
-        [SerializeField]
-        GoalMouth _goalMouth;
+        //[SerializeField]
+        //GoalMouth _goalMouth;
 
         [SerializeField]
         GoalTrigger _goalTrigger;
@@ -15,9 +15,7 @@ namespace Assets.Scripts.Entities
         [SerializeField]
         Transform _shotTargetReferencePoint;
 
-        /// <summary>
-        /// Action raised when goal collides with the ball
-        /// </summary>
+        // Action raised when goal collides with the ball
         public Action OnCollideWithBall;
 
         ///ToDo::Speak about why you put them here as an initialization
@@ -29,8 +27,8 @@ namespace Assets.Scripts.Entities
         private void Awake()
         {
             //init some data 
-            BottomLeftRelativePosition = transform.InverseTransformPoint(_goalMouth._pointBottomLeft.position);
-            BottomRightRelativePosition = transform.InverseTransformPoint(_goalMouth._pointBottomRight.position);
+            //BottomLeftRelativePosition = transform.InverseTransformPoint(_goalMouth._pointBottomLeft.position);
+            //BottomRightRelativePosition = transform.InverseTransformPoint(_goalMouth._pointBottomRight.position);
 
             _goalTrigger.Goal = this;
 
@@ -46,15 +44,18 @@ namespace Assets.Scripts.Entities
                 temp.Invoke();
         }
 
+        /*
         public bool IsPositionWithinGoalMouthFrustrum(Vector3 position)
         {
             //find the relative position to goal
             Vector3 relativePosition = transform.InverseTransformPoint(position);
 
             //find the relative position of each goal mouth
+            /*
             Vector3 pointBottomLeftRelativePosition = transform.InverseTransformPoint(_goalMouth._pointBottomLeft.position);
             Vector3 pointBottomRightRelativePosition = transform.InverseTransformPoint(_goalMouth._pointBottomRight.position);
             Vector3 pointTopLeftRelativePosition = transform.InverseTransformPoint(_goalMouth._pointTopLeft.position);
+            
 
             //check if the x- coordinate of the relative position lies within the goal mouth
             bool isPositionWithTheXCoordinates = relativePosition.x > pointBottomLeftRelativePosition.x && relativePosition.x < pointBottomRightRelativePosition.x;
@@ -63,9 +64,10 @@ namespace Assets.Scripts.Entities
             //the result is the combination of the two tests
             return isPositionWithTheXCoordinates && isPositionWithTheYCoordinates;
         }
-
+    */
     }
 
+    /*
     [Serializable]
     public struct GoalMouth
     {
@@ -74,4 +76,5 @@ namespace Assets.Scripts.Entities
         public Transform _pointTopLeft;
         public Transform _pointTopRight;
     }
+    */
 }

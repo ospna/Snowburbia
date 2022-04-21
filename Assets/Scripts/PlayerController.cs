@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /*
     private void OnApplicationFocus(bool focus)
     {
         if (focus)
@@ -155,4 +156,5 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
+    */
 }

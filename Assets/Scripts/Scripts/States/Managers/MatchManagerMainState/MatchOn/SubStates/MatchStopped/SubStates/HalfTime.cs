@@ -2,7 +2,7 @@
 using Assets.Scripts.Managers;
 using static Assets.Scripts.Managers.MatchManager;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
+using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 using UnityEngine;
 

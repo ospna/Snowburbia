@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Utilities
+namespace Assets.Scripts.Utilities
 {
     public class ActionUtility
     {

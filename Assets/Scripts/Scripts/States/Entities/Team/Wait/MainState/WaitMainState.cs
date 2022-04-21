@@ -1,6 +1,6 @@
 ﻿using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
+using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 
 namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Wait.MainState

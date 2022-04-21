@@ -4,7 +4,7 @@ using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Wait.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
+using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 using RobustFSM.Interfaces;
 using UnityEngine;
