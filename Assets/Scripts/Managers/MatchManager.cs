@@ -8,7 +8,7 @@ using RobustFSM.Interfaces;
 using System;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
+namespace Assets.Scripts.Managers
 {
     [RequireComponent(typeof(MatchManagerFSM))]
     public class MatchManager : Singleton<MatchManager>

@@ -1,10 +1,10 @@
 ﻿using System;
-using Assets.SoccerGameEngine_Basic_.Scripts.Managers;
+using Assets.Scripts.Managers;
+using static Assets.Scripts.Managers.MatchManager;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
 using RobustFSM.Base;
 using UnityEngine;
-using static Assets.SoccerGameEngine_Basic_.Scripts.Managers.MatchManager;
 
 namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOn.SubStates.MatchStopped.SubStates
 {

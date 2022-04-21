@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.GoalKeeperStates.InterceptShot.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.Triggers;
+using static GoalTrigger;
 using RobustFSM.Base;
 using RobustFSM.Interfaces;
 using UnityEngine;

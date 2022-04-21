@@ -1,4 +1,4 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.Triggers;
+﻿using static GoalTrigger;
 using System;
 using UnityEngine;
 

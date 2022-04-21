@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
+namespace Assets.Scripts.Managers
 {
     /// <summary>
     /// Manages the entire game

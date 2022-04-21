@@ -1,5 +1,5 @@
 ﻿using System;
-using Assets.SoccerGameEngine_Basic_.Scripts.Managers;
+using Assets.Scripts.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOn.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;

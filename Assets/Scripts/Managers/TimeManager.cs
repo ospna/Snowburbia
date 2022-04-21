@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Managers
+namespace Assets.Scripts.Managers
 {
     public class TimeManager : Singleton<TimeManager>
     {
