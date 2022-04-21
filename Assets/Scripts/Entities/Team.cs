@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Entities
+namespace Assets.Scripts.Entities
 {
     [RequireComponent(typeof(TeamFSM))]
     public class Team : MonoBehaviour

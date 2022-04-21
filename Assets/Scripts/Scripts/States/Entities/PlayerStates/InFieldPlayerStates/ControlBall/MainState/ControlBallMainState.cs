@@ -1,10 +1,10 @@
 ﻿using System;
-using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+using Assets.Scripts.Entities;
+using static Assets.Scripts.Entities.Player;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.SubStates;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled.MainState;
 using RobustFSM.Base;
-using static Assets.SoccerGameEngine_Basic_.Scripts.Entities.Player;
 
 namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.MainState
 {

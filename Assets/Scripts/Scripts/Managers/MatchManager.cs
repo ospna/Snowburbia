@@ -1,4 +1,4 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+﻿using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;

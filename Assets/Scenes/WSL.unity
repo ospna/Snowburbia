@@ -1935,7 +1935,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194232}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
@@ -2011,23 +2010,6 @@ Transform:
   m_Father: {fileID: 753712879}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ea3c5728654d44496dcc5231060f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distanceMaxDisplacement: 20
-  _speedFollow: 1
-  target: {fileID: 0}
-  distanceMaxZ: 0
-  distanceMinZ: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17825,7 +17807,7 @@ PrefabInstance:
       objectReference: {fileID: 1860320940}
     - target: {fileID: 4273358105508982799, guid: 1866e237d06984845ba632f86023f7f6, type: 3}
       propertyPath: _isUserControlled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4918869429830086409, guid: 1866e237d06984845ba632f86023f7f6, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -17920,7 +17902,7 @@ PrefabInstance:
       objectReference: {fileID: 3560500966016988354}
     - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: _isUserControlled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8091078129885624383, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_Materials.Array.data[0]

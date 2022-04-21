@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Entities
+namespace Assets.Scripts.Entities
 {
     public class Goal : MonoBehaviour
     {

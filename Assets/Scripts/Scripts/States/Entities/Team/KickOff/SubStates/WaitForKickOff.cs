@@ -4,7 +4,7 @@ using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Defend.MainSta
 using RobustFSM.Base;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.SubStates
+namespace Assets.Scripts.States.Entities.Team.KickOff.SubStates
 {
     public class WaitForKickOff : BState
     {

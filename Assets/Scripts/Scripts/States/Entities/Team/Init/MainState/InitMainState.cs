@@ -1,4 +1,4 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+﻿using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
@@ -200,7 +200,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Init.MainS
             InitTeamMemberOppTeamMembers();
         }
 
-        public Scripts.Entities.Team Owner
+        public Assets.Scripts.Entities.Team Owner
         {
             get
             {

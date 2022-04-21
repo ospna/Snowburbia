@@ -1,5 +1,5 @@
 ﻿using Assets.RobustFSM.Mono;
-using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.MainState;

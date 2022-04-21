@@ -1,11 +1,11 @@
 ﻿using System;
-using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+using Assets.Scripts.Entities;
+using static Assets.Scripts.Entities.Player;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.MainState;
 using RobustFSM.Base;
 using UnityEngine;
-using static Assets.SoccerGameEngine_Basic_.Scripts.Entities.Player;
 
 namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.MainState
 {

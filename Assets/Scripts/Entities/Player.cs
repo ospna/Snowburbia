@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Entities
+namespace Assets.Scripts.Entities
 {
     //[RequireComponent(typeof(InFieldPlayerFSM))]
     [RequireComponent(typeof(RPGMovement))]

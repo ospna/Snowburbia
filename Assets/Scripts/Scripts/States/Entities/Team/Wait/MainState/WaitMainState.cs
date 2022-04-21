@@ -32,7 +32,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Wait.MainS
             Machine.ChangeState<KickOffMainState>();
         }
 
-        public Scripts.Entities.Team Owner
+        public Assets.Scripts.Entities.Team Owner
         {
             get
             {

@@ -1,4 +1,4 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+﻿using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using RobustFSM.Base;
 using UnityEngine;

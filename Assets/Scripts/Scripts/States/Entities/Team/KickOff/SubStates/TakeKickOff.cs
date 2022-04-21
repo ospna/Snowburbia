@@ -1,4 +1,4 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+﻿using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.Utilities;
@@ -76,7 +76,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.Su
             ActionUtility.Invoke_Action(Owner.OnTakeKickOff);
         }
 
-        public Scripts.Entities.Team Owner
+        public Assets.Scripts.Entities.Team Owner
         {
             get
             {

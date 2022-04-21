@@ -1,4 +1,5 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.SubStates;
+﻿using Assets.Scripts.States.Entities.Team.KickOff.SubStates;
+using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.SubStates;
 using RobustFSM.Base;
 
 namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.MainState

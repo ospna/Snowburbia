@@ -1,4 +1,5 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+﻿using Assets.Scripts.Entities;
+using Assets.Scripts.States.Entities.Team.KickOff.SubStates;
 using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
 using RobustFSM.Base;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.Su
             Owner.Players.ForEach(tM => tM.CurrentHomePosition.transform.position = tM.KickOffHomePosition.transform.position);
         }
 
-        public Scripts.Entities.Team Owner
+        public Assets.Scripts.Entities.Team Owner
         {
             get
             {

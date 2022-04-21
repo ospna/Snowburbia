@@ -1,5 +1,5 @@
 ﻿using Assets.RobustFSM.Mono;
-using Assets.SoccerGameEngine_Basic_.Scripts.Entities;
+using Assets.Scripts.Entities;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Init.MainState;
 using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.GoalKeeperStates.InterceptShot.MainState;

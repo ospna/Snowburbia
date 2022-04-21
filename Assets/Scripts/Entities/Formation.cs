@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.Entities
+namespace Assets.Scripts.Entities
 {
     public class Formation : MonoBehaviour
     {
