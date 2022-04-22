@@ -1,12 +1,12 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.ControlBallMainState;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled;
 using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Base;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.SubStates
+namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.SubStates
 {
     public class RotateToFaceTarget : BState
     {

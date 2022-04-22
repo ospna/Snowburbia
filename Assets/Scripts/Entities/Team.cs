@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.StateMachines.Entities;
+﻿using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled;
 using Assets.Scripts.States.Entities.Team.Attack;
 using Assets.Scripts.States.Entities.Team.Defend;

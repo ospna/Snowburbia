@@ -1,5 +1,5 @@
 ﻿using Assets.SimpleSteering.Scripts.Movement;
-using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Interfaces;

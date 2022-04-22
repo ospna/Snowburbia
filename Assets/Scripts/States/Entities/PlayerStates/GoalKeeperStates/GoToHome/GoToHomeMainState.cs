@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.SubStates;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGoal;
 using RobustFSM.Base;

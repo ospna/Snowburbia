@@ -1,9 +1,9 @@
 ﻿using System;
 using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.MainState;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ReceiveBall.MainState;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.TakeKickOff.MainState;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.GoToHomeMainState;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ReceiveBall.ReceiveBallMainState;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.TakeKickOff;
 using RobustFSM.Base;
 using UnityEngine;
 

@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.Team.Attack;
 using Assets.Scripts.Utilities;
 using RobustFSM.Base;

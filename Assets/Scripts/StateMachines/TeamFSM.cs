@@ -1,12 +1,12 @@
 ﻿using Assets.RobustFSM.Mono;
 using Assets.Scripts.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Defend.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Init.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.KickOff.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Wait.MainState;
+using Assets.Scripts.States.Entities.Team.Attack;
+using Assets.Scripts.States.Entities.Team.Defend;
+using Assets.Scripts.States.Entities.Team.Init;
+using Assets.Scripts.States.Entities.Team.KickOff.KickOffMainState;
+using Assets.Scripts.States.Entities.Team.Wait;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities
+namespace Assets.Scripts.StateMachines
 {
     public class TeamFSM : MonoFSM<Team>
     {

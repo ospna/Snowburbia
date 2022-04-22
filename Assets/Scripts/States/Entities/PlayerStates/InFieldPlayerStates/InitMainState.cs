@@ -1,6 +1,6 @@
 ﻿using System;
 using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Wait;
 using RobustFSM.Base;
 using UnityEngine;

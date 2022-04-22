@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Managers;
-using Assets.Scripts.StateMachines.Managers;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.MatchManagerStates.Init.SubStates;
 using RobustFSM.Base;
 

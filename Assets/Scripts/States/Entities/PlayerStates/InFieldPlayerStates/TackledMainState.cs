@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.MainState;
+﻿using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.GoToHomeMainState;
 using RobustFSM.Base;
 using UnityEngine;
 

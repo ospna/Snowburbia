@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
-//using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.MainState;
+using Assets.Scripts.StateMachines;
+//using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.GoToHomeMainState;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGoal;
 using RobustFSM.Base;
 

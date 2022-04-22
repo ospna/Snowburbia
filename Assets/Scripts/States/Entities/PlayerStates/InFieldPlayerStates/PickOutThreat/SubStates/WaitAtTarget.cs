@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOutThreat.PickOutThreatMainState;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOutThreat.PickOutThreatMain;
 using RobustFSM.Base;
 using UnityEngine;
 

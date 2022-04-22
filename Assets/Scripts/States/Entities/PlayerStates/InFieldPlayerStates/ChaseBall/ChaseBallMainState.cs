@@ -1,9 +1,9 @@
 ﻿using System;
 using Assets.Scripts.Entities;
 using static Assets.Scripts.Entities.Player;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.MainState;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.GoToHomeMainState;
 using RobustFSM.Base;
 using UnityEngine;
 

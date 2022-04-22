@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.MainState;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.MainState;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.ControlBallMainState;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.GoToHomeMainState;
 using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 using UnityEngine;

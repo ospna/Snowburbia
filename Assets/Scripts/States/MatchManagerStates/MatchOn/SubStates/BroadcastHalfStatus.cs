@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Managers;
-using Assets.Scripts.StateMachines.Managers;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 using UnityEngine;

@@ -1,7 +1,7 @@
 ﻿using System;
 using Assets.Scripts.Entities;
 using static Assets.Scripts.Entities.Player;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.SubStates;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled;
 using RobustFSM.Base;

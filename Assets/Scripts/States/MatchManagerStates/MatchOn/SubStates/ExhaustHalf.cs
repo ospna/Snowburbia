@@ -1,9 +1,9 @@
 ﻿using System;
 using Assets.Scripts.Managers;
 using static Assets.Scripts.Managers.MatchManager;
-using Assets.Scripts.StateMachines.Managers;
-using Assets.Scripts.States.MatchManagerStates.Init;
-using Assets.Scripts.States.MatchManagerStates.MatchOver;
+using Assets.Scripts.StateMachines;
+//using Assets.Scripts.States.MatchManagerStates.Init;
+//using Assets.Scripts.States.MatchManagerStates.MatchOver;
 using Assets.Scripts.States.MatchManagerStates.MatchStopped.MainState;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
@@ -11,7 +11,7 @@ using RobustFSM.Base;
 using RobustFSM.Interfaces;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.States.MatchManagerStates.MatchOn.SubStates
+namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
 {
     public class ExhaustHalf : BState
     {

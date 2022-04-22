@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
-using Assets.Scripts.States.Entities.Team.KickOff.MainState;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.States.Entities.Team.KickOff.KickOffMainState;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Base;

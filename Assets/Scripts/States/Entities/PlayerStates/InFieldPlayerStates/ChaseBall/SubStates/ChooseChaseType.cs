@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using RobustFSM.Base;
 
 namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates

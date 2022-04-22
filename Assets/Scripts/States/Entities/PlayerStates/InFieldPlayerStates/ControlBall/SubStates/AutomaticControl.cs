@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.MainState;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.KickBallMainState;
 using Assets.Scripts.Utilities.Enums;
 using Assets.Scripts.Utilities;
 using RobustFSM.Base;

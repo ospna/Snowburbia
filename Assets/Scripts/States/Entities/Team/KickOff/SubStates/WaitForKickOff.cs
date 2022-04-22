@@ -1,5 +1,5 @@
 ﻿using System;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.Team.Defend;
 using RobustFSM.Base;
 using UnityEngine;

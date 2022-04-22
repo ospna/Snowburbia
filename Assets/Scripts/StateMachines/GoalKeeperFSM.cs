@@ -6,7 +6,7 @@ using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.InterceptShot
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGoal;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Wait;
 
-namespace Assets.Scripts.StateMachines.Entities
+namespace Assets.Scripts.StateMachines
 {
     public class GoalKeeperFSM : MonoFSM<Player>
     {

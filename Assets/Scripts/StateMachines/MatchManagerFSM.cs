@@ -5,7 +5,7 @@ using Assets.Scripts.States.MatchManagerStates.MatchOn;
 using Assets.Scripts.States.MatchManagerStates.MatchOver;
 using RobustFSM.Base;
 
-namespace Assets.Scripts.StateMachines.Managers
+namespace Assets.Scripts.StateMachines
 {
     public class MatchManagerFSM : MonoFSM<MatchManager>
     {

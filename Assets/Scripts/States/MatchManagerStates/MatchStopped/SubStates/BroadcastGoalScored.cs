@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Managers;
 using static Assets.Scripts.Managers.MatchManager;
-using Assets.Scripts.StateMachines.Managers;
+using Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.Utilities;
 using RobustFSM.Base;
 using RobustFSM.Interfaces;

@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
-using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.SupportAttacker.MainState;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.SupportAttacker.SupportAttackerMain;
 using RobustFSM.Base;
 using UnityEngine;
 

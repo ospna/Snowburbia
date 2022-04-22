@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.StateMachines.Managers;
+﻿using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.MatchManagerStates.MatchOver;
 using RobustFSM.Base;
 using RobustFSM.Interfaces;

@@ -1,10 +1,10 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.SupportAttacker.SupportAttackerMainState;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.SupportAttacker.SupportAttackerMain;
 using RobustFSM.Base;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.SupportAttacker.SubStates
+namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.SupportAttacker.SubStates
 {
     public class SteerToSupportSpot : BState
     {

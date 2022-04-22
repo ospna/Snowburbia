@@ -1,8 +1,8 @@
 ﻿using System;
 using Assets.Scripts.Entities;
-using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.ChaseBallMainState;
-using Assets.Scripts.States.Entities.Team.Attack.MainState;
+using Assets.Scripts.States.Entities.Team.Attack;
 using Assets.Scripts.States.Entities.Team.Wait;
 using Assets.Scripts.Utilities;
 using RobustFSM.Base;

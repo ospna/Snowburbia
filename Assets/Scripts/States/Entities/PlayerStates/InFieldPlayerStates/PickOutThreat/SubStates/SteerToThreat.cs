@@ -1,10 +1,10 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOutThreat.MainState;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOutThreat.PickOutThreatMain;
 using RobustFSM.Base;
 using UnityEngine;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOutThreat.SubStates
+namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOutThreat.SubStates
 {
     public class SteerToThreat : BState
     {
