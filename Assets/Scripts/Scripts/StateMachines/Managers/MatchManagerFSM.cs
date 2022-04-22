@@ -1,11 +1,11 @@
 ﻿using Assets.RobustFSM.Mono;
 using Assets.Scripts.Managers;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.Init.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOn.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Managers.MatchManagerMainState.MatchOver.MainState;
+using Assets.Scripts.States.MatchManagerStates.Init;
+using Assets.Scripts.States.MatchManagerStates.MatchOn;
+using Assets.Scripts.States.MatchManagerStates.MatchOver;
 using RobustFSM.Base;
 
-namespace Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers
+namespace Assets.Scripts.StateMachines.Managers
 {
     public class MatchManagerFSM : MonoFSM<MatchManager>
     {

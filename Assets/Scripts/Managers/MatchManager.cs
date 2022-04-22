@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Managers;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
+using Assets.Scripts.StateMachines.Managers;
+using Assets.Scripts.States.Entities.Team.Attack;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
 using Patterns.Singleton;

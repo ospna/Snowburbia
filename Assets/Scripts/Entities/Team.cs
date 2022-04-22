@@ -1,7 +1,7 @@
-﻿using Assets.SoccerGameEngine_Basic_.Scripts.StateMachines.Entities;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Attack.MainState;
-using Assets.SoccerGameEngine_Basic_.Scripts.States.Entities.Team.Defend.MainState;
+﻿using Assets.Scripts.StateMachines.Entities;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackled;
+using Assets.Scripts.States.Entities.Team.Attack;
+using Assets.Scripts.States.Entities.Team.Defend;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Interfaces;
