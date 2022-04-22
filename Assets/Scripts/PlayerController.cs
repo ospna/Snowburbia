@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
 
+        movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
+        movementDirection.Normalize();
+
         // slow down
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
 
@@ -64,10 +67,6 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, Time.deltaTime);
         float speed = inputMagnitude * maximumSpeed;
-
-        movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
-        movementDirection.Normalize();
-
         ySpeed += Physics.gravity.y * Time.deltaTime;
         
         /** Take out jumping

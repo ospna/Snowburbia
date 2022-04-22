@@ -7,7 +7,7 @@ namespace Assets.Scripts.Entities
         [SerializeField]
         bool _isPickedOut;
 
-        public Player Owner;// { get; set; }
+        public Player Owner;
 
         public MeshRenderer MeshRenderer { get; set; }
 
@@ -53,7 +53,6 @@ namespace Assets.Scripts.Entities
                 return false;
             else
             {
-                // return result
                 return _isPickedOut;
             }
         }

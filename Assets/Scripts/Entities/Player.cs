@@ -1,4 +1,4 @@
-﻿using Assets.SimpleSteering.Scripts.Movement;
+﻿using static RPGMovement;
 using Assets.Scripts.StateMachines;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
@@ -186,20 +186,13 @@ namespace Assets.Scripts.Entities
         public bool CanBallReachPoint(Vector3 position, float power, out float time)
         {
             //calculate the time
-            time = TimeToTarget(Ball.Instance.NormalizedPosition,
-                       position,
-                       power,
-                       Ball.Instance.Friction);
+            time = TimeToTarget(Ball.Instance.NormalizedPosition, position, power, Ball.Instance.Friction);
 
             //return result
             return time > 0;
         }
 
-        /// <summary>
-        /// Checks whether a player can pass
-        /// </summary>
-        /// <returns></returns>
-        /// ToDo::Implement logic to cache players to message so that they can intercept the pass
+        // Checks whether a player can pass
         public bool CanPass(bool considerPassSafety = true)
         {
             //set the pass target
@@ -230,7 +223,6 @@ namespace Assets.Scripts.Entities
                 CanPass(player.Position, considerPassSafety, passToPlayerClosestToMe, player);
             }
 
-            //return result
             //Player can pass if there is a pass target
             return KickTarget != null;
         }
@@ -329,7 +321,6 @@ namespace Assets.Scripts.Entities
                 }
             }
 
-            //return result
             //Player can pass if there is a pass target
             return KickTarget != null;
         }
@@ -838,14 +829,11 @@ namespace Assets.Scripts.Entities
             //return localDirection.z >= 1;
         }
 
-        /// <summary>
-        /// Checks whether a player is a threat
-        /// </summary>
-        /// <param name="player"></param>
-        /// <returns></returns>
+        // Checks whether a player is a threat
         public bool IsPlayerAThreat(Player player)
         {
             return IsWithinDistance(Position, player.Position, DistanceThreatMin);
+
             // check if position is infront of me
             bool isThreatInFrontOfMe = IsInfrontOfPlayer(player.Position);
 
@@ -897,11 +885,7 @@ namespace Assets.Scripts.Entities
                 _distancePassMax);
         }
 
-        /// <summary>
-        /// Check whether a position is a threat or not
-        /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        // Check whether a position is a threat or not
         public bool IsPositionAThreat(Vector3 position)
         {
             // position is a threat if its within saftey distance
@@ -952,20 +936,11 @@ namespace Assets.Scripts.Entities
             return !IsWithinDistance(center, position, minDistance) && IsWithinDistance(center, position, maxDistance);
         }
 
-        /// <summary>
-        /// Finds the power needed to kick the ball and make it reach
-        /// a particular target with a particular velocity
-        /// </summary>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
-        /// <param name="arrivalVelocity"></param>
-        /// <returns></returns>
+        // Finds the power needed to kick the ball and make it reach a target
         public float FindPower(Vector3 from, Vector3 to, float arrivalVelocity)
         {
             //find the power to target
-            float power = Ball.Instance.FindPower(from,
-                to,
-                arrivalVelocity);
+            float power = Ball.Instance.FindPower(from, to, arrivalVelocity);
 
             //return result
             return power;
@@ -1016,11 +991,7 @@ namespace Assets.Scripts.Entities
             ActionUtility.Invoke_Action(OnTeamLostControl);
         }
 
-        /// <summary>
-        /// Player kicks the ball from his position to the target
-        /// </summary>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
+        // Player kicks the ball from his position to the target
         public void MakePass(Vector3 from, Vector3 to, Player receiver, float power, float time)
         {
             //kick the ball to target
@@ -1043,9 +1014,7 @@ namespace Assets.Scripts.Entities
                 temp.Invoke(time, power, from, to);
         }
 
-        /// <summary>
-        /// Puts the ball infront of this player
-        /// </summary>
+        // Puts the ball infront of this player
         public void PlaceBallInfronOfMe()
         {
             Ball.Instance.NormalizedPosition = Position + transform.forward * (Radius + _ballControlDistance);

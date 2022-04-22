@@ -123,6 +123,7 @@ namespace Assets.Scripts.Entities
             float power, 
             float speed)
         {
+
             _distancePassMax = distancePassMax;
             _distancePassMin = distancePassMin;
             _distanceShotValidMax = distanceShotValidMax;
@@ -152,19 +153,13 @@ namespace Assets.Scripts.Entities
             ActionUtility.Invoke_Action(OnOppFinishedInit);
         }
 
-        /// <summary>
-        /// Invokes the OnStop action of this instance. Register this method to any event
-        /// that the team needs to be aware of for it to go to prepare-for-kick-off state
-        /// </summary>
+        // Invokes the OnStop action of this instance in order to prepare for kick off
         public void Invoke_OnMessagedToTakeKickOff()
         {
             ActionUtility.Invoke_Action(OnMessagedToTakeKickOff);
         }
 
-        /// <summary>
-        /// Invokes the OnStop action of this instance. Register this method to any event
-        /// that the team needs to be aware of for it to go to wait state
-        /// </summary>
+        // Invokes the OnStop action of this instance in order to wait
         public void Invoke_OnMessagedToStop()
         {
             ActionUtility.Invoke_Action(OnMessagedToStop);
@@ -186,28 +181,21 @@ namespace Assets.Scripts.Entities
 
         public void OnOppScoredAGoal()
         {
-            // set has kick-off
             HasKickOff = true;
         }
 
         public void OnTeamScoredAGoal()
         {
-            // unset has kick-off
             HasKickOff = false;
-
-            // increment number of goals scored
             ++Goals;
         }
 
         public TeamPlayer GetClosestPlayerToPoint(Vector3 position)
         {
             // get the closest player to point
-            TeamPlayer player = Players
-                .Where(tm => tm.Player.PlayerType == PlayerTypes.InFieldPlayer
-                && tm.Player.InFieldPlayerFSM.IsCurrentState<TackledMainState>() == false)
+            TeamPlayer player = Players.Where(tm => tm.Player.PlayerType == PlayerTypes.InFieldPlayer && tm.Player.InFieldPlayerFSM.IsCurrentState<TackledMainState>() == false)
                 .OrderBy(tm => Vector3.Distance(tm.Player.Position,
-                position))
-                .First();
+                position)).First();
 
             // return player
             return player;
@@ -280,8 +268,10 @@ namespace Assets.Scripts.Entities
             {
                 // message the closest player to go out of chaseball
                 if (currClosestPlayerToPoint != null)
+                {
                     chasingPlayer.Invoke_OnIsNoLongerTheClosestPlayerToBall();
-
+                }
+                    
                 // make the current closet player chase the ball
                 currClosestPlayerToPoint.Player.Invoke_OnBecameTheClosestPlayerToBall();
 
