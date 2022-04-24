@@ -13,6 +13,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
         Vector3 RefObjectForward;             // The current forward direction of the camera
         Transform _refObject;                 // A reference to the main camera in the scenes transform
 
+        public KeyCode shotKeyCode = KeyCode.C;
+        public KeyCode passKeyCode = KeyCode.Space;
+
         public override void Enter()
         {
             base.Enter();
@@ -39,7 +42,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             RefObjectForward = Vector3.Scale(_refObject.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 Movement = input.z * RefObjectForward + input.x * _refObject.right;
 
-            if (Input.GetButtonDown("Pass/Press"))
+            if (Input.GetKeyDown(passKeyCode))
             {
                 // set the direction of movement
                 Vector3 direction = Movement == Vector3.zero ? Owner.transform.forward : Movement;
@@ -55,7 +58,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     SuperMachine.ChangeState<KickBallMainState>();
                 }
             }
-            else if (Input.GetButtonDown("Shoot"))
+            else if (Input.GetKeyDown(shotKeyCode))
             {
                 // check if I can score
                 bool canScore = Owner.CanScore(false, true);

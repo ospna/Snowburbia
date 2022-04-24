@@ -68,7 +68,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             }
 
             // listen to key events
-            if(Input.GetButton("Pass/Press"))
+            if(Input.GetMouseButton(0))
             {
                 // set update logic
                 if(updateLogic == false)
@@ -80,7 +80,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
                 if(Owner.RPGMovement.Track == false)
                     Owner.RPGMovement.SetTrackingOn();
             }
-            else if(Input.GetButtonUp("Pass/Press"))
+            else if(Input.GetMouseButtonDown(0))
             {
                 // set update logic
                 updateLogic = false;
