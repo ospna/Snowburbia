@@ -161,12 +161,12 @@ namespace Assets.Scripts.Entities
         {
             get
             {
-                return new Vector3(transform.position.x, 0f, transform.position.z);
+                return new Vector3(transform.position.x, .25f, transform.position.z);
             }
 
             set
             {
-                transform.position = new Vector3(value.x, 0f, value.z);
+                transform.position = new Vector3(value.x, 0.25f, value.z);
             }
         }
 

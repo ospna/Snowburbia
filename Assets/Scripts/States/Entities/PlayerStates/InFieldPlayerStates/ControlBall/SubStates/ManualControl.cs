@@ -1,10 +1,11 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Assets.Scripts.Entities;
 using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.KickBallMainState;
 using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Base;
-using UnityEngine;
 
 namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.SubStates
 {
@@ -13,8 +14,46 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
         Vector3 RefObjectForward;             // The current forward direction of the camera
         Transform _refObject;                 // A reference to the main camera in the scenes transform
 
-        public KeyCode shotKeyCode = KeyCode.C;
+        [Header("Shot Key Code Info")]
         public KeyCode passKeyCode = KeyCode.Space;
+        public KeyCode curveShotKeyCode = KeyCode.Z;
+        public KeyCode shotKeyCode = KeyCode.Mouse0;
+        public KeyCode chipShotKeyCode = KeyCode.C;
+
+        /*
+        [Header("Bool")]
+        public bool addCurve = false;
+        public bool addDip = false;
+        public bool playerHasBall = false;
+
+        [Header("Pass and Shot Power Information")]
+        public float passSpeed = 500;
+        public float curveShootSpeed = 500;
+        public float curveShotPower = 350;
+        public float shootSpeedForward = 600;
+        public float shootSpeedDown = 50;
+        public float chipSpeedUp = 400;
+        public float chipSpeedForward = 350;
+        public float chipTorqueUp = 150;
+        public float dribbleSpeed = 100;
+        public float curveMin;
+        public float curveMax;
+        private float forceMagnitude;
+
+        [Header("Game Objects")]
+        public GameObject player;
+        public Animator animator;
+
+        [Header("References")]
+        public GameObject ball;
+        public Rigidbody rb;
+        public GameObject holdBall;
+
+        [Header("Animation Bools")]
+        private bool isPassing;
+        private bool isShooting;
+        private bool isChipping;
+        */
 
         public override void Enter()
         {
@@ -32,8 +71,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             base.Execute();
 
             //capture input
-            float horizontalRot = Input.GetAxisRaw("Horizontal");
-            float verticalRot = Input.GetAxisRaw("Vertical");
+            float horizontalRot = Input.GetAxis("Horizontal");
+            float verticalRot = Input.GetAxis("Vertical");
 
             //calculate the direction to rotate to
             Vector3 input = new Vector3(horizontalRot, 0f, verticalRot);
@@ -72,8 +111,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                 }
                 else
                 {
-                    // reconsider shot without considering the shot
-                    // safety
+                    // reconsider shot without considering the safety
                     canScore = Owner.CanScore(false, false);
 
                     // shoot if I can score
@@ -85,6 +123,35 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     }
                 }
             }
+            /*
+            // Curved Shot
+            if (Input.GetKeyDown(curveShotKeyCode))
+            {
+                rb.AddForce(player.transform.forward * curveShootSpeed, ForceMode.Impulse);
+                rb.AddForce(player.transform.up * curveShotPower, ForceMode.Impulse);
+                //kickingSound.Play();
+                addDip = true;
+                addCurve = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isShooting", true);
+                isShooting = true;
+            }
+
+            // Chip Shot
+            if (Input.GetKeyDown(chipShotKeyCode))
+            {
+                rb.AddForce(player.transform.up * chipSpeedUp, ForceMode.Impulse);
+                rb.AddForce(player.transform.forward * chipSpeedForward, ForceMode.Impulse);
+                rb.AddTorque(-player.transform.right * chipTorqueUp, ForceMode.Impulse);
+                //chipSound.Play();
+                addDip = true;
+                holdBall.GetComponent<SphereCollider>().enabled = false;
+
+                animator.SetBool("isChipping", true);
+                isChipping = true;
+            }
+            */
             else
             {
                 //process if any key down
@@ -120,6 +187,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             // disable the user controlled icon
             Owner.IconUserControlled.SetActive(false);
         }
+
 
         public Player Owner
         {

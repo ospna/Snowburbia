@@ -70,7 +70,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
                 //reset the time 
                 _timeSinceLastUpdate = 2f * (1f - Owner.GoalKeeping);
                 if (_timeSinceLastUpdate == 0f)
+                {
                     _timeSinceLastUpdate = 2f * 0.1f;
+                }
             }
 
             //decrement the time
@@ -87,7 +89,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
 
             // run logic depending on whether team is in control or not
             if (Owner.IsTeamInControl == true)
+            {
                 SuperMachine.ChangeState<GoToHomeMainState>();
+            }
         }
 
         public override void Exit()

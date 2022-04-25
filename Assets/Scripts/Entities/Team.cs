@@ -21,13 +21,13 @@ namespace Assets.Scripts.Entities
         bool _isUserControlled;
 
         [SerializeField]
-        float _distancePassMax = 15f;
+        float _distancePassMax = 10f;
 
         [SerializeField]
         float _distancePassMin = 5f;
 
         [SerializeField]
-        float _distanceShotValidMax = 30f;
+        float _distanceShotValidMax = 15f;
 
         [SerializeField]
         float _distanceTendGoal = 3f;
@@ -42,13 +42,13 @@ namespace Assets.Scripts.Entities
         float _distanceThreatTrack = 1f;
 
         [SerializeField]
-        float _distanceWonderMax = 15f;
+        float _distanceWonderMax = 10f;
 
         [SerializeField]
-        float _velocityPassArrive = 15f;
+        float _velocityPassArrive = 10f;
 
         [SerializeField]
-        float _velocityShotArrive = 30f;
+        float _velocityShotArrive = 15f;
 
         [SerializeField]
         float _power = 30f;

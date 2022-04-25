@@ -24,16 +24,21 @@ public class RPGMovement : MonoBehaviour
 
     public Vector3 RotationDirection { get; set; }
 
+    Vector3 RefObjectForward;             // The current forward direction of the camera
+    Transform _refObject;                 // A reference to the main camera in the scenes transform
+
     private void Awake()
     {
         //intialize 
         CapsuleCollider = GetComponent<CapsuleCollider>();
         RigidBody = GetComponent<Rigidbody>();
+        _refObject = Camera.main.transform;
         CurrentSpeed = 0f;
     }
 
     private void FixedUpdate()
     {
+      
         //do the movement and rotation here
         if (Steer)
         {

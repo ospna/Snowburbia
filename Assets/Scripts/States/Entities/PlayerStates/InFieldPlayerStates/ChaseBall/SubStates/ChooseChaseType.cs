@@ -11,9 +11,13 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             base.Enter();
 
             if (Owner.IsUserControlled)
+            {
                 Machine.ChangeState<ManualChase>();
+            }
             else
+            {
                 Machine.ChangeState<AutomaticChase>();
+            }
         }
 
         public Player Owner

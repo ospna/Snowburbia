@@ -209,6 +209,7 @@ namespace Assets.Scripts.Entities
                 if (isPlayerMe)
                     continue;
 
+                /*
                 // we don't want to pass to the last receiver
                 bool isPlayePrevPassReceiver = player == _prevPassReceiver;
                 if (isPlayePrevPassReceiver)
@@ -218,6 +219,7 @@ namespace Assets.Scripts.Entities
                 bool isPlayerGoalKeeper = player.PlayerType == PlayerTypes.Goalkeeper;
                 if (isPlayerGoalKeeper)
                     continue;
+                    */
 
                 // check if player can pass
                 CanPass(player.Position, considerPassSafety, passToPlayerClosestToMe, player);
@@ -358,9 +360,7 @@ namespace Assets.Scripts.Entities
               
                 //check if ball can reach the target
                 float time = 0f;
-                bool canBallReachPoint = CanBallReachPoint(randomGoalTarget,
-                    power,
-                    out time);
+                bool canBallReachPoint = CanBallReachPoint(randomGoalTarget, power, out time);
 
                 // if ball can't reach target then return false
                 if (time < 0)
@@ -1060,7 +1060,7 @@ namespace Assets.Scripts.Entities
         {
             get
             {
-                return new Vector3(transform.position.x, 0f, transform.position.z);
+                return new Vector3(transform.position.x, 0.25f, transform.position.z);
             }
 
             set
