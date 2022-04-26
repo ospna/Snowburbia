@@ -6,6 +6,7 @@ using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.KickBallMainState;
 using Assets.Scripts.Utilities.Enums;
 using RobustFSM.Base;
+using Cinemachine;
 
 namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.SubStates
 {
@@ -13,6 +14,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
     {
         Vector3 RefObjectForward;             // The current forward direction of the camera
         Transform _refObject;                 // A reference to the main camera in the scenes transform
+        CinemachineVirtualCamera vCam;
 
         [Header("Shot Key Code Info")]
         public KeyCode passKeyCode = KeyCode.Space;
@@ -64,6 +66,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
 
             // set the ref object
             _refObject = Camera.main.transform;
+            //_refObject = vCam.transform;
+
         }
 
         public override void Execute()
@@ -71,15 +75,16 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             base.Execute();
 
             //capture input
-            float horizontalRot = Input.GetAxis("Horizontal");
-            float verticalRot = Input.GetAxis("Vertical");
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
             //calculate the direction to rotate to
-            Vector3 input = new Vector3(horizontalRot, 0f, verticalRot);
+            Vector3 input = new Vector3(horizontalInput, 0f, verticalInput);
 
             // calculate camera relative direction to move:
             RefObjectForward = Vector3.Scale(_refObject.forward, new Vector3(1, 0, 1)).normalized;
-            Vector3 Movement = input.z * RefObjectForward + input.x * _refObject.right;
+            Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
+
 
             if (Input.GetKeyDown(passKeyCode))
             {

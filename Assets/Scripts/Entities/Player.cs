@@ -441,9 +441,6 @@ namespace Assets.Scripts.Entities
                 }
             }
 
-            // if still there is no player simply find a player to pass to
-
-            //return result
             //Player can pass if there is a pass target
             return KickTarget != null;
 
@@ -454,12 +451,8 @@ namespace Assets.Scripts.Entities
             //look for a player threatening the pass
             foreach(Player player in OppositionMembers)
             {
-                bool isPassSafeFromOpponent = IsPassSafeFromOpponent(initialPosition,
-                    target,
-                    player.Position,
-                    receiverPosition,
-                    initialBallVelocity,
-                    time);
+                bool isPassSafeFromOpponent = IsPassSafeFromOpponent(initialPosition, target, player.Position,
+                    receiverPosition, initialBallVelocity, time);
 
                 //return false if the pass is not safe
                 if (isPassSafeFromOpponent == false)
@@ -472,8 +465,6 @@ namespace Assets.Scripts.Entities
 
         public bool IsPassSafeFromOpponent(Vector3 initialPosition, Vector3 target, Vector3 oppPosition, Vector3 receiverPosition, float initialBallVelocity, float timeOfBall)
         {
-            #region Consider some logic that might threaten the pass
-
             //we might not want to pass to a player who is highly threatened(marked)
             if (IsPositionAHighThreat(receiverPosition, oppPosition))
                 return false;
@@ -487,23 +478,16 @@ namespace Assets.Scripts.Entities
             if (IsPositionBetweenTwoPoints(initialPosition, receiverPosition, oppPosition) == false)
                 return true;
 
-            #endregion
-
-            #region find if opponent can intercept ball
 
             //check if pass to position can be intercepted
-            Vector3 orthogonalPoint = GetPointOrthogonalToLine(initialPosition,
-                target,
-                oppPosition);
+            Vector3 orthogonalPoint = GetPointOrthogonalToLine(initialPosition, target, oppPosition);
 
             //get time of ball to point
             float timeOfBallToOrthogonalPoint = 0f;
             CanBallReachPoint(orthogonalPoint, initialBallVelocity, out timeOfBallToOrthogonalPoint);
 
             //get time of opponent to target
-            float timeOfOpponentToTarget = TimeToTarget(oppPosition,
-            orthogonalPoint,
-            ActualSpeed);
+            float timeOfOpponentToTarget = TimeToTarget(oppPosition, orthogonalPoint, ActualSpeed);
 
             //ball is safe if it can reach that point before the opponent
             bool canBallReachOrthogonalPointBeforeOpp = timeOfBallToOrthogonalPoint < timeOfOpponentToTarget;
@@ -512,15 +496,10 @@ namespace Assets.Scripts.Entities
                 return true;
             else
                 return false;
-            // return true;
-            #endregion
+
         }
 
-        /// <summary>
-        /// Checks whether this instance is picked out or not
-        /// </summary>
-        /// <param name="player"></param>
-        /// <returns></returns>
+        // Checks whether this instance is picked out or not
         public bool IsPickedOut(Player player)
         {
             return SupportSpot.IsPickedOut(player);
@@ -539,16 +518,10 @@ namespace Assets.Scripts.Entities
                 && Vector3.Dot(fromBToA.normalized, fromBToPoint.normalized) > 0;
         }
 
-        /// <summary>
-        /// Checks whether the first position is closer to target than the second position
-        /// </summary>
-        /// <param name="target"></param>
-        /// <param name="position001"></param>
-        /// <param name="position002"></param>
-        /// <returns></returns>
-        public bool IsPositionCloserThanPosition(Vector3 target, Vector3 position001, Vector3 position002)
+        // Checks whether the first position is closer to target than the second position
+        public bool IsPositionCloserThanPosition(Vector3 target, Vector3 pos01, Vector3 pos02)
         {
-            return Vector3.Distance(position001, target) < Vector3.Distance(position002, target);
+            return Vector3.Distance(pos01, target) < Vector3.Distance(pos02, target);
         }
 
         public bool IsPositionInDirection(Vector3 forward, Vector3 position, float angle)
@@ -574,42 +547,26 @@ namespace Assets.Scripts.Entities
 
             //return false
             return false;
-
         }
 
         public bool IsPositionWithinMinPassDistance(Vector3 position)
         {
-            return IsWithinDistance(Position,
-                position,
-                _distancePassMin);
+            return IsWithinDistance(Position, position, _distancePassMin);
         }
 
         public bool IsPositionWithinMinPassDistance(Vector3 center, Vector3 position)
         {
-            return IsWithinDistance(center,
-                position,
-                _distancePassMin);
+            return IsWithinDistance(center, position, _distancePassMin);
         }
 
         public bool IsPositionWithinWanderRadius(Vector3 position)
         {
-            return IsWithinDistance(_homeRegion.position,
-                position,
-                _maxWanderDistance);
+            return IsWithinDistance(_homeRegion.position, position, _maxWanderDistance);
         }
 
-        /// <summary>
-        /// Finds the power
-        /// </summary>
-        /// <param name="from">initial position</param>
-        /// <param name="to">target</param>
-        /// <param name="arriveVelocity">required velocity on arrival to target</param>
-        /// <param name="friction">force acting against motion</param>
-        /// <returns></returns>
+        // Finds the power
         public float FindPower(Vector3 from, Vector3 to, float arriveVelocity, float friction)
         {
-            // v^2 = u^2 + 2as => u^2 = v^2 - 2as => u = root(v^2 - 2as)
-
             //calculate some values
             float vSquared = Mathf.Pow(arriveVelocity, 2f);
             float twoAS = 2 * friction * Vector3.Distance(from, to);
@@ -624,18 +581,10 @@ namespace Assets.Scripts.Entities
 
         public float TimeToTarget(Vector3 initial, Vector3 target, float velocityInitial)
         {
-            //use S = D/T => T = D/S
             return Vector3.Distance(initial, target) / velocityInitial;
         }
 
-        /// <summary>
-        /// Calculates the time it will take to reach the target
-        /// </summary>
-        /// <param name="inital">start position</param>
-        /// <param name="target">final position</param>
-        /// <param name="initialVelocity">initial velocity</param>
-        /// <param name="acceleration">force acting aginst motion</param>
-        /// <returns></returns>
+        // Calculates the time it will take to reach the target
         public float TimeToTarget(Vector3 initial, Vector3 target, float velocityInitial, float acceleration)
         {
             //using  v^2 = u^2 + 2as 
@@ -656,24 +605,16 @@ namespace Assets.Scripts.Entities
 
         public float TimeToTravel(float initialVelocity, float finalVelocity, float acceleration)
         {
-            // t = v-u
-            //     ---
-            //      a
             float time = (finalVelocity - initialVelocity) / acceleration;
 
             //return result
             return time;
         }
 
-        /// <summary>
-        /// Finds a random target on the goal
-        /// </summary>
-        /// <returns></returns>
+        // Finds a random target on the goal
         public Vector3 FindRandomShot()
         {
-            //define some positions to be local to the goal
-            //get the shot reference point. It should be a point some distance behinde the 
-            //goal-line/goal
+            //get the shot reference point.
             Vector3 refShotTarget = _oppGoal.transform.InverseTransformPoint(_oppGoal.ShotTargetReferencePoint);
 
             //find an x-position within the goal mouth
@@ -688,13 +629,7 @@ namespace Assets.Scripts.Entities
             return goalGlobalTarget;
         }
 
-        /// <summary>
-        /// Calculates a point on line a-b that is at right angle to a point
-        /// </summary>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
-        /// <param name="point"></param>
-        /// <returns></returns>
+        // Calculates a point on line a-b that is at right angle to a point
         public Vector3 GetPointOrthogonalToLine(Vector3 from, Vector3 to, Vector3 point)
         {
             //this is the normal
@@ -710,11 +645,7 @@ namespace Assets.Scripts.Entities
             return projection + from;
         }
 
-        /// <summary>
-        /// Gets the options to pass the ball
-        /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        // Gets the options to pass the ball
         public List<Vector3> GetPassPositionOptions(Vector3 position)
         {
             //create a list to hold the results
@@ -743,30 +674,20 @@ namespace Assets.Scripts.Entities
                 result.Add(point);
             }
 
-            //return results
             return result;
         }
 
-        /// <summary>
-        /// Initializes this instance
-        /// </summary>
+        // Initializes this instance
         public void Init()
         {
             ActualPower *= _power;
             ActualSpeed *= _speed;
 
             //Init the RPGMovement
-            RPGMovement.Init(ActualSpeed, 
-                ActualSpeed, 
-                _rotationSpeed * _speed, 
-                ActualSpeed);
+            RPGMovement.Init(ActualSpeed, ActualSpeed, _rotationSpeed * _speed, ActualSpeed);
         }
 
-        /// <summary>
-        /// Initializes this instance
-        /// </summary>
-        /// <param name="power"></param>
-        /// <param name="speed"></param>
+        // Initializes this instance
         public void Init(float distancePassMax,
            float distancePassMin,
            float distanceShotValidMax,
@@ -794,11 +715,7 @@ namespace Assets.Scripts.Entities
             ActualPower = power;
         }
 
-        /// <summary>
-        /// Checks whether the player is at target
-        /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        // Checks whether the player is at target
         public bool IsAtTarget(Vector3 position)
         {
             return IsWithinDistance(Position, position, 0.25f);
@@ -822,11 +739,6 @@ namespace Assets.Scripts.Entities
             float dot = Vector3.Dot(direction.normalized, transform.forward);
 
             return dot > 0;
-            ////transfrom point to local
-            //Vector3 localDirection = transform.InverseTransformDirection(direction);
- 
-            ////return result
-            //return localDirection.z >= 1;
         }
 
         // Checks whether a player is a threat
@@ -922,7 +834,6 @@ namespace Assets.Scripts.Entities
                     return true;
             }
 
-            //return false
             return false;
         }
 
@@ -942,7 +853,6 @@ namespace Assets.Scripts.Entities
             //find the power to target
             float power = Ball.Instance.FindPower(from, to, arrivalVelocity);
 
-            //return result
             return power;
         }
 
@@ -1027,7 +937,6 @@ namespace Assets.Scripts.Entities
             List<Player> result = _teamMembers.FindAll(tM => Vector3.Distance(this.Position, tM.Position) <= radius 
             && this != tM);
 
-            //retur result
             return result;
         }
 
@@ -1069,11 +978,6 @@ namespace Assets.Scripts.Entities
             }
         }
 
-        public float BallControlDistance { get => _ballControlDistance; set => _ballControlDistance = value; }
-        public Goal OppGoal { get => _oppGoal; set => _oppGoal = value; }
-        public float BallPassArriveVelocity { get => _ballPassArriveVelocity; set => _ballPassArriveVelocity = value; }
-        public List<SupportSpot> PlayerSupportSpots { get => _pitchPoints; set => _pitchPoints = value; }
-
         public float DistancePassMin
         {
             get => _distancePassMin;
@@ -1112,6 +1016,11 @@ namespace Assets.Scripts.Entities
                 _rpgMovement = value;
             }
         }
+
+        public float BallControlDistance { get => _ballControlDistance; set => _ballControlDistance = value; }
+        public Goal OppGoal { get => _oppGoal; set => _oppGoal = value; }
+        public float BallPassArriveVelocity { get => _ballPassArriveVelocity; set => _ballPassArriveVelocity = value; }
+        public List<SupportSpot> PlayerSupportSpots { get => _pitchPoints; set => _pitchPoints = value; }
 
         public float Radius { get => _radius; set => _radius = value; }
         public Goal TeamGoal { get => _teamGoal; set => _teamGoal = value; }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Cinemachine;
 
 namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates
 {
@@ -16,9 +17,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
     {
         bool updateLogic;
 
-        /// <summary>
-        /// The steering target
-        /// </summary>
+        Vector3 RefObjectForward;             // The current forward direction of the camera
+        Transform _refObject;                 // A reference to the main camera in the scenes transform
+        CinemachineVirtualCamera vCam;
+
+        // The steering target
         public Vector3 SteeringTarget { get; set; }
 
         public override void Enter()
@@ -28,67 +31,63 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             // enable the user controlled icon
             Owner.IconUserControlled.SetActive(true);
 
+            // set the ref object
+            _refObject = Camera.main.transform;
+            //_refObject = vCam.transform.pos;
+
             // set update logic
-            updateLogic = false;
+            //updateLogic = true;
 
             //get the steering target
-            SteeringTarget = Ball.Instance.NormalizedPosition;
+            //SteeringTarget = Ball.Instance.NormalizedPosition;
 
             //set the steering to on
-            Owner.RPGMovement.SetMoveTarget(SteeringTarget);
-            Owner.RPGMovement.SetRotateFacePosition(SteeringTarget);
+            //Owner.RPGMovement.SetMoveTarget(SteeringTarget);
+            //Owner.RPGMovement.SetRotateFacePosition(SteeringTarget);
         }
 
         public override void Execute()
         {
             base.Execute();
 
-            // update logic
-            if(updateLogic)
+            //capture input
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
+            //calculate the direction to rotate to
+            Vector3 input = new Vector3(horizontalInput, 0f, verticalInput);
+
+            // calculate camera relative direction to move:
+            //movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
+            //movementDirection.Normalize();
+
+            RefObjectForward = Vector3.Scale(_refObject.forward, new Vector3(1, 0, 1)).normalized;
+            Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
+
+            //check if ball is within control distance
+            if (Ball.Instance.Owner != null
+                && Owner.IsBallWithinControlableDistance())
             {
-                //check if ball is within control distance
-                if (Ball.Instance.Owner != null
-                    && Owner.IsBallWithinControlableDistance())
-                {
-                    //tackle player
-                    SuperMachine.ChangeState<TackleMainState>();
-                }
-                else if (Owner.IsBallWithinControlableDistance())
-                {
-                    // control ball
-                    SuperMachine.ChangeState<ControlBallMainState>();
-                }
-
-                //get the steering target
-                SteeringTarget = Ball.Instance.NormalizedPosition;
-
-                //set the steering to on
-                Owner.RPGMovement.SetMoveTarget(SteeringTarget);
-                Owner.RPGMovement.SetRotateFacePosition(SteeringTarget);
+                //tackle player
+                SuperMachine.ChangeState<TackleMainState>();
+            }
+            else if (Owner.IsBallWithinControlableDistance())
+            {
+                // control ball
+                SuperMachine.ChangeState<ControlBallMainState>();
             }
 
-            // listen to key events
-            if(Input.GetMouseButton(0))
-            {
-                // set update logic
-                if(updateLogic == false)
-                    updateLogic = true;
+            // set the movement
+            Vector3 moveDirection = Movement == Vector3.zero ? Vector3.zero : Owner.transform.forward;
+            Owner.RPGMovement.SetMoveDirection(moveDirection);
+            Owner.RPGMovement.SetRotateFaceDirection(Movement);
 
-                // set steering
-                if(Owner.RPGMovement.Steer == false)
-                    Owner.RPGMovement.SetSteeringOn();
-                if(Owner.RPGMovement.Track == false)
-                    Owner.RPGMovement.SetTrackingOn();
-            }
-            else if(Input.GetMouseButtonDown(0))
-            {
-                // set update logic
-                updateLogic = false;
+            // set the steering to on
+            if (Owner.RPGMovement.Steer == false)
+                Owner.RPGMovement.SetSteeringOn();
 
-                // set steering
-                Owner.RPGMovement.SetSteeringOff();
-                Owner.RPGMovement.SetTrackingOff();
-            }
+            if (Owner.RPGMovement.Track == false)
+                Owner.RPGMovement.SetTrackingOn();
         }
 
         public override void Exit()
@@ -99,8 +98,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Owner.IconUserControlled.SetActive(false);
 
             //set the steering to on
-            Owner.RPGMovement.SetSteeringOff();
-            Owner.RPGMovement.SetTrackingOff();
+            //Owner.RPGMovement.SetSteeringOff();
+            //Owner.RPGMovement.SetTrackingOff();
         }
 
         public Player Owner
