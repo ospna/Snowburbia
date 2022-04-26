@@ -16,12 +16,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
         Transform _refObject;                 // A reference to the main camera in the scenes transform
         CinemachineVirtualCamera vCam;
 
-        [Header("Shot Key Code Info")]
-        public KeyCode passKeyCode = KeyCode.Space;
-        public KeyCode curveShotKeyCode = KeyCode.Z;
-        public KeyCode shotKeyCode = KeyCode.Mouse0;
-        public KeyCode chipShotKeyCode = KeyCode.C;
-
         /*
         [Header("Bool")]
         public bool addCurve = false;
@@ -86,7 +80,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
 
 
-            if (Input.GetKeyDown(passKeyCode))
+            if (Input.GetButtonDown("Jump"))
             {
                 // set the direction of movement
                 Vector3 direction = Movement == Vector3.zero ? Owner.transform.forward : Movement;
@@ -102,7 +96,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     SuperMachine.ChangeState<KickBallMainState>();
                 }
             }
-            else if (Input.GetKeyDown(shotKeyCode))
+            else if (Input.GetButtonDown("Shoot"))
             {
                 // check if I can score
                 bool canScore = Owner.CanScore(false, true);

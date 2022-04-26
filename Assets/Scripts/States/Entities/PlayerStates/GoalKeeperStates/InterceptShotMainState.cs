@@ -21,15 +21,10 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             base.Enter();
 
             //find the point on the ball path to target that is orthogonal to player position
-           _steerTarget = Owner.GetPointOrthogonalToLine(BallInitialPosition, 
-               ShotTarget, 
-               Owner.Position);
+           _steerTarget = Owner.GetPointOrthogonalToLine(BallInitialPosition, ShotTarget, Owner.Position);
 
             // calculate time of ball to intercept point
-            timeOfBallToInterceptPoint = Owner.TimeToTarget(BallInitialPosition,
-                ShotTarget,
-                BallInitialVelocity,
-                Ball.Instance.Friction);
+            timeOfBallToInterceptPoint = Owner.TimeToTarget(BallInitialPosition, ShotTarget, BallInitialVelocity, Ball.Instance.Friction);
 
             // add some noise to it
             timeOfBallToInterceptPoint += 0.5f;
@@ -62,7 +57,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             // if time is exhausted then go to tend goal
             // if ball within control distance te deflect its path
             if (timeOfBallToInterceptPoint <= 0f)
+            {
                 SuperMachine.ChangeState<ProtectGoalMainState>();
+            }
             else if(Owner.IsBallWithinControlableDistance())
             {
                 // find direction to deflect ball to

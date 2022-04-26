@@ -48,10 +48,10 @@ namespace Assets.Scripts.Entities
         float _velocityPassArrive = 10f;
 
         [SerializeField]
-        float _velocityShotArrive = 15f;
+        float _velocityShotArrive = 10f;
 
         [SerializeField]
-        float _power = 30f;
+        float _power = 10f;
 
         [SerializeField]
         float _speed = 3.5f;

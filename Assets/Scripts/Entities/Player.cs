@@ -51,7 +51,7 @@ namespace Assets.Scripts.Entities
         float _threatTrackDistance = 1f;
 
         [SerializeField]
-        float _tendGoalDistance = 1f;
+        float _tendGoalDistance = 0.5f;
 
         [SerializeField]
         Goal _oppGoal;

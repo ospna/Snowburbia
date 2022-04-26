@@ -24,7 +24,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
             _goalLayerMask = LayerMask.GetMask("GoalTrigger");
 
             //set some data
-            _prevBallPosition = 1000 * Vector3.one;
+            _prevBallPosition = 100 * Vector3.one;
             _timeSinceLastUpdate = 0f;
 
             //set the rpg movement
@@ -58,7 +58,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
                     Vector3 ballRelativePosToGoal = Owner.TeamGoal.transform.InverseTransformPoint(ballPosition);
                     ballRelativePosToGoal.z = Owner.TendGoalDistance;
                     ballRelativePosToGoal.x /= 3f;
-                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -2.14f, 2.14f);
+                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -1f, 1f);
                     _steeringTarget = Owner.TeamGoal.transform.TransformPoint(ballRelativePosToGoal);
 
                     //add some noise to the target
@@ -69,6 +69,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
 
                 //reset the time 
                 _timeSinceLastUpdate = 2f * (1f - Owner.GoalKeeping);
+
                 if (_timeSinceLastUpdate == 0f)
                 {
                     _timeSinceLastUpdate = 2f * 0.1f;
@@ -87,7 +88,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
         {
             base.ManualExecute();
 
-            // run logic depending on whether team is in control or not
             if (Owner.IsTeamInControl == true)
             {
                 SuperMachine.ChangeState<GoToHomeMainState>();
@@ -98,7 +98,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
         {
             base.Exit();
 
-            //deregister to some events
             Owner.OnShotTaken -= Instance_OnShotTaken;
         }
 
@@ -110,11 +109,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
             // make a raycast and test if it hits target
             RaycastHit hitInfo;
             bool willBallHitAGoal = Physics.SphereCast(Ball.Instance.NormalizedPosition + Vector3.up,
-                        Ball.Instance.SphereCollider.radius,
-                        direction,
-                        out hitInfo,
-                        300,
-                        _goalLayerMask);
+                        Ball.Instance.SphereCollider.radius, direction, out hitInfo, 300, _goalLayerMask);
             
             // get the goal from the goal trigger
             if (willBallHitAGoal)

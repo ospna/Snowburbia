@@ -20,7 +20,7 @@ namespace Assets.Scripts.Managers
         float _distancePassMin = 5f;
 
         [SerializeField]
-        float _distanceShotValidMax = 30f;
+        float _distanceShotValidMax = 15;
 
         [SerializeField]
         float _distanceTendGoal = 3f;
@@ -38,16 +38,16 @@ namespace Assets.Scripts.Managers
         float _distanceWonderMax = 15f;
 
         [SerializeField]
-        float _velocityPassArrive = 15f;
+        float _velocityPassArrive = 5f;
 
         [SerializeField]
-        float _velocityShotArrive = 30f;
+        float _velocityShotArrive = 10f;
 
         [SerializeField]
-        float _power = 30f;
+        float _power = 10f;
 
         [SerializeField]
-        float _speed = 3.5f;
+        float _speed = 2.5f;
 
         [SerializeField]
         Team _teamAway;
@@ -60,189 +60,110 @@ namespace Assets.Scripts.Managers
 
         [SerializeField]
         Transform _transformCentreSpot;
-
-        /// <summary>
-        /// A reference to how long each half length is in actual time(m)
-        /// </summary>
+                
+        // A reference to how long each half length is in actual time(m)
         public float ActualHalfLength { get; set; } = 2f;
-
-        /// <summary>
-        /// A reference to the normal half length
-        /// </summary>
+                
+        // A reference to the normal half length
         public float NormalHalfLength { get; set; } = 45;
-
-        /// <summary>
-        /// A reference to the next time that we have to stop the game
-        /// </summary>
+                
+        // A reference to the next time that we have to stop the game
         public float NextStopTime { get; set; }
 
-        /// <summary>
-        /// A reference to the current game half in play
-        /// </summary>
+        // A reference to the current game half in play
         public int CurrentHalf { get; set; }
 
-        /// <summary>
-        /// Property to get or set this instance's fsm
-        /// </summary>
+        // Property to get or set this instance's fsm
         public IFSM FSM { get; set; }
 
-        /// <summary>
-        /// A reference to the match status of this instance
-        /// </summary>
+        // A reference to the match status of this instance
         public MatchStatuses MatchStatus { get; set; }
 
-        /// <summary>
-        /// Event raised when this instance is instructed to go to the second half
-        /// </summary>
+        // Event raised when this instance is instructed to go to the second half
         public Action OnContinueToSecondHalf;
 
-        /// <summary>
-        /// Event raised when we enter the wait for kick-off state 
-        /// </summary>
+        // Event raised when we enter the wait for kick-off state 
         public Action OnEnterWaitForKickToComplete;
 
-        /// <summary>
-        /// Event raised when we enter the wait for match on state
-        /// </summary>
+        // Event raised when we enter the wait for match on state
         public Action OnEnterWaitForMatchOnInstruction;
 
-        /// <summary>
-        /// Event raised when we exist the halftime
-        /// </summary>
+        // Event raised when we exist the halftime
         public Action OnExitHalfTime;
 
-        /// <summary>
-        /// Event raised when this instance exists the match over state
-        /// </summary>
+        // Event raised when this instance exists the match over state
         public Action OnExitMatchOver { get; set; }
 
-        /// <summary>
-        /// Event raised when we exits the wait for kick-off state 
-        /// </summary>
+        // Event raised when we exits the wait for kick-off state 
         public Action OnExitWaitForKickToComplete;
 
-        /// <summary>
-        /// Event raised when we exist the wait for match on state
-        /// </summary>
+        // Event raised when we exist the wait for match on state
         public Action OnExitWaitForMatchOnInstruction;
 
-        /// <summary>
-        /// Event raised when this instance finishes broadcasting an event
-        /// </summary>
+        // Event raised when this instance finishes broadcasting an event
         public Action OnFinishBroadcastHalfStart;
 
-        /// <summary>
-        /// Event raised when this instance finishes broadcasting the half-time-start event
-        /// </summary>
+        // Event raised when this instance finishes broadcasting the half-time-start event
         public Action OnFinishBroadcastHalfTimeStart;
 
-        /// <summary>
-        /// Event raised when this instance finishes broadcasting the match start event
-        /// </summary>
+        // Event raised when this instance finishes broadcasting the match start event
         public Action OnFinishBroadcastMatchStart;
-
-        /// <summary>
-        /// Raised when match play starts
-        /// </summary>
+        
+        // Raised when match play starts
         public Action OnMatchPlayStart;
 
-        /// <summary>
-        /// Raised when match play stops
-        /// </summary>
+        // Raised when match play stops
         public Action OnMatchPlayStop;
 
-        /// <summary>
-        /// Action to be raised when the match is stopped
-        /// </summary>
+        // Action to be raised when the match is stopped
         public Action OnStopMatch;
 
-        /// <summary>
-        /// Event raised to instruct this instance to switch to match on state
-        /// </summary>
+        // Event raised to instruct this instance to switch to match on state
         public Action OnMesssagedToSwitchToMatchOn;
-
-        /// <summary>
-        /// Action to be raised when the kick-off needs to be taken
-        /// </summary>
+  
+        // Action to be raised when the kick-off needs to be taken
         public Action OnBroadcastTakeKickOff;
 
-        /// <summary>
-        /// Goal scored delegate
-        /// </summary>
-        /// <param name="message"></param>
+        // Goal scored delegate
         public delegate void GoalScored(string message, string message1);
 
-        /// <summary>
-        /// Match end delegate
-        /// </summary>
-        /// <param name="message"></param>
+        // Match end delegate
         public delegate void BroadcastHalfStart(string message);
 
-        /// <summary>
-        /// Half time start delegate
-        /// </summary>
-        /// <param name="message"></param>
+        // </summary>
         public delegate void BroadcastHalfTimeStart(string message);
 
-        /// <summary>
-        /// Half time start delegate
-        /// </summary>
-        /// <param name="message"></param>
+        // Half time start delegate
         public delegate void EnterHalfTime(string message);
 
-        /// <summary>
-        /// Match start delegate
-        /// </summary>
-        /// <param name="message"></param>
+        // Match start delegate
         public delegate void BroadcastMatchStart(string message);
 
-        /// <summary>
-        /// Match end delegate
-        /// </summary>
-        /// <param name="message"></param>
+        // Match end delegate
         public delegate void MatchOver(string message);
 
-        /// <summary>
-        /// Tick delegate
-        /// </summary>
-        /// <param name="half">the current half</param>
-        /// <param name="minutes">the current minutes</param>
-        /// <param name="seconds">the currenct seconds</param>
+        // Tick delegate
         public delegate void Tick(int half, int minutes, int seconds);
 
-        /// <summary>
-        /// Event that is raised when a goal is scored
-        /// </summary>
+        // Event that is raised when a goal is scored
         public GoalScored OnGoalScored;
 
-        /// <summary>
-        /// Event raised when the half starts
-        /// </summary>
+        // Event raised when the half starts
         public BroadcastHalfStart OnBroadcastHalfStart;
 
-        /// <summary>
-        /// Event raised when the half time starts
-        /// </summary>
+        // Event raised when the half time starts
         public BroadcastHalfTimeStart OnBroadcastHalfTimeStart;
 
-        /// <summary>
-        /// Event raised when we enter half time
-        /// </summary>
+        // Event raised when we enter half time
         public EnterHalfTime OnEnterHalfTime;
 
-        /// <summary>
-        /// Event to be raised when a match ends
-        /// </summary>
+        // Event to be raised when a match ends
         public MatchOver OnMatchOver;
 
-        /// <summary>
-        /// Event to be raised when a broadcast of match starts is started
-        /// </summary>
+        // Event to be raised when a broadcast of match starts is started
         public BroadcastMatchStart OnBroadcastMatchStart;
 
-        /// <summary>
-        /// The OnTick event
-        /// </summary>
+        // The OnTick event
         public Tick OnTick;
 
         public override void Awake()
@@ -271,9 +192,7 @@ namespace Assets.Scripts.Managers
             ActionUtility.Invoke_Action(OnContinueToSecondHalf);
         }
 
-        /// <summary>
-        /// Raises the event that this instance has been messaged to switch to match on
-        /// </summary>
+        // Raises the event that this instance has been messaged to switch to match on
         public void Instance_OnMessagedSwitchToMatchOn()
         {
             ActionUtility.Invoke_Action(OnMesssagedToSwitchToMatchOn);
@@ -297,9 +216,7 @@ namespace Assets.Scripts.Managers
         public Team TeamAway { get => _teamAway; }
         public Team TeamHome { get => _teamHome; }
 
-        /// <summary>
-        /// Property to access the team root transform
-        /// </summary>
+        // Property to access the team root transform
         public Transform RootTeam { get => _rootTeam; }
         public float DistancePassMax { get => _distancePassMax; set => _distancePassMax = value; }
         public float DistancePassMin { get => _distancePassMin; set => _distancePassMin = value; }
