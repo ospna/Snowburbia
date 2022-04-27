@@ -43,27 +43,21 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
         {
             base.Exit();
 
-            //raise the event that I finished broadcasting the start
-            //of the first half
             ActionUtility.Invoke_Action(Owner.OnFinishBroadcastMatchStart);
         }
 
-        /// <summary>
-        /// Raises the half start event
-        /// </summary>
+        // Raises the start event
         public void RaiseTheMatchStartEvent()
         {
             //prepare an empty string
-            string message = "Match On";
+            string message = "";
 
             //raise the event
             BroadcastMatchStart temp = Owner.OnBroadcastMatchStart;
             if (temp != null) temp.Invoke(message);
         }
 
-        /// <summary>
-        /// Returns the owner of this instance
-        /// </summary>
+        // Returns the owner of this instance
         public MatchManager Owner
         {
             get

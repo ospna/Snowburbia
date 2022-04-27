@@ -33,6 +33,7 @@ namespace Assets.Scripts.States.MatchManagerStates.Init.SubStates
                 Owner.VelocityShotArrive,
                 Owner.Power,
                 Owner.Speed);
+
             Owner.TeamHome.Init(Owner.DistancePassMax,
                 Owner.DistancePassMin,
                 Owner.DistanceShotValidMax,

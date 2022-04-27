@@ -11,21 +11,16 @@ using UnityEngine;
 
 namespace Assets.Scripts.States.Entities.Team.Defend
 {
-    /// <summary>
     /// The team drops into it's own half and tries to place players between itself and the
     /// goal in the hope of making it difficult for the opposition to score
-    /// </summary>
     public class DefendMainState : BState
     {
-        float _lengthPitch = 90;
+        float _lengthPitch = 60;
         TeamPlayer _closestPlayerToBall;
 
         public override void Enter()
         {
             base.Enter();
-
-            //listen to some team events
-            //Owner.OnBallLaunched += Instance_OnBallLaunched;
             Owner.OnGainPossession += Instance_OnGainPossession;
             Owner.OnMessagedToStop += Instance_OnMessagedToStop;
 
@@ -62,8 +57,7 @@ namespace Assets.Scripts.States.Entities.Team.Defend
             if (currClosestPlayerToPoint != _closestPlayerToBall)
             {
                 // message the closest player to go out of chaseball
-                if (_closestPlayerToBall != null)
-                    _closestPlayerToBall.Player.Invoke_OnIsNoLongerTheClosestPlayerToBall();
+                if (_closestPlayerToBall != null)_closestPlayerToBall.Player.Invoke_OnIsNoLongerTheClosestPlayerToBall();
 
                 // update to new closest player
                 _closestPlayerToBall = currClosestPlayerToPoint;
@@ -91,7 +85,7 @@ namespace Assets.Scripts.States.Entities.Team.Defend
             {
                 //find the percentage to move the player upfield
                 Vector3 ballGoalLocalPosition = Owner.Goal.transform.InverseTransformPoint(Ball.Instance.transform.position);
-                float playerMovePercentage = Mathf.Clamp01((ballGoalLocalPosition.z / _lengthPitch) - 0.35f);
+                float playerMovePercentage = Mathf.Clamp01((ballGoalLocalPosition.z / _lengthPitch) - 0.25f);
 
                 //move the home position a similar percentage up the field
                 Vector3 currentPlayerHomePosition = Vector3.Lerp(teamPlayer.DefendingHomePosition.transform.position,
@@ -109,7 +103,6 @@ namespace Assets.Scripts.States.Entities.Team.Defend
             base.Exit();
 
             //stop listening to some team events
-            //Owner.OnBallLaunched -= Instance_OnBallLaunched;
             Owner.OnGainPossession -= Instance_OnGainPossession;
             Owner.OnMessagedToStop -= Instance_OnMessagedToStop;
         }

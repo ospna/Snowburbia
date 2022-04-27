@@ -1,4 +1,5 @@
 ﻿using static RPGMovement;
+using static PlayerController;
 using Assets.Scripts.StateMachines;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
@@ -24,34 +25,34 @@ namespace Assets.Scripts.Entities
         float _ballControlDistance = 0.5f;
 
         [SerializeField]
-        float _maxWanderDistance = 10f;
+        float _maxWanderDistance = 15f;
 
         [SerializeField]
-        float _distancePassMax = 15f;
+        float _distancePassMax = 20f;
 
         [SerializeField]
         float _distancePassMin = 5f;
 
         [SerializeField]
-        float _distanceShotMaxValid = 20f;
+        float _distanceShotMaxValid = 30f;
 
         [SerializeField]
-        float _distanceThreatMax = 0.5f;
+        float _distanceThreatMax = 2f;
 
         [SerializeField]
-        float _distanceThreatMin = 1f;
+        float _distanceThreatMin = 5f;
 
         [SerializeField]
-        float _ballPassArriveVelocity = 5f;
+        float _ballPassArriveVelocity = 12;
 
         [SerializeField]
-        float _ballShotArriveVelocity = 10f;
+        float _ballShotArriveVelocity = 15f;
 
         [SerializeField]
         float _threatTrackDistance = 1f;
 
         [SerializeField]
-        float _tendGoalDistance = 0.5f;
+        float _tendGoalDistance = 1f;
 
         [SerializeField]
         Goal _oppGoal;
@@ -79,7 +80,7 @@ namespace Assets.Scripts.Entities
 
         [SerializeField]
         [Range(0.1f, 5f)]
-        float _tendGoalSpeed = 4f;
+        float _tendGoalSpeed = 3f;
 
         [SerializeField]
         Transform _homeRegion;
@@ -161,6 +162,10 @@ namespace Assets.Scripts.Entities
 
         public SupportSpot SupportSpot { get; set; }
 
+        public Animator _animator { get; set; }
+
+        //public PlayerController _playerController { get; set; }
+
         public Transform HomeRegion { get => _homeRegion; set => _homeRegion = value; }
         public List<Player> OppositionMembers { get => _oppositionMembers; set => _oppositionMembers = value; }
         public List<Player> TeamMembers { get => _teamMembers; set => _teamMembers = value; }
@@ -172,6 +177,7 @@ namespace Assets.Scripts.Entities
             InFieldPlayerFSM = GetComponent<InFieldPlayerFSM>();
             RPGMovement = GetComponent<RPGMovement>();
             SupportSpot = GetComponent<SupportSpot>();
+            _animator = GetComponentInChildren<Animator>();
 
             // cache some component data
             _radius = GetComponent<CapsuleCollider>().radius;
@@ -209,7 +215,6 @@ namespace Assets.Scripts.Entities
                 if (isPlayerMe)
                     continue;
 
-                /*
                 // we don't want to pass to the last receiver
                 bool isPlayePrevPassReceiver = player == _prevPassReceiver;
                 if (isPlayePrevPassReceiver)
@@ -219,7 +224,6 @@ namespace Assets.Scripts.Entities
                 bool isPlayerGoalKeeper = player.PlayerType == PlayerTypes.Goalkeeper;
                 if (isPlayerGoalKeeper)
                     continue;
-                    */
 
                 // check if player can pass
                 CanPass(player.Position, considerPassSafety, passToPlayerClosestToMe, player);
@@ -245,29 +249,21 @@ namespace Assets.Scripts.Entities
                 if (isPositionWithinPassRange == true)
                 {
                     //find power to kick ball
-                    float power = FindPower(Ball.Instance.NormalizedPosition,
-                        passOption,
-                        BallPassArriveVelocity,
-                        Ball.Instance.Friction);
+                    float power = FindPower(Ball.Instance.NormalizedPosition, passOption, BallPassArriveVelocity, Ball.Instance.Friction);
 
                     //clamp the power to the player's max power
                     power = Mathf.Clamp(power, 0f, this.ActualPower);
 
                     //find if ball can reach point
                     float ballTimeToTarget = 0f;
-                    bool canBallReachTarget = CanBallReachPoint(passOption,
-                            power,
-                            out ballTimeToTarget);
 
-                    //return false if the time is less than zero
-                    //that means the ball can't reach it's target
+                    bool canBallReachTarget = CanBallReachPoint(passOption, power, out ballTimeToTarget);
+                    
                     if (canBallReachTarget == false)
                         return false;
 
                     // get time of player to point
-                    float timeOfReceiverToTarget = TimeToTarget(position,
-                        passOption,
-                        ActualSpeed);
+                    float timeOfReceiverToTarget = TimeToTarget(position, passOption, ActualSpeed);
 
                     // pass is not safe if receiver can't reach target before the ball
                     if (timeOfReceiverToTarget > ballTimeToTarget)
@@ -279,24 +275,16 @@ namespace Assets.Scripts.Entities
                     {
                         // check pass safety
                         isPassSafeFromAllOpponents = IsPassSafeFromAllOpponents(Ball.Instance.NormalizedPosition,
-                            position,
-                            passOption,
-                            power,
-                            ballTimeToTarget);
+                            position, passOption, power, ballTimeToTarget);
                     }
 
                     //if pass is safe from all opponents then cache it
-                    if (considerPassSafety == false ||
-                        (considerPassSafety == true && isPassSafeFromAllOpponents == true))
+                    if (considerPassSafety == false || (considerPassSafety == true && isPassSafeFromAllOpponents == true))
                     {
+                        //set the pass-target to be the initial position
                         if (considerPlayerClosestToMe)
                         {
-                            //set the pass-target to be the initial position
-                            //check if pass is closer to goal and save it
-                            if (KickTarget == null
-                                || IsPositionCloserThanPosition(Position,
-                                                        passOption,
-                                                        (Vector3)KickTarget))
+                            if (KickTarget == null || IsPositionCloserThanPosition(Position, passOption, (Vector3)KickTarget))
                             {
                                 BallTime = ballTimeToTarget;
                                 KickPower = power;
@@ -306,12 +294,8 @@ namespace Assets.Scripts.Entities
                         }
                         else
                         {
-                            //set the pass-target to be the initial position
                             //check if pass is closer to goal and save it
-                            if (KickTarget == null
-                                || IsPositionCloserThanPosition(OppGoal.transform.position,
-                                                        passOption,
-                                                        (Vector3)KickTarget))
+                            if (KickTarget == null || IsPositionCloserThanPosition(OppGoal.transform.position, passOption, (Vector3)KickTarget))
                             {
                                 BallTime = ballTimeToTarget;
                                 KickPower = power;
@@ -337,13 +321,11 @@ namespace Assets.Scripts.Entities
                     return false;
             }
 
-            //define some positions to be local to the goal
-            //get the shot reference point. It should be a point some distance behinde the 
-            //goal-line/goal
+            //get the shot reference point behind the goal
             Vector3 refShotTarget = _oppGoal.ShotTargetReferencePoint;
 
             //number of tries to find a shot
-            float numOfTries = Random.Range(1, 6);
+            float numOfTries = Random.Range(1, 3);
 
             //loop through and find a valid shot
             for (int i = 0; i < numOfTries; i++)
@@ -351,9 +333,7 @@ namespace Assets.Scripts.Entities
                 //find a random target
                 Vector3 randomGoalTarget = FindRandomShot();
 
-                float power = FindPower(Ball.Instance.NormalizedPosition,
-                    randomGoalTarget,
-                    _ballShotArriveVelocity);
+                float power = FindPower(Ball.Instance.NormalizedPosition, randomGoalTarget, _ballShotArriveVelocity);
 
                 //clamp the power
                 power = Mathf.Clamp(power, 0f, ActualPower);
@@ -371,17 +351,12 @@ namespace Assets.Scripts.Entities
                 if (considerShotSafety)
                 {
                     isShotPossible = IsPassSafeFromAllOpponents(Ball.Instance.NormalizedPosition,
-                        randomGoalTarget,
-                        randomGoalTarget,
-                        power,
-                        time);
+                        randomGoalTarget, randomGoalTarget, power, time);
                 }
 
                 //if shot is possible set the data
-                if(isShotPossible == false && considerShotSafety == false
-                    || isShotPossible && considerShotSafety)
+                if(isShotPossible == false && considerShotSafety == false || isShotPossible && considerShotSafety)
                 {
-                    //set the data
                     KickPower = power;
                     KickTarget = randomGoalTarget;
                     KickTime = time;
@@ -394,17 +369,15 @@ namespace Assets.Scripts.Entities
             return false;
         }
 
-        public bool CanPlayerReachTargetBeforePlayer(Vector3 target, Player player001, Player player002)
+        public bool CanPlayerReachTargetBeforePlayer(Vector3 target, Player player1, Player player2)
         {
-            return IsPositionCloserThanPosition(target,
-                player001.Position,
-                player002.Position);
+            return IsPositionCloserThanPosition(target, player1.Position, player2.Position);
         }
 
         public bool CanPassInDirection(Vector3 direction)
         {
             //set the pass target
-            bool passToPlayerClosestToMe = Random.value <= 0.75f;
+            bool passToPlayerClosestToMe = Random.value <= 1f;
 
             //set the pass target
             KickTarget = null;
@@ -417,7 +390,7 @@ namespace Assets.Scripts.Entities
                 // who is in this direction
                 if (player != this
                     && player.PlayerType == PlayerTypes.InFieldPlayer
-                    && IsPositionInDirection(direction, player.Position, 22.5f))
+                    && IsPositionInDirection(direction, player.Position, 30f))
                 {
                     CanPass(player.Position, true, passToPlayerClosestToMe, player);
                 }
@@ -434,7 +407,7 @@ namespace Assets.Scripts.Entities
                     // who is in this direction
                     if (player != this
                         && player.PlayerType == PlayerTypes.InFieldPlayer
-                        && IsPositionInDirection(direction, player.Position, 22.5f))
+                        && IsPositionInDirection(direction, player.Position, 30f))
                     {
                         CanPass(player.Position, false, passToPlayerClosestToMe, player);
                     }
@@ -478,7 +451,6 @@ namespace Assets.Scripts.Entities
             if (IsPositionBetweenTwoPoints(initialPosition, receiverPosition, oppPosition) == false)
                 return true;
 
-
             //check if pass to position can be intercepted
             Vector3 orthogonalPoint = GetPointOrthogonalToLine(initialPosition, target, oppPosition);
 
@@ -514,8 +486,7 @@ namespace Assets.Scripts.Entities
             Vector3 fromAToB = -fromBToA;
 
             //check if point is inbetween and return result
-            return Vector3.Dot(fromAToB.normalized, fromAToPoint.normalized) > 0
-                && Vector3.Dot(fromBToA.normalized, fromBToPoint.normalized) > 0;
+            return Vector3.Dot(fromAToB.normalized, fromAToPoint.normalized) > 0 && Vector3.Dot(fromBToA.normalized, fromBToPoint.normalized) > 0;
         }
 
         // Checks whether the first position is closer to target than the second position
@@ -622,7 +593,7 @@ namespace Assets.Scripts.Entities
                 _oppGoal.BottomRightRelativePosition.x);
 
             //set result
-            Vector3 goalLocalTarget = new Vector3(randomXPosition, refShotTarget.y, refShotTarget.z);
+            Vector3 goalLocalTarget = new Vector3(randomXPosition, refShotTarget.x, refShotTarget.z);
             Vector3 goalGlobalTarget = _oppGoal.transform.TransformPoint(goalLocalTarget);
 
             //return result
@@ -783,18 +754,12 @@ namespace Assets.Scripts.Entities
 
         public bool IsPositionWithinPassRange(Vector3 position)
         {
-            return IsWithinDistanceRange(Position,
-                position,
-                _distancePassMin,
-                _distancePassMax);
+            return IsWithinDistanceRange(Position, position, _distancePassMin, _distancePassMax);
         }
 
         public bool IsPositionWithinPassRange(Vector3 center, Vector3 position)
         {
-            return IsWithinDistanceRange(center,
-                position,
-                _distancePassMin,
-                _distancePassMax);
+            return IsWithinDistanceRange(center, position, _distancePassMin, _distancePassMax);
         }
 
         // Check whether a position is a threat or not
@@ -969,7 +934,7 @@ namespace Assets.Scripts.Entities
         {
             get
             {
-                return new Vector3(transform.position.x, 0.25f, transform.position.z);
+                return new Vector3(transform.position.x, 0f, transform.position.z);
             }
 
             set
@@ -1021,7 +986,6 @@ namespace Assets.Scripts.Entities
         public Goal OppGoal { get => _oppGoal; set => _oppGoal = value; }
         public float BallPassArriveVelocity { get => _ballPassArriveVelocity; set => _ballPassArriveVelocity = value; }
         public List<SupportSpot> PlayerSupportSpots { get => _pitchPoints; set => _pitchPoints = value; }
-
         public float Radius { get => _radius; set => _radius = value; }
         public Goal TeamGoal { get => _teamGoal; set => _teamGoal = value; }
         public PlayerTypes PlayerType { get => _playerType; set => _playerType = value; }
@@ -1032,5 +996,7 @@ namespace Assets.Scripts.Entities
         public float DistancePassMax { get => _distancePassMax; set => _distancePassMax = value; }
         public Player PrevPassReceiver { get => _prevPassReceiver; set => _prevPassReceiver = value; }
         public GameObject IconUserControlled { get => _iconUserControlled; set => _iconUserControlled = value; }
+        public Animator Animator { get => _animator; set => _animator = value; }
+        //public PlayerController playerController { get => _playerController; set => _playerController = value; }
     }
 }

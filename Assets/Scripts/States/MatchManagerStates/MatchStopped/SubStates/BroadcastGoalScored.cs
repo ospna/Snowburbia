@@ -51,7 +51,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchStopped.SubStates
         public void RaiseTheGoalScoredEvent()
         {
             //prepare an empty string
-            string message = "Goal";
+            string message = "GOOOAL!!!";
 
             //raise the event
             BroadcastHalfStart temp = Owner.OnBroadcastHalfStart;

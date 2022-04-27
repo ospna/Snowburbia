@@ -13,7 +13,7 @@ namespace Assets.Scripts.States.Entities.Team.Attack
     // move up the pitch into goal scoring positions
     public class AttackMainState : BState
     {
-        float _lengthPitch = 90;
+        float _lengthPitch = 60;
 
         public override void Enter()
         {
@@ -43,8 +43,7 @@ namespace Assets.Scripts.States.Entities.Team.Attack
 
                 //move the home position a similar percentage up the field
                 Vector3 currentPlayerHomePosition = Vector3.Lerp(teamPlayer.DefendingHomePosition.transform.position,
-                    teamPlayer.AttackingHomePosition.position,
-                    playerMovePercentage);
+                    teamPlayer.AttackingHomePosition.position, playerMovePercentage);
 
                 //update the current player home position position
                 if(Vector3.Distance(currentPlayerHomePosition, teamPlayer.CurrentHomePosition.position) >= 2)

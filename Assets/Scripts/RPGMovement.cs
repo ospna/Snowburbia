@@ -38,7 +38,6 @@ public class RPGMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-      
         //do the movement and rotation here
         if (Steer)
         {

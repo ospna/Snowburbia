@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+//using RobustFSM.Base;
+//using Assets.Scripts.StateMachines;
+//using static Assets.Scripts.Entities.Team;
 
 public class ManageScenes : MonoBehaviour
 {
@@ -15,7 +18,11 @@ public class ManageScenes : MonoBehaviour
     public GameObject inGameUI;
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+
     public Toggle fsTog;
+    //public static Toggle aiTog;
+
+    //Team Owner;
 
     public List<ResItem> resolutions = new List<ResItem>();
     private int selectedRes;
@@ -26,6 +33,21 @@ public class ManageScenes : MonoBehaviour
     void Start()
     {
         fsTog.isOn = Screen.fullScreen;
+
+        /*
+        if(PlayerPrefs.GetInt("ToggleSelected") == 0)
+        {
+            aiTog.isOn = true;
+            aiTog.isOn = Owner.IsUserControlled == false;
+        }
+        else
+        {
+            aiTog.isOn = Owner.IsUserControlled == true;
+        }
+
+        // if its toggled on, then its ai versus ai
+        aiTog.isOn = true == Owner.IsUserControlled == false;
+        */
 
         bool foundRes = false;
         for(int i = 0; i < resolutions.Count; i++)

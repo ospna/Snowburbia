@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: AI_Idle
+    second: GB_Idle
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: AI_Idle
+      name: GB_Idle
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Entities;
+﻿using System;
+using Assets.Scripts.Entities;
 using Assets.Scripts.StateMachines;
 //using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.GoToHomeMainState;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGoal;
@@ -21,7 +22,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             base.Enter();
 
             //find the point on the ball path to target that is orthogonal to player position
-           _steerTarget = Owner.GetPointOrthogonalToLine(BallInitialPosition, ShotTarget, Owner.Position);
+            _steerTarget = Owner.GetPointOrthogonalToLine(BallInitialPosition, ShotTarget, Owner.Position);
 
             // calculate time of ball to intercept point
             timeOfBallToInterceptPoint = Owner.TimeToTarget(BallInitialPosition, ShotTarget, BallInitialVelocity, Ball.Instance.Friction);
@@ -36,11 +37,16 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             Owner.RPGMovement.SetMoveTarget(_steerTarget);
             Owner.RPGMovement.SetRotateFacePosition(BallInitialPosition);
             Owner.RPGMovement.SetTrackingOn();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("CanSave", true);
         }
 
         public override void Execute()
         {
             base.Execute();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("CanSave", true);
+            Owner._animator.SetBool("CanSave", true);
 
             // keep steering to target
             Owner.RPGMovement.SetMoveTarget(_steerTarget);
@@ -48,7 +54,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             // decrement ball time
             timeOfBallToInterceptPoint -= Time.deltaTime;
 
-            if(Vector3.Distance(_steerTarget, Owner.Position) <= 1f)
+            if(Vector3.Distance(_steerTarget, Owner.Position) <= 0.5f)
             {
                 if (Owner.RPGMovement.Steer == true)
                     Owner.RPGMovement.SetSteeringOff();
@@ -64,7 +70,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             {
                 // find direction to deflect ball to
                 Vector3 localPoint = Owner.TeamGoal.transform.InverseTransformPoint(Owner.Position);
-                localPoint.y = localPoint.z = 0f;
+                localPoint.x = localPoint.z = 0f;
 
                 // find the direction in world space
                 Vector3 direction = Owner.TeamGoal.transform.TransformPoint(localPoint);
@@ -81,6 +87,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
         public override void Exit()
         {
             base.Exit();
+
+            Owner._animator.SetBool("CanSave", false);
+            Owner.GetComponentInChildren<Animator>().SetBool("CanSave", false);
 
             // reset steering
             Owner.RPGMovement.SetSteeringOff();

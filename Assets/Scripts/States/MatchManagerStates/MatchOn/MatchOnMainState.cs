@@ -22,9 +22,6 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn
             SetInitialState<BroadcastMatchStatus>();
         }
 
-        /// <summary>
-        /// On enter
-        /// </summary>
         public override void Enter()
         {
             base.Enter();
@@ -35,9 +32,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn
 
         }
 
-        /// <summary>
-        /// Returns the owner of this instance
-        /// </summary>
+        // Returns the owner of this instance
         public MatchManager Owner
         {
             get

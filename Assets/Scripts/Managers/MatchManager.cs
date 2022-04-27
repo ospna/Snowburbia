@@ -175,6 +175,7 @@ namespace Assets.Scripts.Managers
 
         private void Update()
         {
+            /*
             if(Input.GetMouseButtonDown(0))
             {
                 if(TeamAway.FSM.IsCurrentState<AttackMainState>())
@@ -186,6 +187,7 @@ namespace Assets.Scripts.Managers
                     ActionUtility.Invoke_Action(TeamAway.OnGainPossession);
                 }
             }
+            */
         }
         public void Instance_OnContinueToSecondHalf()
         {

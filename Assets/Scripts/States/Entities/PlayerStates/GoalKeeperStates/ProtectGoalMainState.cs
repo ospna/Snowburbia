@@ -24,7 +24,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
             _goalLayerMask = LayerMask.GetMask("GoalTrigger");
 
             //set some data
-            _prevBallPosition = 100 * Vector3.one;
+            _prevBallPosition = 1000 * Vector3.one;
             _timeSinceLastUpdate = 0f;
 
             //set the rpg movement
@@ -58,7 +58,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
                     Vector3 ballRelativePosToGoal = Owner.TeamGoal.transform.InverseTransformPoint(ballPosition);
                     ballRelativePosToGoal.z = Owner.TendGoalDistance;
                     ballRelativePosToGoal.x /= 3f;
-                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -1f, 1f);
+                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -2f, 2f);
                     _steeringTarget = Owner.TeamGoal.transform.TransformPoint(ballRelativePosToGoal);
 
                     //add some noise to the target

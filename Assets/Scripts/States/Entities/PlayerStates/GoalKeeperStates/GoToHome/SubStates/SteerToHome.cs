@@ -7,9 +7,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.
 {
     public class SteerToHome : BState
     {
-        /// <summary>
-        /// The steering target
-        /// </summary>
         public Vector3 SteeringTarget { get; set; }
 
         public override void Enter()

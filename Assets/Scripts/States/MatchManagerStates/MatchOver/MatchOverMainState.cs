@@ -63,9 +63,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOver
 
         }
 
-        /// <summary>
-        /// Returns the owner of this instance
-        /// </summary>
+        // Returns the owner of this instance
         public MatchManager Owner
         {
             get

@@ -13,16 +13,13 @@ namespace Assets.Scripts.States.Entities.Team.KickOff.SubStates
         {
             base.Enter();
 
-            // set player current psotion to kick-off position
             SetPlayerCurrentHomePositionToKickOffPosition();
 
-            //place every player on the kick off position
             PlaceEveryPlayerAtKickOffPosition();
 
             //go to the next state
             if (Owner.HasKickOff)
             {
-                //comment to follow kickoff procedure
                 PlaceKickOffTakerAtTakeKickOffPosition();
                 Machine.ChangeState<TakeKickOff>();
             }

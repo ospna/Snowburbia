@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             // set the wait time
-            waitTime = 1.5f;
+            waitTime = 1.25f;
 
             // get the kick target
             _kickTarget = (Vector3)Owner.KickTarget;
@@ -27,13 +27,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             bool isPositionInFrontOfMe = Owner.IsInfrontOfPlayer(_kickTarget);
 
             // proceed to check kick type if infront of me
-            // try to face target
             if(isPositionInFrontOfMe)
                 Machine.ChangeState<CheckKickType>();
             else
             {
                 // set new speed
-                Owner.RPGMovement.Speed *= 0.95f;
+                Owner.RPGMovement.Speed *= 1f;
 
                 //listen to game events
                 Owner.OnTackled += Instance_OnTackled;
@@ -55,7 +54,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             // decrement wait time
             waitTime -= Time.deltaTime;
 
-            // if we have exhausted the wait time go to control ball main state
             //place ball infront of me
             if (waitTime <= 0)
                 SuperMachine.ChangeState<ControlBallMainState>();
@@ -67,9 +65,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
         {
             base.ManualExecute();
 
-            // if position is now in front of me,
-            // pass to it if pass still safe
-            // else go back to control ball
+            // pass to the ball if it's in front of me else go back to control ball
             if (Owner.IsInfrontOfPlayer(_kickTarget))
             {
                 if (Owner.KickType == KickType.Pass)

@@ -24,8 +24,7 @@ namespace Assets.Scripts.States.Entities.Team.KickOff.SubStates
             // set to unexecuted
             executed = false;
 
-            // uncomment to follow actual procedure in taking kick-off
-            //// register player to listening to take-kickoff action
+            // register player to listening to take-kickoff action
             ControllingPlayer.Player.OnTakeKickOff += Instance_OnPlayerTakeKickOff;
             InstructPlayerToTakeKickOff += ControllingPlayer.Player.Invoke_OnInstructedToTakeKickOff;
 
@@ -35,7 +34,6 @@ namespace Assets.Scripts.States.Entities.Team.KickOff.SubStates
         {
             base.Execute();
 
-            // if not executed then run logic
             if (!executed)
             {
                 // decrement time
@@ -48,9 +46,6 @@ namespace Assets.Scripts.States.Entities.Team.KickOff.SubStates
 
                     // trigger player to take kick-off
                     ActionUtility.Invoke_Action(InstructPlayerToTakeKickOff);
-
-                    // comment out to stop skipping to game on
-                    //Instance_OnPlayerTakeKickOff();
                 }
             }
         }

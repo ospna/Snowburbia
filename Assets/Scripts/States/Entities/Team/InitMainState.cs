@@ -118,24 +118,21 @@ namespace Assets.Scripts.States.Entities.Team.Init
         {
             // get the full list of the team's members
             Owner.Players.ForEach(tM => tM.Player.OppositionMembers = Owner.Opponent.Players
-            .Select(tMS => tMS.Player)
-            .ToList());
+            .Select(tMS => tMS.Player).ToList());
         }
 
         public void InitTeamPlayerTeamMembers()
         {
             // get the full list of the team's members
             Owner.Players.ForEach(tM => tM.Player.TeamMembers = Owner.Players
-            .Select(tMS => tMS.Player)
-            .ToList());
+            .Select(tMS => tMS.Player).ToList());
         }
 
         public void InitTeamMemberPlayerSupportSpots()
         {
             //set the positions
             Owner.Players.ForEach(tM => tM.Player.PlayerSupportSpots = Owner.PlayerSupportSpots
-            .GetComponentsInChildren<SupportSpot>()
-            .ToList());
+            .GetComponentsInChildren<SupportSpot>().ToList());
         }
 
         public void InitTeamMemberTeamGoal()
@@ -148,8 +145,7 @@ namespace Assets.Scripts.States.Entities.Team.Init
         {
             // get the goalkeeper
             TeamPlayer goalKeeper = Owner.Players
-                .Where(tM => tM.Player.PlayerType == PlayerTypes.Goalkeeper)
-                .FirstOrDefault();
+                .Where(tM => tM.Player.PlayerType == PlayerTypes.Goalkeeper).FirstOrDefault();
 
             if (goalKeeper != null)
                 Ball.Instance.OnBallShot += goalKeeper.Player.Invoke_OnBallLaunched;
