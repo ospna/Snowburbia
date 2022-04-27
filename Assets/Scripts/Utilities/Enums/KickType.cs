@@ -8,7 +8,7 @@ namespace Assets.Scripts.Utilities.Enums
 {
     public enum KickType
     {
-        Pass, Shot
+        Pass, Shot, CurveShot, ChipShot
     }
 
 }

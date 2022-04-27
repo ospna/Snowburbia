@@ -7,14 +7,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
 {
-    /// <summary>
-    /// Broadcasts the match status just before the match status is executed
-    /// </summary>
+    // Broadcasts the match status just before the match status is executed
     public class BroadcastMatchStatus : BState
     {
-        /// <summary>
-        /// A reference to the wait time
-        /// </summary>
+        // A reference to the wait time
         float waitTime;
 
         public override void Enter()
@@ -22,7 +18,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
             base.Enter();
 
             //set the wait time
-            waitTime = 1f;
+            waitTime = .5f;
 
             //raise the half-start event
             RaiseTheMatchStartEvent();

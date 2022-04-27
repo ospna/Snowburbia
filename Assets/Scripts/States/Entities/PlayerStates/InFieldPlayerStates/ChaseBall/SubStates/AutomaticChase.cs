@@ -14,9 +14,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
 {
     public class AutomaticChase : BState
     {
-        /// <summary>
-        /// The steering target
-        /// </summary>
         public Vector3 SteeringTarget { get; set; }
 
         public override void Enter()

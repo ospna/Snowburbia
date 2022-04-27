@@ -15,7 +15,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.TakeKi
             base.Enter();
 
             //get a player to pass to
-            Player receiver = Owner.GetRandomTeamMemberInRadius(20f);
+            Player receiver = Owner.GetRandomTeamMemberInRadius(40f);
 
             //find the power to target
             float power = Owner.FindPower(Ball.Instance.NormalizedPosition,
@@ -27,18 +27,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.TakeKi
             power = Mathf.Clamp(power, 0f, Owner.ActualPower);
 
             float time = Owner.TimeToTarget(Ball.Instance.Position,
-                receiver.Position,
-                power,
-                Ball.Instance.Friction);
+                receiver.Position, power, Ball.Instance.Friction);
 
             //make a normal pass to the player
             Owner.MakePass(Ball.Instance.NormalizedPosition,
-                receiver.Position,
-                receiver,
-                power, 
-                time);
+                receiver.Position, receiver, power, time);
 
-            ////broadcast that I have taken kick-off
             ActionUtility.Invoke_Action(Owner.OnTakeKickOff);
 
             //go to home state

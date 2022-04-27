@@ -57,8 +57,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
                     //run the logic for protecting the goal, find the position
                     Vector3 ballRelativePosToGoal = Owner.TeamGoal.transform.InverseTransformPoint(ballPosition);
                     ballRelativePosToGoal.z = Owner.TendGoalDistance;
-                    ballRelativePosToGoal.x /= 3f;
-                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -2f, 2f);
+                    ballRelativePosToGoal.x /= 2f;
+                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -4f, 4f);
                     _steeringTarget = Owner.TeamGoal.transform.TransformPoint(ballRelativePosToGoal);
 
                     //add some noise to the target
@@ -68,11 +68,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
                 }
 
                 //reset the time 
-                _timeSinceLastUpdate = 2f * (1f - Owner.GoalKeeping);
+                _timeSinceLastUpdate = 1.5f * (1f - Owner.GoalKeeping);
 
                 if (_timeSinceLastUpdate == 0f)
                 {
-                    _timeSinceLastUpdate = 2f * 0.1f;
+                    _timeSinceLastUpdate = 1.5f * 0.15f;
                 }
             }
 
@@ -108,7 +108,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
 
             // make a raycast and test if it hits target
             RaycastHit hitInfo;
-            bool willBallHitAGoal = Physics.SphereCast(Ball.Instance.NormalizedPosition + Vector3.up,
+            bool willBallHitAGoal = Physics.SphereCast(Ball.Instance.NormalizedPosition,
                         Ball.Instance.SphereCollider.radius, direction, out hitInfo, 300, _goalLayerMask);
             
             // get the goal from the goal trigger

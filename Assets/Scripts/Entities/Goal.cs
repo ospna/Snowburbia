@@ -18,7 +18,6 @@ namespace Assets.Scripts.Entities
         // Action raised when goal collides with the ball
         public Action OnCollideWithBall;
 
-        ///ToDo::Speak about why you put them here as an initialization
         public Vector3 BottomLeftRelativePosition { get; set; }
         public Vector3 BottomRightRelativePosition { get; set; }
         public Vector3 Position { get => transform.position; }

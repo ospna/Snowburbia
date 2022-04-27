@@ -16,6 +16,10 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
                 Machine.ChangeState<PassBall>();
             else if (Owner.KickType == KickType.Shot)
                 Machine.ChangeState<ShootBall>();
+            else if (Owner.KickType == KickType.CurveShot)
+                Machine.ChangeState<CurveBall>();
+            else if (Owner.KickType == KickType.ChipShot)
+                Machine.ChangeState<ChipBall>();
         }
 
         public Player Owner

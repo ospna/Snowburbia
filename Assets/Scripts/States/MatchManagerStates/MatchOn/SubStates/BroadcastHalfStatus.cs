@@ -9,9 +9,6 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
 {
     public class BroadcastHalfStatus : BState
     {
-        /// <summary>
-        /// A reference to the wait time
-        /// </summary>
         float waitTime;
 
         public override void Enter()
@@ -45,9 +42,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
             ActionUtility.Invoke_Action(Owner.OnFinishBroadcastHalfStart);
         }
 
-        /// <summary>
-        /// Raises the half start event
-        /// </summary>
+        // Raises the half start event
         public void RaiseTheHalfStartEvent()
         {
             //prepare an empty string
@@ -64,9 +59,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
             if (temp != null) temp.Invoke(message);
         }
 
-        /// <summary>
-        /// Returns the owner of this instance
-        /// </summary>
+        // Returns the owner of this instance
         public MatchManager Owner
         {
             get

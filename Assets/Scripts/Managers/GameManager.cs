@@ -28,14 +28,10 @@ namespace Assets.Scripts.Managers
         [SerializeField]
         MatchOnPanel _matchOnPanel;
 
-        /// <summary>
-        /// Event raised when continuing to second half
-        /// </summary>
+        // Event raised when continuing to second half
         public Action OnContinueToSecondHalf;
 
-        /// <summary>
-        /// Event raised when switching to match on
-        /// </summary>
+        // Event raised when switching to match on
         public Action OnMessageSwitchToMatchOn;
 
         private void Awake()
@@ -113,8 +109,6 @@ namespace Assets.Scripts.Managers
 
         private void Instance_OnGoalScored(string message, string message1)
         {
-            //show the text
-            //_matchOnPanel.TxtScores.text = message;
 
             _matchOnPanel.hometeamScoreText.text = message;
             _matchOnPanel.awayteamScoreText.text = message1;
@@ -169,31 +163,6 @@ namespace Assets.Scripts.Managers
         {
             ActionUtility.Invoke_Action(OnMessageSwitchToMatchOn);
         }
-
-        /*
-        /// <summary>
-        /// Quits this game
-        /// </summary>
-        public void Quit()
-        {
-            //pasue the editor
-#if UNITYEDITOR
-            Debug.Break();
-#endif
-            //quit the game
-            Application.Quit();
-
-        }
-
-        /// <summary>
-        /// Restart this instance
-        /// </summary>
-        public void Restart()
-        {
-            //reload the current scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        */
 
         private void ShowInfoPanel(string message)
         {

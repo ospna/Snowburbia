@@ -28,7 +28,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             timeOfBallToInterceptPoint = Owner.TimeToTarget(BallInitialPosition, ShotTarget, BallInitialVelocity, Ball.Instance.Friction);
 
             // add some noise to it
-            timeOfBallToInterceptPoint += 0.5f;
+            timeOfBallToInterceptPoint += 0.25f;
 
             if (Vector3.Distance(_steerTarget, ShotTarget) >= 2f)
                 Owner.RPGMovement.SetSteeringOn();
@@ -62,11 +62,13 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
 
             // if time is exhausted then go to tend goal
             // if ball within control distance te deflect its path
+            /*
             if (timeOfBallToInterceptPoint <= 0f)
             {
                 SuperMachine.ChangeState<ProtectGoalMainState>();
             }
-            else if(Owner.IsBallWithinControlableDistance())
+            */
+            if(Owner.IsBallWithinControlableDistance())
             {
                 // find direction to deflect ball to
                 Vector3 localPoint = Owner.TeamGoal.transform.InverseTransformPoint(Owner.Position);
@@ -76,8 +78,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
                 Vector3 direction = Owner.TeamGoal.transform.TransformPoint(localPoint);
 
                 // deflect ball
-                Ball.Instance.Kick(Owner.Position + direction.normalized,
-                    Ball.Instance.Rigidbody.velocity.magnitude);
+                Ball.Instance.Kick(Owner.Position + direction.normalized,Ball.Instance.Rigidbody.velocity.magnitude * 4f);
                 
                 // go to tend goal
                 SuperMachine.ChangeState<ProtectGoalMainState>();

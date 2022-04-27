@@ -67,8 +67,6 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
         private void Instance_OnGoalScored()
         {
             //prepare the text
-            //string info = string.Format("TeamA {0}-{1} TeamH", Owner.TeamAway.Goals, Owner.TeamHome.Goals);
-
             string homeInfo = (Owner.TeamHome.Goals).ToString();
             string awayInfo = (Owner.TeamAway.Goals).ToString();
 
@@ -90,7 +88,6 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
             if (temp != null) temp.Invoke(Owner.CurrentHalf, minutes, seconds);
 
             //compare the next stop time and the current time
-            //stop game if current time is now equal to the next stop time
             if (minutes >= Owner.NextStopTime)
             {
                 // set the match status
@@ -101,9 +98,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
             }
         }
 
-        /// <summary>
-        /// Access the super state machine
-        /// </summary>
+        // Access the super state machine
         public IFSM SuperFSM
         {
             get
@@ -112,9 +107,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
             }
         }
 
-        /// <summary>
-        /// Access the owner of the state machine
-        /// </summary>
+        // Access the owner of the state machine
         public MatchManager Owner
         {
             get

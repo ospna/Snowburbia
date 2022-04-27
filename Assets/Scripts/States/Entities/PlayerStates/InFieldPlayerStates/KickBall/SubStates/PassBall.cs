@@ -16,10 +16,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
 
             //make a normal pass to the player
             Owner.MakePass(Ball.Instance.NormalizedPosition,
-                (Vector3)Owner.KickTarget,
-                Owner.PassReceiver, 
-                Owner.KickPower,
-                Owner.BallTime);
+                (Vector3)Owner.KickTarget, Owner.PassReceiver,Owner.KickPower, Owner.BallTime);
 
             //go to recover state
             Machine.ChangeState<RecoverFromKick>();

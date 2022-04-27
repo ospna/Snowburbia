@@ -1,10 +1,13 @@
 ﻿using Assets.Scripts.Entities;
 using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.Team.Attack;
+using static Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates.ManualChase;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
 using Patterns.Singleton;
 using RobustFSM.Interfaces;
+using RobustFSM.Base;
 using System;
 using UnityEngine;
 
@@ -166,15 +169,47 @@ namespace Assets.Scripts.Managers
         // The OnTick event
         public Tick OnTick;
 
+        Vector3 RefObjectForward;             // The current forward direction of the camera
+        Transform _refObject;                 // A reference to the main camera in the scenes transform
+
         public override void Awake()
         {
             base.Awake();
 
             FSM = GetComponent<MatchManagerFSM>();
+
+            _refObject = Camera.main.transform;
         }
 
         private void Update()
         {
+            if(TeamAway.FSM.IsCurrentState<AttackMainState>())
+            {
+                ActionUtility.Invoke_Action(TeamHome.OnGainPossession);
+            }
+            else if (TeamHome.FSM.IsCurrentState<AttackMainState>())
+            {
+                ActionUtility.Invoke_Action(TeamAway.OnGainPossession);
+            }
+            else
+            {
+                /*
+                //capture input
+                float horizontalInput = Input.GetAxis("Horizontal");
+                float verticalInput = Input.GetAxis("Vertical");
+
+                //calculate the direction to rotate to
+                Vector3 input = new Vector3(horizontalInput, 0f, verticalInput);
+
+                // calculate camera relative direction to move:
+                RefObjectForward = Vector3.Scale(_refObject.forward, new Vector3(1, 0, 1)).normalized;
+                Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
+
+                // set the direction of movement
+                Vector3 direction = Movement == Vector3.zero ? TeamHome.transform.forward : Movement;
+                */
+            }
+
             /*
             if(Input.GetMouseButtonDown(0))
             {
@@ -186,8 +221,13 @@ namespace Assets.Scripts.Managers
                 {
                     ActionUtility.Invoke_Action(TeamAway.OnGainPossession);
                 }
+                else
+                {
+                    Machine.ChangeState<ManualChase>();
+                }
             }
             */
+
         }
         public void Instance_OnContinueToSecondHalf()
         {

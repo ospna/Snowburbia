@@ -11,8 +11,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.States.Entities.Team.Defend
 {
-    /// The team drops into it's own half and tries to place players between itself and the
-    /// goal in the hope of making it difficult for the opposition to score
+    // The team drops into it's own half and tries to place players between itself and the
+    // goal in the hope of making it difficult for the opposition to score
     public class DefendMainState : BState
     {
         float _lengthPitch = 60;
@@ -89,8 +89,7 @@ namespace Assets.Scripts.States.Entities.Team.Defend
 
                 //move the home position a similar percentage up the field
                 Vector3 currentPlayerHomePosition = Vector3.Lerp(teamPlayer.DefendingHomePosition.transform.position,
-                    teamPlayer.AttackingHomePosition.position,
-                    playerMovePercentage);
+                    teamPlayer.AttackingHomePosition.position, playerMovePercentage);
 
                 //update the current player home position position
                 if (Vector3.Distance(currentPlayerHomePosition, teamPlayer.CurrentHomePosition.position) >= 2)

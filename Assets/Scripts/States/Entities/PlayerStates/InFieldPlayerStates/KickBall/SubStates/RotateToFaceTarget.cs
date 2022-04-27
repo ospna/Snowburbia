@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             // set the wait time
-            waitTime = 1.25f;
+            waitTime = .15f;
 
             // get the kick target
             _kickTarget = (Vector3)Owner.KickTarget;
@@ -71,12 +71,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
                 if (Owner.KickType == KickType.Pass)
                 {
                     Machine.ChangeState<CheckKickType>();
-                    //if (Owner.IsUserControlled == true)
-                    //    Machine.ChangeState<CheckKickType>();
-                    //else if(Owner.CanPass(_kickTarget, true, false, Owner.PassReceiver))
-                    //    Machine.ChangeState<CheckKickType>();
-                    //else
-                    //    SuperMachine.ChangeState<ControlBallMainState>();
                 }
                 else
                     Machine.ChangeState<CheckKickType>();
@@ -98,7 +92,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             Ball.Instance.Rigidbody.isKinematic = false;
 
             //stop steering
-            //Owner.RPGMovement.SetSteeringOff();
+            Owner.RPGMovement.SetSteeringOff();
             Owner.RPGMovement.SetTrackingOff();
         }
 

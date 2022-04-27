@@ -18,6 +18,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             AddState<RecoverFromKick>();
             AddState<RotateToFaceTarget>();
             AddState<ShootBall>();
+            AddState<CurveBall>();
+            AddState<ChipBall>();
 
             //set initial state
             SetInitialState<RotateToFaceTarget>();

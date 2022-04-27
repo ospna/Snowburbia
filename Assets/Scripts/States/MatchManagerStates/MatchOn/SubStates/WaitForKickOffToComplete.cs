@@ -10,11 +10,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
 {
-    /// <summary>
-    /// Waits for the kick-off event to be raised by either of the teams
-    /// If the kickoff event is raised then it triggers a state change to
-    /// the exhaust first half state
-    /// </summary>
+
+    // Waits for the kick-off event to be raised by either of the teams
     public class WaitForKickOffToComplete : BState
     {
         bool hasInvokedKickOffEvent;

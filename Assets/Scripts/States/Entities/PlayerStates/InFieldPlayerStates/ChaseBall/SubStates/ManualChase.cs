@@ -65,8 +65,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
 
             //check if ball is within control distance
-            if (Ball.Instance.Owner != null
-                && Owner.IsBallWithinControlableDistance())
+            if (Ball.Instance.Owner != null && Owner.IsBallWithinControlableDistance())
             {
                 //tackle player
                 SuperMachine.ChangeState<TackleMainState>();
@@ -98,8 +97,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Owner.IconUserControlled.SetActive(false);
 
             //set the steering to on
-            //Owner.RPGMovement.SetSteeringOff();
-            //Owner.RPGMovement.SetTrackingOff();
+            Owner.RPGMovement.SetSteeringOff();
+            Owner.RPGMovement.SetTrackingOff();
         }
 
         public Player Owner
