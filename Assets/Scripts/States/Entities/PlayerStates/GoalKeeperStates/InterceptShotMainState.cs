@@ -28,9 +28,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             timeOfBallToInterceptPoint = Owner.TimeToTarget(BallInitialPosition, ShotTarget, BallInitialVelocity, Ball.Instance.Friction);
 
             // add some noise to it
-            timeOfBallToInterceptPoint += 0.25f;
+            timeOfBallToInterceptPoint += 0.05f;
 
-            if (Vector3.Distance(_steerTarget, ShotTarget) >= 2f)
+            if (Vector3.Distance(_steerTarget, ShotTarget) >= 1f)
                 Owner.RPGMovement.SetSteeringOn();
 
             // set the steering 
@@ -54,7 +54,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             // decrement ball time
             timeOfBallToInterceptPoint -= Time.deltaTime;
 
-            if(Vector3.Distance(_steerTarget, Owner.Position) <= 0.5f)
+            if(Vector3.Distance(_steerTarget, Owner.Position) <= 0.05f)
             {
                 if (Owner.RPGMovement.Steer == true)
                     Owner.RPGMovement.SetSteeringOff();
@@ -62,23 +62,21 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
 
             // if time is exhausted then go to tend goal
             // if ball within control distance te deflect its path
-            /*
             if (timeOfBallToInterceptPoint <= 0f)
             {
                 SuperMachine.ChangeState<ProtectGoalMainState>();
             }
-            */
             if(Owner.IsBallWithinControlableDistance())
             {
                 // find direction to deflect ball to
                 Vector3 localPoint = Owner.TeamGoal.transform.InverseTransformPoint(Owner.Position);
-                localPoint.x = localPoint.z = 0f;
+                localPoint.y = localPoint.z = 0f;
 
                 // find the direction in world space
                 Vector3 direction = Owner.TeamGoal.transform.TransformPoint(localPoint);
 
                 // deflect ball
-                Ball.Instance.Kick(Owner.Position + direction.normalized,Ball.Instance.Rigidbody.velocity.magnitude * 4f);
+                Ball.Instance.Kick(Owner.Position + direction.normalized, Ball.Instance.Rigidbody.velocity.magnitude * -2f);
                 
                 // go to tend goal
                 SuperMachine.ChangeState<ProtectGoalMainState>();

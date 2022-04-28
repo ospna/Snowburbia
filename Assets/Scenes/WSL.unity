@@ -12575,7 +12575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273358105865299819, guid: 1866e237d06984845ba632f86023f7f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273358105865299819, guid: 1866e237d06984845ba632f86023f7f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4273358105899723243, guid: 1866e237d06984845ba632f86023f7f6, type: 3}
       propertyPath: m_Layer
@@ -12597,6 +12601,10 @@ PrefabInstance:
       propertyPath: _goalMouth._pointBottomRight
       value: 
       objectReference: {fileID: 403713564}
+    - target: {fileID: 4273358106317431872, guid: 1866e237d06984845ba632f86023f7f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4360830745880863269, guid: 1866e237d06984845ba632f86023f7f6, type: 3}
       propertyPath: Speed
       value: 2
@@ -17958,6 +17966,22 @@ PrefabInstance:
     - target: {fileID: 3560500966315161507, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_LocalPosition.z
       value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560500966595551450, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560500966595551451, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560500967116497905, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560500967116497905, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3560500967422882962, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_RootOrder

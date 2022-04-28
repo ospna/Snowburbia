@@ -22,6 +22,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
 
             // set initial state
             SetInitialState<ChooseChaseType>();
+
+            //if team is incontrol, raise the event that I'm chasing ball
+            if (Owner.IsTeamInControl)
+            {
+                SetInitialState<ManualChase>();
+            }
         }
 
         public override void Enter()
@@ -36,12 +42,14 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
         {
             base.ManualExecute();
 
-            //if team is incontrol, raise the event that I'm chasing ball
+            //if team is in control, raise the event that I'm chasing ball
             if (Owner.IsTeamInControl)
             {
-                ChaseBallDel temp = Owner.OnChaseBall;
-                if (temp != null)
-                    temp.Invoke(Owner);
+                ChaseBallDel chase = Owner.OnChaseBall;
+                if (chase != null)
+                {
+                    chase.Invoke(Owner);
+                }
             }
         }
 

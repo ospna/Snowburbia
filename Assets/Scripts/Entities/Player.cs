@@ -317,6 +317,7 @@ namespace Assets.Scripts.Entities
             if (considerGoalDistance)
             {
                 float distanceToGoal = Vector3.Distance(OppGoal.Position, Position);
+
                 if (distanceToGoal > _distanceShotMaxValid)
                     return false;
             }
