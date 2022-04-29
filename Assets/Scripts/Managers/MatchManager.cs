@@ -183,6 +183,7 @@ namespace Assets.Scripts.Managers
 
         private void Update()
         {
+            /*
             if(TeamAway.FSM.IsCurrentState<AttackMainState>())
             {
                 ActionUtility.Invoke_Action(TeamHome.OnGainPossession);
@@ -208,7 +209,7 @@ namespace Assets.Scripts.Managers
                 // set the direction of movement
                 Vector3 direction = Movement == Vector3.zero ? TeamHome.transform.forward : Movement;
                 */
-            }
+            //}
 
             /*
             if(Input.GetMouseButtonDown(0))

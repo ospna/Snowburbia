@@ -67,7 +67,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             else if (Input.GetButtonDown("Shoot") || Input.GetButtonDown("Fire1"))
             {
                 // check if I can score
-                bool canScore = Owner.CanScore(false, true);
+                bool canScore = Owner.CanScore(true, true);
 
                 // shoot if I can score
                 if (canScore)

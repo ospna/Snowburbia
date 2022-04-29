@@ -28,13 +28,13 @@ namespace Assets.Scripts.Entities
         float _maxWanderDistance = 15f;
 
         [SerializeField]
-        float _distancePassMax = 20f;
+        float _distancePassMax = 50f;
 
         [SerializeField]
-        float _distancePassMin = 5f;
+        float _distancePassMin = 2f;
 
         [SerializeField]
-        float _distanceShotMaxValid = 30f;
+        float _distanceShotMaxValid = 35f;
 
         [SerializeField]
         float _distanceThreatMax = 2f;
@@ -43,7 +43,7 @@ namespace Assets.Scripts.Entities
         float _distanceThreatMin = 5f;
 
         [SerializeField]
-        float _ballPassArriveVelocity = 12;
+        float _ballPassArriveVelocity = 20;
 
         [SerializeField]
         float _ballShotArriveVelocity = 15f;
@@ -391,7 +391,7 @@ namespace Assets.Scripts.Entities
                 // who is in this direction
                 if (player != this
                     && player.PlayerType == PlayerTypes.InFieldPlayer
-                    && IsPositionInDirection(direction, player.Position, 30f))
+                    && IsPositionInDirection(direction, player.Position, 40f))
                 {
                     CanPass(player.Position, true, passToPlayerClosestToMe, player);
                 }
@@ -408,7 +408,7 @@ namespace Assets.Scripts.Entities
                     // who is in this direction
                     if (player != this
                         && player.PlayerType == PlayerTypes.InFieldPlayer
-                        && IsPositionInDirection(direction, player.Position, 30f))
+                        && IsPositionInDirection(direction, player.Position, 40f))
                     {
                         CanPass(player.Position, false, passToPlayerClosestToMe, player);
                     }
@@ -559,7 +559,6 @@ namespace Assets.Scripts.Entities
         // Calculates the time it will take to reach the target
         public float TimeToTarget(Vector3 initial, Vector3 target, float velocityInitial, float acceleration)
         {
-            //using  v^2 = u^2 + 2as 
             float distance = Vector3.Distance(initial, target);
             float uSquared = Mathf.Pow(velocityInitial, 2f);
             float v_squared = uSquared + (2 * acceleration * distance);

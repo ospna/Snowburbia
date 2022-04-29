@@ -32,11 +32,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
                 Owner.BallTime);
                 */
 
-            Owner.MakeShot(Ball.Instance.NormalizedPosition, (Vector3)Owner.KickTarget, Owner.KickPower, Owner.BallTime);
+            //Owner.MakeShot(Ball.Instance.NormalizedPosition, (Vector3)Owner.KickTarget, Owner.KickPower, Owner.BallTime);
 
-            Ball.Instance.Rigidbody.AddForce((Vector3)Owner.KickTarget * chipSpeedUp, ForceMode.Impulse);
-            Ball.Instance.Rigidbody.AddForce((Vector3)Owner.KickTarget * chipSpeedForward, ForceMode.Impulse);
-            Ball.Instance.Rigidbody.AddTorque(-(Vector3)Owner.KickTarget * chipTorqueUp, ForceMode.Impulse);
+            Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * chipSpeedUp, ForceMode.Impulse);
+            Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * chipSpeedForward, ForceMode.Impulse);
+            Ball.Instance.Rigidbody.AddTorque(-Owner.transform.forward * chipTorqueUp, ForceMode.Impulse);
             //chipSound.Play();
             addDip = true;
 

@@ -28,7 +28,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             timeOfBallToInterceptPoint = Owner.TimeToTarget(BallInitialPosition, ShotTarget, BallInitialVelocity, Ball.Instance.Friction);
 
             // add some noise to it
-            timeOfBallToInterceptPoint += 0.05f;
+            //timeOfBallToInterceptPoint += 0.05f;
 
             if (Vector3.Distance(_steerTarget, ShotTarget) >= 1f)
                 Owner.RPGMovement.SetSteeringOn();

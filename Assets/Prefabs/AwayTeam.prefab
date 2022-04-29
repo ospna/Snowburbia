@@ -19500,13 +19500,13 @@ MonoBehaviour:
   _isUserControlled: 0
   _ballControlDistance: 0.5
   _maxWanderDistance: 15
-  _distancePassMax: 15
-  _distancePassMin: 8
-  _distanceShotMaxValid: 30
+  _distancePassMax: 50
+  _distancePassMin: 2
+  _distanceShotMaxValid: 35
   _distanceThreatMax: 2
   _distanceThreatMin: 5
-  _ballPassArriveVelocity: 12
-  _ballShotArriveVelocity: 30
+  _ballPassArriveVelocity: 20
+  _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
   _tendGoalDistance: 1
   _oppGoal: {fileID: 0}
@@ -19578,13 +19578,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2406947685099188742}
   serializedVersion: 2
-  m_Mass: 80
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &2538055612022158024
 GameObject:
@@ -19837,7 +19837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2938295777154893092}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0, y: 0.15, z: -2}
+  m_LocalPosition: {x: -0, y: 0.15, z: -3}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3560500967016934768}
@@ -20244,7 +20244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560500965823802989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -18.5}
+  m_LocalPosition: {x: 0, y: 0, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3560500967178175251}
@@ -20601,7 +20601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560500966286304237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -14}
+  m_LocalPosition: {x: 0, y: 0, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3560500966404834395}
@@ -20666,7 +20666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560500966315161504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -16}
+  m_LocalPosition: {x: 0, y: 0, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3560500965505167743}
@@ -20843,7 +20843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560500966595551451}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6661416632026956569}
@@ -21142,7 +21142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560500967116497918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3560500965505167743}
@@ -21200,7 +21200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3560500967422882962
 Transform:
   m_ObjectHideFlags: 0
@@ -21233,17 +21233,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isUserControlled: 0
-  _distancePassMax: 15
-  _distancePassMin: 5
-  _distanceShotValidMax: 30
+  _distancePassMax: 50
+  _distancePassMin: 2
+  _distanceShotValidMax: 35
   _distanceTendGoal: 3
   _distanceThreatMax: 1
   _distanceThreatMin: 5
   _distanceThreatTrack: 1
   _distanceWonderMax: 15
-  _velocityPassArrive: 15
-  _velocityShotArrive: 30
-  _power: 10
+  _velocityPassArrive: 20
+  _velocityShotArrive: 20
+  _power: 20
   _speed: 4
   _formation: {fileID: 3560500966093947207}
   _goal: {fileID: 3560500967016934772}
@@ -21613,7 +21613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4358034588648452867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: -0.5}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.25}
   m_Children: []
   m_Father: {fileID: 3560500967016934768}
@@ -22086,13 +22086,13 @@ MonoBehaviour:
   _isUserControlled: 0
   _ballControlDistance: 0.5
   _maxWanderDistance: 15
-  _distancePassMax: 15
-  _distancePassMin: 8
-  _distanceShotMaxValid: 30
+  _distancePassMax: 50
+  _distancePassMin: 2
+  _distanceShotMaxValid: 35
   _distanceThreatMax: 2
   _distanceThreatMin: 5
-  _ballPassArriveVelocity: 12
-  _ballShotArriveVelocity: 30
+  _ballPassArriveVelocity: 20
+  _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
   _tendGoalDistance: 1
   _oppGoal: {fileID: 0}
@@ -22164,13 +22164,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5315652609552522479}
   serializedVersion: 2
-  m_Mass: 80
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &5377434856155561609
 GameObject:
@@ -22187,7 +22187,6 @@ GameObject:
   - component: {fileID: 6729770446979590704}
   - component: {fileID: 1510093975081586080}
   - component: {fileID: 3560500966928835821}
-  - component: {fileID: 8082583892677094432}
   m_Layer: 0
   m_Name: GK
   m_TagString: Untagged
@@ -22239,15 +22238,15 @@ MonoBehaviour:
   _isUserControlled: 0
   _ballControlDistance: 0.5
   _maxWanderDistance: 15
-  _distancePassMax: 15
-  _distancePassMin: 8
-  _distanceShotMaxValid: 30
+  _distancePassMax: 50
+  _distancePassMin: 2
+  _distanceShotMaxValid: 35
   _distanceThreatMax: 2
   _distanceThreatMin: 5
-  _ballPassArriveVelocity: 12
-  _ballShotArriveVelocity: 30
+  _ballPassArriveVelocity: 20
+  _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
-  _tendGoalDistance: 3
+  _tendGoalDistance: 5
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -22259,7 +22258,7 @@ MonoBehaviour:
   _oppositionMembers: []
   _teamMembers: []
   _pitchPoints: []
-  _ballContrallableDistance: 1
+  _ballContrallableDistance: 2
   _ballTacklableDistance: 3
   _playerType: 0
   _iconUserControlled: {fileID: 9215977383135838854}
@@ -22305,13 +22304,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5377434856155561609}
   serializedVersion: 2
-  m_Mass: 80
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &3560500966928835821
 MonoBehaviour:
@@ -22325,25 +22324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa533bde4ee461428802396d848916f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &8082583892677094432
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5377434856155561609}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 03a5fdd88d5bc54429b84b18db6288fa, type: 3}
-  m_Controller: {fileID: 9100000, guid: aaaf4e69834be0642bd7ec7ea0e88007, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5521168316341845457
 GameObject:
   m_ObjectHideFlags: 0
@@ -23300,13 +23280,13 @@ MonoBehaviour:
   _isUserControlled: 0
   _ballControlDistance: 0.5
   _maxWanderDistance: 15
-  _distancePassMax: 15
-  _distancePassMin: 8
-  _distanceShotMaxValid: 30
+  _distancePassMax: 50
+  _distancePassMin: 2
+  _distanceShotMaxValid: 35
   _distanceThreatMax: 2
   _distanceThreatMin: 5
-  _ballPassArriveVelocity: 12
-  _ballShotArriveVelocity: 30
+  _ballPassArriveVelocity: 20
+  _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
   _tendGoalDistance: 1
   _oppGoal: {fileID: 0}
@@ -23378,13 +23358,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6564207673772588287}
   serializedVersion: 2
-  m_Mass: 80
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &6602323559010317255
 GameObject:
@@ -60288,12 +60268,12 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7797092592339930819}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 03a5fdd88d5bc54429b84b18db6288fa, type: 3}
-  m_Controller: {fileID: 9100000, guid: 64d9f01e2dd0cfa41874fd59db27bf9b, type: 2}
+  m_Controller: {fileID: 9100000, guid: aaaf4e69834be0642bd7ec7ea0e88007, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
@@ -60891,13 +60871,13 @@ MonoBehaviour:
   _isUserControlled: 0
   _ballControlDistance: 0.5
   _maxWanderDistance: 15
-  _distancePassMax: 15
-  _distancePassMin: 8
-  _distanceShotMaxValid: 30
+  _distancePassMax: 50
+  _distancePassMin: 2
+  _distanceShotMaxValid: 35
   _distanceThreatMax: 2
   _distanceThreatMin: 5
-  _ballPassArriveVelocity: 12
-  _ballShotArriveVelocity: 30
+  _ballPassArriveVelocity: 20
+  _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
   _tendGoalDistance: 1
   _oppGoal: {fileID: 0}
@@ -60969,13 +60949,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8229329026557661769}
   serializedVersion: 2
-  m_Mass: 80
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &8312980836932253180
 GameObject:

@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             // set the wait time
-            waitTime = .15f;
+            waitTime = 1.25f;
 
             // get the kick target
             _kickTarget = (Vector3)Owner.KickTarget;
@@ -92,7 +92,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             Ball.Instance.Rigidbody.isKinematic = false;
 
             //stop steering
-            Owner.RPGMovement.SetSteeringOff();
+            //Owner.RPGMovement.SetSteeringOff();
             Owner.RPGMovement.SetTrackingOff();
         }
 

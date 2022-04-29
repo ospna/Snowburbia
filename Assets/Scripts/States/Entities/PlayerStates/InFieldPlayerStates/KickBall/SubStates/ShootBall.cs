@@ -12,10 +12,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             //make a shot
-            Owner.MakeShot(Ball.Instance.NormalizedPosition,
-                (Vector3)Owner.KickTarget,
-                Owner.KickPower,
-                Owner.BallTime);
+            Owner.MakeShot(Ball.Instance.NormalizedPosition, (Vector3)Owner.KickTarget, Owner.KickPower, Owner.BallTime);
 
             //got to recover state
             Machine.ChangeState<RecoverFromKick>();

@@ -23,11 +23,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             // set initial state
             SetInitialState<ChooseChaseType>();
 
-            //if team is incontrol, raise the event that I'm chasing ball
-            if (Owner.IsTeamInControl)
-            {
-                SetInitialState<ManualChase>();
-            }
         }
 
         public override void Enter()
