@@ -26,7 +26,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn
         {
             base.Enter();
 
-            //configure the teams to listen to some MatchManaher events
+            //configure the teams to listen to some events
             Owner.OnStopMatch += Owner.TeamAway.Invoke_OnMessagedToStop;
             Owner.OnStopMatch += Owner.TeamHome.Invoke_OnMessagedToStop;
 

@@ -13,7 +13,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackle
             base.Enter();
 
             //set the wait time
-            _waitTime = 0.05f;
+            _waitTime = 0.15f;
         }
 
         public override void Execute()

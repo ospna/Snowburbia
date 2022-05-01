@@ -34,7 +34,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Receiv
             base.Enter();
 
             // set me as the ball owner
-            // Ball.Instance.Owner = Owner;
+            Ball.Instance.Owner = Owner;
 
             //register to some player events
             Owner.OnTeamLostControl += Instance_OnTeamLostControl;

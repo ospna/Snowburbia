@@ -25,7 +25,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
 
             //set some data
             _prevBallPosition = 1000 * Vector3.one;
-            _timeSinceLastUpdate = 0f;
+            _timeSinceLastUpdate = 0.05f;
 
             //set the rpg movement
             Owner.RPGMovement.SetSteeringOn();
@@ -39,7 +39,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
         {
             base.Execute();
 
-            //get the entity positions
+            //get the ball position
             Vector3 ballPosition = Ball.Instance.NormalizedPosition;
 
             //set the look target

@@ -34,8 +34,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
                 Owner.BallTime);
                 */
 
-            Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * curveShootSpeed, ForceMode.Impulse);
-            Ball.Instance.Rigidbody.AddForce(Owner.transform.up * curveShotPower, ForceMode.Impulse);
+            Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * curveShootSpeed);
+            Ball.Instance.Rigidbody.AddForce(Owner.transform.up * curveShotPower);
             addDip = true;
             addCurve = true;
 

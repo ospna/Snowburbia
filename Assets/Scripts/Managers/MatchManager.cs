@@ -50,7 +50,7 @@ namespace Assets.Scripts.Managers
         float _power = 10f;
 
         [SerializeField]
-        float _speed = 2.5f;
+        float _speed;
 
         [SerializeField]
         Team _teamAway;
@@ -183,38 +183,24 @@ namespace Assets.Scripts.Managers
 
         private void Update()
         {
-            /*
-            if(TeamAway.FSM.IsCurrentState<AttackMainState>())
-            {
-                ActionUtility.Invoke_Action(TeamHome.OnGainPossession);
-            }
-            else if (TeamHome.FSM.IsCurrentState<AttackMainState>())
-            {
-                ActionUtility.Invoke_Action(TeamAway.OnGainPossession);
-            }
-            else
-            {
-                /*
-                //capture input
-                float horizontalInput = Input.GetAxis("Horizontal");
-                float verticalInput = Input.GetAxis("Vertical");
+            //capture input
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-                //calculate the direction to rotate to
-                Vector3 input = new Vector3(horizontalInput, 0f, verticalInput);
+            //calculate the direction to rotate to
+            Vector3 input = new Vector3(horizontalInput, 0f, verticalInput);
 
-                // calculate camera relative direction to move:
-                RefObjectForward = Vector3.Scale(_refObject.forward, new Vector3(1, 0, 1)).normalized;
-                Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
+            // calculate camera relative direction to move:
+            RefObjectForward = Vector3.Scale(_refObject.forward, new Vector3(1, 0, 1)).normalized;
+            Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
 
-                // set the direction of movement
-                Vector3 direction = Movement == Vector3.zero ? TeamHome.transform.forward : Movement;
-                */
-            //}
+            // set the direction of movement
+            Vector3 direction = Movement == Vector3.zero ? _teamHome.transform.forward : Movement;
 
-            /*
-            if(Input.GetMouseButtonDown(0))
+            //process if any key down
+            if (input == Vector3.zero)
             {
-                if(TeamAway.FSM.IsCurrentState<AttackMainState>())
+                if (TeamAway.FSM.IsCurrentState<AttackMainState>())
                 {
                     ActionUtility.Invoke_Action(TeamHome.OnGainPossession);
                 }
@@ -222,13 +208,7 @@ namespace Assets.Scripts.Managers
                 {
                     ActionUtility.Invoke_Action(TeamAway.OnGainPossession);
                 }
-                else
-                {
-                    Machine.ChangeState<ManualChase>();
-                }
             }
-            */
-
         }
         public void Instance_OnContinueToSecondHalf()
         {

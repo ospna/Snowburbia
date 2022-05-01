@@ -19514,7 +19514,7 @@ MonoBehaviour:
   _accuracy: 0
   _goalKeeping: 0.8
   _power: 0
-  _speed: 0
+  _speed: 0.4
   _tendGoalSpeed: 4
   _homeRegion: {fileID: 0}
   _oppositionMembers: []
@@ -21244,7 +21244,7 @@ MonoBehaviour:
   _velocityPassArrive: 20
   _velocityShotArrive: 20
   _power: 20
-  _speed: 4
+  _speed: 2.5
   _formation: {fileID: 3560500966093947207}
   _goal: {fileID: 3560500967016934772}
   _opponent: {fileID: 0}
@@ -22100,7 +22100,7 @@ MonoBehaviour:
   _accuracy: 0
   _goalKeeping: 0.8
   _power: 0
-  _speed: 0
+  _speed: 0.4
   _tendGoalSpeed: 4
   _homeRegion: {fileID: 0}
   _oppositionMembers: []
@@ -23294,7 +23294,7 @@ MonoBehaviour:
   _accuracy: 0
   _goalKeeping: 0.8
   _power: 0
-  _speed: 0
+  _speed: 0.4
   _tendGoalSpeed: 4
   _homeRegion: {fileID: 0}
   _oppositionMembers: []
@@ -60885,7 +60885,7 @@ MonoBehaviour:
   _accuracy: 0
   _goalKeeping: 0.8
   _power: 0
-  _speed: 0
+  _speed: 0.4
   _tendGoalSpeed: 4
   _homeRegion: {fileID: 0}
   _oppositionMembers: []

@@ -37,8 +37,6 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
         {
             base.Exit();
 
-            //raise the event that I finished broadcasting the start
-            //of the first half
             ActionUtility.Invoke_Action(Owner.OnFinishBroadcastHalfStart);
         }
 

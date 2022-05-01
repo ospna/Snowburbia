@@ -161,7 +161,7 @@ namespace Assets.Scripts.Entities
         {
             get
             {
-                return new Vector3(transform.position.x, .25f, transform.position.z);
+                return new Vector3(transform.position.x, 0, transform.position.z);
             }
 
             set
