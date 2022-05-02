@@ -1,5 +1,6 @@
 ﻿using Assets.RobustFSM.Mono;
 using Assets.Scripts.Entities;
+using static Assets.Scripts.Entities.Player;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.ChaseBallMainState;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.ControlBallMainState;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.GoToHomeMainState;

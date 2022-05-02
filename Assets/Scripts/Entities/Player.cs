@@ -43,7 +43,7 @@ namespace Assets.Scripts.Entities
         float _distanceThreatMin = 5f;
 
         [SerializeField]
-        float _ballPassArriveVelocity = 20f;
+        float _ballPassArriveVelocity = 15f;
 
         [SerializeField]
         float _ballShotArriveVelocity = 20f;
@@ -98,7 +98,7 @@ namespace Assets.Scripts.Entities
         float _ballContrallableDistance = 1f;
 
         [SerializeField]
-        float _ballTacklableDistance = 3f;
+        float _ballTacklableDistance = 1f;
 
         [SerializeField]
         PlayerTypes _playerType;
@@ -220,10 +220,12 @@ namespace Assets.Scripts.Entities
                 if (isPlayePrevPassReceiver)
                     continue;
 
+                /*
                 // can't pass to the goalie
                 bool isPlayerGoalKeeper = player.PlayerType == PlayerTypes.Goalkeeper;
                 if (isPlayerGoalKeeper)
                     continue;
+                */
 
                 // check if player can pass
                 CanPass(player.Position, considerPassSafety, passToPlayerClosestToMe, player);

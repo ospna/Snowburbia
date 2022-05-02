@@ -45,7 +45,7 @@ namespace Assets.Scripts.Entities
         float _distanceWonderMax = 15f;
 
         [SerializeField]
-        float _velocityPassArrive = 25f;
+        float _velocityPassArrive = 15f;
 
         [SerializeField]
         float _velocityShotArrive = 15f;

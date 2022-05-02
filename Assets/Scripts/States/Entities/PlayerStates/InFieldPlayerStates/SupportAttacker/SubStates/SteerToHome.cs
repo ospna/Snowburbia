@@ -13,9 +13,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
 
         Vector3? ParentSteeringTarget { get; set; }
 
-        /// <summary>
-        /// The steering target
-        /// </summary>
+        // The steering target
         public Vector3 SteeringTarget { get; set; }
 
         public override void Enter()
@@ -23,7 +21,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.Enter();
 
             //init wait time
-            waitTime = 3;
+            waitTime = 2;
 
             //get the steering target
             SteeringTarget = Owner.HomeRegion.position;
@@ -33,6 +31,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             Owner.RPGMovement.SetRotateFacePosition(SteeringTarget);
             Owner.RPGMovement.SetSteeringOn();
             Owner.RPGMovement.SetTrackingOn();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
         }
 
         public override void Execute()
@@ -42,6 +43,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             //check if now at target and switch to wait for ball
             if (Owner.IsAtTarget(SteeringTarget))
                 Machine.ChangeState<WaitAtTarget>();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
         }
 
         public override void ManualExecute()
@@ -51,11 +55,14 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             //decrement wait time
             waitTime -= 1;
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
+
             //if I waited enough then consider going home
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = 3;
+                waitTime = 2;
 
                 // get the support spot
                 _supportSpot = ((SupportAttackerMainState)Machine).SupportSpot;

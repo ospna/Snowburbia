@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Assets.Scripts.Entities;
 using static Assets.Scripts.Entities.Player;
 using Assets.Scripts.StateMachines;
@@ -37,6 +38,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Ball.Instance.Owner = Owner;
             Ball.Instance.Rigidbody.isKinematic = true;
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
+
             // raise event that I'm controlling the ball
             ControlBallDel temp = Owner.OnControlBall;
             if (temp != null)
@@ -49,6 +53,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
 
             //place ball infront of me
             Owner.PlaceBallInfronOfMe();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
         }
 
         public override void Exit()
@@ -60,6 +67,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
 
             //listen to game events
             Owner.OnTackled -= Instance_OnTackled;
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
 
             //unset the ball to is kinematic
             Ball.Instance.Owner = null;

@@ -1,10 +1,13 @@
 ﻿using Assets.RobustFSM.Mono;
 using Assets.Scripts.Entities;
+using UnityEngine;
+using System;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.GoToHomeMainState;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Init;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.InterceptShot;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGoal;
 using Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Wait;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.ControlBallMainState;
 
 namespace Assets.Scripts.StateMachines
 {
@@ -14,7 +17,7 @@ namespace Assets.Scripts.StateMachines
         {
             base.AddStates();
 
-            //set the manual sexecute time
+            //set the manual execute time
             SetUpdateFrequency(0.5f);
 
             // add states

@@ -15,7 +15,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.TakeKi
             base.Enter();
 
             //get a player to pass to
-            Player receiver = Owner.GetRandomTeamMemberInRadius(40f);
+            Player receiver = Owner.GetRandomTeamMemberInRadius(80f);
 
             //find the power to target
             float power = Owner.FindPower(Ball.Instance.NormalizedPosition,

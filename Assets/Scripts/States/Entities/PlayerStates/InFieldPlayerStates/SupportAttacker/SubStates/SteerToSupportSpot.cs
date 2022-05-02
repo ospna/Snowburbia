@@ -11,9 +11,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
         int waitTime;
         SupportSpot _newSupportSpot;
 
-        /// <summary>
-        /// The steering target
-        /// </summary>
+        // The steering target
         public Vector3 _steeringTarget { get; set; }
 
         public override void Enter()
@@ -21,7 +19,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.Enter();
 
             //init wait time
-            waitTime = 3;
+            waitTime = 1;
 
             //get the steering target
             SupportSpot = ((SupportAttackerMainState)Machine).SupportSpot;
@@ -41,6 +39,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
                 Owner.RPGMovement.SetSteeringOn();
                 Owner.RPGMovement.SetTrackingOn();
             }
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
         }
 
         public override void Execute()
@@ -50,11 +51,17 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             //check if now at target and switch to wait for ball
             if (Owner.IsAtTarget(_steeringTarget))
                 Machine.ChangeState<WaitAtTarget>();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
         }
 
         public override void ManualExecute()
         {
             base.ManualExecute();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
 
             //decrement wait time
             waitTime -= 1;
@@ -63,7 +70,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = 3;
+                waitTime = 2;
 
                 // get the new support spot
                 _newSupportSpot = ((SupportAttackerMainState)Machine).SupportSpot;
@@ -110,6 +117,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
         public override void Exit()
         {
             base.Exit();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
         }
 
         public Player Owner

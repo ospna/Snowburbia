@@ -27,14 +27,20 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Owner.RPGMovement.SetRotateFacePosition(Owner.OppGoal.transform.position);
             Owner.RPGMovement.SetSteeringOn();
             Owner.RPGMovement.SetTrackingOn();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
         }
 
         public override void Execute()
         {
             base.Execute();
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
+
             //decrement time
-            if(maxPassTime > 0)
+            if (maxPassTime > 0)
                 maxPassTime -= Time.deltaTime;
         }
 
@@ -45,6 +51,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             //set the steering
             Owner.RPGMovement.SetMoveTarget(Owner.OppGoal.transform.position);
             Owner.RPGMovement.SetRotateFacePosition(Owner.OppGoal.transform.position);
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
 
             if (Owner.CanScore())
             {
@@ -80,6 +89,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             //stop steering
             Owner.RPGMovement.SetSteeringOff();
             Owner.RPGMovement.SetTrackingOff();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
         }
 
         public Player Owner

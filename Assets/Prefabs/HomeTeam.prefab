@@ -83860,10 +83860,10 @@ MonoBehaviour:
   _distanceThreatMin: 5
   _distanceThreatTrack: 1
   _distanceWonderMax: 15
-  _velocityPassArrive: 20
+  _velocityPassArrive: 15
   _velocityShotArrive: 20
   _power: 20
-  _speed: 4
+  _speed: 5
   _formation: {fileID: 6582156911285096697}
   _goal: {fileID: 6582156910094089418}
   _opponent: {fileID: 0}

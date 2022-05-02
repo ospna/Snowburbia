@@ -174,6 +174,19 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     Owner.KickType = KickType.Shot;
                     SuperMachine.ChangeState<KickBallMainState>();
                 }
+                else
+                {
+                    // reconsider shot without considering the safety
+                    canScore = Owner.CanScore(false, false);
+
+                    // shoot if I can score
+                    if (canScore)
+                    {
+                        //go to kick-ball state
+                        Owner.KickType = KickType.Shot;
+                        SuperMachine.ChangeState<KickBallMainState>();
+                    }
+                }
 
                 /*
                 // shoot if I can score

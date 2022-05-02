@@ -17,7 +17,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.Enter();
 
             //init wait time
-            waitTime = 3;
+            waitTime = 1;
 
             // get the support spot
             _supportSpot = Machine.GetState<SteerToSupportSpot>().SupportSpot;

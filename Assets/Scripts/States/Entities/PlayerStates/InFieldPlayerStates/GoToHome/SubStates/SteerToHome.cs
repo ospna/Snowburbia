@@ -17,6 +17,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
             //get the steering target
             SteeringTarget = Owner.HomeRegion.position;
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
+
             //set the steering to on
             Owner.RPGMovement.SetMoveTarget(SteeringTarget);
             Owner.RPGMovement.SetRotateFacePosition(SteeringTarget);
@@ -28,6 +31,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
         {
             base.Execute();
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
+
             //check if now at target and switch to wait for ball
             if (Owner.IsAtTarget(SteeringTarget))
                 Machine.ChangeState<WaitAtHome>();
@@ -36,6 +42,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
         public override void ManualExecute()
         {
             base.ManualExecute();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
 
             //update the steering target
             SteeringTarget = Owner.HomeRegion.position;
@@ -48,6 +57,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
         public override void Exit()
         {
             base.Exit();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
         }
 
         public Player Owner

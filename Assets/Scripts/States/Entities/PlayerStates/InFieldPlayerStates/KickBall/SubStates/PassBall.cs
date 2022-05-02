@@ -17,6 +17,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             //make a normal pass to the player
             Owner.MakePass(Ball.Instance.NormalizedPosition, (Vector3)Owner.KickTarget, Owner.PassReceiver,Owner.KickPower, Owner.BallTime);
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isPassing", true);
+            Owner._animator.SetBool("isPassing", true);
+
             //go to recover state
             Machine.ChangeState<RecoverFromKick>();
         }
@@ -27,6 +30,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
 
             // reset the ball owner
             Ball.Instance.Owner = null;
+
         }
 
         public Player Owner

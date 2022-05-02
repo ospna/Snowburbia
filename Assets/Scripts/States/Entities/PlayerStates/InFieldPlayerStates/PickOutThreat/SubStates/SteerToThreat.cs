@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             base.Enter();
 
             //set wait time
-            _waitTime = 2f;
+            _waitTime = 1f;
 
             //set steering target
             Threat = ((PickOutThreatMainState)Machine).Threat;
@@ -53,12 +53,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
         {
             base.ManualExecute();
 
-            _waitTime -= 1;
+            _waitTime -= 1f;
 
             if (_waitTime <= 0)
             {
                 //reset the wait time
-                _waitTime = 2;
+                _waitTime = 1f;
 
                 //get the steering target
                 _steeringTarget = GetSteeringTarget();
@@ -111,9 +111,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             Vector3 directionOfThreatToGoal = Owner.TeamGoal.Position - Threat.Position;
 
             //the spot is somewhere between the threat and my goal
-            Vector3 steeringTarget = Threat.Position
-                + directionOfThreatToGoal.normalized
-                * (Owner.ThreatTrackDistance + Owner.Radius);
+            Vector3 steeringTarget = Threat.Position + directionOfThreatToGoal.normalized * (Owner.ThreatTrackDistance + Owner.Radius);
 
             // return result
             return steeringTarget;

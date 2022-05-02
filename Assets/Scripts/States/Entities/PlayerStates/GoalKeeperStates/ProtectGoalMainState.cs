@@ -68,11 +68,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
                 }
 
                 //reset the time 
-                _timeSinceLastUpdate = 1.5f * (1f - Owner.GoalKeeping);
+                _timeSinceLastUpdate = 1f * (1f - Owner.GoalKeeping);
 
                 if (_timeSinceLastUpdate == 0f)
                 {
-                    _timeSinceLastUpdate = 1.5f * 0.15f;
+                    _timeSinceLastUpdate = 1f * 0.15f;
                 }
             }
 
@@ -80,7 +80,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
             _timeSinceLastUpdate -= Time.deltaTime;
 
             //set the ability to steer here
-            Owner.RPGMovement.Steer = Vector3.Distance(Owner.Position, _steeringTarget) >= 1f;
+            Owner.RPGMovement.Steer = Vector3.Distance(Owner.Position, _steeringTarget) >= .25f;
             Owner.RPGMovement.SetMoveTarget(_steeringTarget);
         }
 
@@ -109,7 +109,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
             // make a raycast and test if it hits target
             RaycastHit hitInfo;
             bool willBallHitAGoal = Physics.SphereCast(Ball.Instance.NormalizedPosition,
-                        Ball.Instance.SphereCollider.radius, direction, out hitInfo, 300, _goalLayerMask);
+                        Ball.Instance.SphereCollider.radius, direction, out hitInfo, 500, _goalLayerMask);
             
             // get the goal from the goal trigger
             if (willBallHitAGoal)

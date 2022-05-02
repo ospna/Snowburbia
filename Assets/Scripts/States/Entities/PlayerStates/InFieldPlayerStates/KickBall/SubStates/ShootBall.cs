@@ -14,8 +14,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             //make a shot
             Owner.MakeShot(Ball.Instance.NormalizedPosition, (Vector3)Owner.KickTarget, Owner.KickPower, Owner.BallTime);
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isShooting", true);
+            Owner._animator.SetBool("isShooting", true);
+
             //got to recover state
-            Machine.ChangeState<RecoverFromKick>();
+            Machine.ChangeState<RecoverFromKick>();           
         }
 
         public Player Owner

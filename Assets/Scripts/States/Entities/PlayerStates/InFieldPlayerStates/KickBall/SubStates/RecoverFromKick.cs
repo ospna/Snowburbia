@@ -1,6 +1,9 @@
 ﻿using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHome.GoToHomeMainState;
 using RobustFSM.Base;
 using UnityEngine;
+using Assets.Scripts.Entities;
+using Assets.Scripts.StateMachines;
+using Assets.Scripts.Utilities.Enums;
 
 namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBall.SubStates
 {
@@ -13,7 +16,14 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             //set the wait time 
-            waitTime = 0.5f;
+            waitTime = 0.75f;
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isPassing", false);
+            Owner._animator.SetBool("isPassing", false);
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isShooting", false);
+            Owner._animator.SetBool("isShooting", false);
+
         }
 
         public override void Execute()
@@ -26,6 +36,14 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             //go to home after state
             if (waitTime <= 0f)
                 SuperMachine.ChangeState<GoToHomeMainState>();
+        }
+
+        public Player Owner
+        {
+            get
+            {
+                return ((InFieldPlayerFSM)SuperMachine).Owner;
+            }
         }
     }
 }

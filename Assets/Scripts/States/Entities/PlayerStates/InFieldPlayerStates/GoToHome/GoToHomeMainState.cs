@@ -45,6 +45,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
             //listen to variaus events
             Owner.OnBecameTheClosestPlayerToBall += Instance_OnBecameTheClosestPlayerToBall;
             Owner.OnInstructedToReceiveBall += Instance_OnInstructedToReceiveBall;
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
         }
 
         public override void ManualExecute()
@@ -78,6 +81,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
                 if (threat != null)
                     Machine.ChangeState<PickOutThreatMainState>();
             }
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
         }
 
         public override void Exit()
@@ -87,6 +93,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
             //stop listening to variaus events
             Owner.OnBecameTheClosestPlayerToBall -= Instance_OnBecameTheClosestPlayerToBall;
             Owner.OnInstructedToReceiveBall -= Instance_OnInstructedToReceiveBall;
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
         }
 
         private void Instance_OnBecameTheClosestPlayerToBall()

@@ -28,6 +28,10 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Owner.RPGMovement.SetRotateFacePosition(SteeringTarget);
             Owner.RPGMovement.SetSteeringOn();
             Owner.RPGMovement.SetTrackingOn();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
+
         }
 
         public override void Execute()
@@ -47,6 +51,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
                 SuperMachine.ChangeState<ControlBallMainState>();
             }
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner._animator.SetBool("isJogging", true);
+
             //get the steering target
             SteeringTarget = Ball.Instance.NormalizedPosition;
 
@@ -62,6 +69,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             //set the steering to on
             Owner.RPGMovement.SetSteeringOff();
             Owner.RPGMovement.SetTrackingOff();
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner._animator.SetBool("isJogging", false);
         }
 
         public Player Owner

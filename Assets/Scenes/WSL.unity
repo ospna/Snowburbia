@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ef196eff094a956469ac9bc3c8d43134, type: 2}
   m_LightingSettings: {fileID: 1890525800}
 --- !u!196 &4
 NavMeshSettings:
@@ -2620,7 +2620,7 @@ ReflectionProbe:
   m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 1024
+  m_Resolution: 2048
   m_UpdateFrequency: 0
   m_BoxSize: {x: 80, y: 80, z: 80}
   m_BoxOffset: {x: 0, y: 0, z: 0}
@@ -4384,7 +4384,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-15094
+  m_Name: pb_Mesh-36786
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6200,7 +6200,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3834
+  m_Name: pb_Mesh-36678
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17285,6 +17285,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 619258094}
     m_Modifications:
+    - target: {fileID: 1247502125915437101, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1876910770337459227, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -17293,6 +17297,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1387849355}
+    - target: {fileID: 2406947685099188760, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406947685099188760, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655617755192657113, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3560500967422882962, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -17341,14 +17357,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AwayTeam
       objectReference: {fileID: 0}
-    - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _speed
-      value: 3.5
+    - target: {fileID: 3560500967422882963, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: _opponent
       value: 
       objectReference: {fileID: 3560500966016988354}
+    - target: {fileID: 3595663967162298341, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315652609552522481, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315652609552522481, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086246432325821280, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564207673772588257, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564207673772588257, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6857456205186380971, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -17365,6 +17405,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 456514179}
+    - target: {fileID: 8229329026557661783, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229329026557661783, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9195450863243763870, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -46071,7 +46119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Snowburbia
+  m_text: Snowburbian League
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6d8e0eaaa8d43449944f2ae01c79d66, type: 2}
   m_sharedMaterial: {fileID: 2191674887119775209, guid: b6d8e0eaaa8d43449944f2ae01c79d66, type: 2}
@@ -46098,13 +46146,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
+  m_fontSize: 73.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 100
-  m_fontStyle: 33
+  m_fontSizeMax: 75
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -49738,6 +49786,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1459171739}
+    - target: {fileID: 1730938289012540393, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730938289012540393, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2206412379497961063, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -49746,6 +49802,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 184161128}
+    - target: {fileID: 2590988118806056271, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590988118806056271, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2618234016221297197, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -49753,6 +49817,14 @@ PrefabInstance:
     - target: {fileID: 3064632561357520048, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542419808591768927, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542419808591768927, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4451507388605182068, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Mesh
@@ -49774,14 +49846,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1122407205}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _speed
-      value: 5
+    - target: {fileID: 5428744375267615654, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _tendGoalDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428744375267615654, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _ballTacklableDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: _opponent
       value: 
       objectReference: {fileID: 1860320940}
+    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _isUserControlled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6582156910510482732, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_RootOrder
       value: 0
