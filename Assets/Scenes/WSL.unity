@@ -17293,10 +17293,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1387849355}
-    - target: {fileID: 3560500966595551450, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 3560500967422882962, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -17345,18 +17341,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AwayTeam
       objectReference: {fileID: 0}
-    - target: {fileID: 3560500967422882963, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
+      propertyPath: _speed
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: _opponent
       value: 
       objectReference: {fileID: 3560500966016988354}
-    - target: {fileID: 5377434856155561623, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _ballContrallableDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6857456205186380971, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -49746,10 +49738,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1459171739}
-    - target: {fileID: 1504322378676205552, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2206412379497961063, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -49758,14 +49746,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 184161128}
-    - target: {fileID: 2346807063503728425, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _ballContrallableDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2346807063503728426, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2618234016221297197, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -49795,13 +49775,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1122407205}
     - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: _opponent
       value: 
       objectReference: {fileID: 1860320940}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _isUserControlled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6582156910510482732, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -49849,14 +49829,6 @@ PrefabInstance:
     - target: {fileID: 6582156910510482733, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Name
       value: HomeTeam
-      objectReference: {fileID: 0}
-    - target: {fileID: 6582156910510482733, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6582156910784164196, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8291602645255033352, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Materials.Array.data[0]

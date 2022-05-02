@@ -17,13 +17,13 @@ namespace Assets.Scripts.Managers
     public class MatchManager : Singleton<MatchManager>
     {
         [SerializeField]
-        float _distancePassMax = 15f;
+        float _distancePassMax = 50f;
 
         [SerializeField]
-        float _distancePassMin = 5f;
+        float _distancePassMin = 2f;
 
         [SerializeField]
-        float _distanceShotValidMax = 15;
+        float _distanceShotValidMax = 50f;
 
         [SerializeField]
         float _distanceTendGoal = 3f;
@@ -41,10 +41,10 @@ namespace Assets.Scripts.Managers
         float _distanceWonderMax = 15f;
 
         [SerializeField]
-        float _velocityPassArrive = 5f;
+        float _velocityPassArrive = 20f;
 
         [SerializeField]
-        float _velocityShotArrive = 10f;
+        float _velocityShotArrive = 20f;
 
         [SerializeField]
         float _power = 10f;
@@ -183,6 +183,7 @@ namespace Assets.Scripts.Managers
 
         private void Update()
         {
+            /*
             //capture input
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
@@ -209,7 +210,9 @@ namespace Assets.Scripts.Managers
                     ActionUtility.Invoke_Action(TeamAway.OnGainPossession);
                 }
             }
+            */
         }
+
         public void Instance_OnContinueToSecondHalf()
         {
             ActionUtility.Invoke_Action(OnContinueToSecondHalf);

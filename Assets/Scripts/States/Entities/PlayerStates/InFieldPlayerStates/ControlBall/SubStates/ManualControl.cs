@@ -91,6 +91,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             // set the direction of movement
             Vector3 direction = Movement == Vector3.zero ? Owner.transform.forward : Movement;
 
+            /*
             //process if any key down
             if (input == Vector3.zero)
             {
@@ -114,21 +115,39 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                 if (Owner.RPGMovement.Track == false)
                     Owner.RPGMovement.SetTrackingOn();
             }
+            */
 
             if (Input.GetButtonDown("Jump"))
             {
-                //Ball.Instance.Rigidbody.AddForceAtPosition(Owner.transform.forward * passSpeed, Ball.Instance.NormalizedPosition, ForceMode.Impulse);
-                //Owner.KickType = KickType.Pass;
 
+                // bool canPass = Owner.CanPassInDirection(direction);
+                bool canPass = Owner.CanPass(true);
+
+                if (canPass)
+                {
+                    //go to kick-ball state
+                    Owner.KickType = KickType.Pass;
+                    SuperMachine.ChangeState<KickBallMainState>();
+                }
+
+
+                //Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * passSpeed, ForceMode.Impulse);
                 //Owner.GetComponent<Rigidbody>().AddForce(Ball.Instance.transform.forward * passSpeed, ForceMode.Impulse);
 
-               // Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * passSpeed, ForceMode.Impulse);
+                //make a normal pass to the player
+                //Owner.MakePass(Ball.Instance.NormalizedPosition, Owner.transform.forward, null, passSpeed, Owner.BallTime);
+
+                //Ball.Instance.Kick(Vector3.forward, passSpeed);
+
+
+                //Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * passSpeed, ForceMode.Impulse);
 
                 //addDip = true;
 
                 // set the direction of movement
                 //Vector3 direction = Movement == Vector3.zero ? Owner.transform.forward : Movement;
 
+                /*
                 // find pass in direction
                 bool canPass = Owner.CanPassInDirection(direction);
 
@@ -139,8 +158,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     Owner.KickType = KickType.Pass;
                     SuperMachine.ChangeState<KickBallMainState>();
                 }
+                */
             }
-            else if (Input.GetButtonDown("Shoot") || Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Shoot") || Input.GetButtonDown("Fire1"))
             {
                 //Ball.Instance.Rigidbody.AddForce(-Owner.transform.up * shootSpeedDown, ForceMode.Impulse);
                 //Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * shootSpeedForward, ForceMode.Impulse);
@@ -148,6 +168,14 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                 // check if I can score
                 bool canScore = Owner.CanScore(true, true);
 
+
+                if(canScore)
+                {
+                    Owner.KickType = KickType.Shot;
+                    SuperMachine.ChangeState<KickBallMainState>();
+                }
+
+                /*
                 // shoot if I can score
                 if (canScore)
                 {
@@ -168,8 +196,10 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                         SuperMachine.ChangeState<KickBallMainState>();
                     }
                 }
+                */
             }
 
+            /*
             // Curved Shot
             else if(Input.GetKeyDown(curveShotKeyCode))
             {
@@ -178,25 +208,24 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                 Ball.Instance.Rigidbody.AddForce(Owner.transform.up * curveShotPower, ForceMode.Impulse);
                 addDip = true;
                 addCurve = true;
-                */
+                /
 
                 Owner.KickType = KickType.CurveShot;
-                SuperMachine.ChangeState<KickBallMainState>();
+                SuperMachine.ChangeState<CurveBall>();
             }
             // Chip Shot
             else if(Input.GetKeyDown(chipShotKeyCode))
             {
                 Owner.KickType = KickType.ChipShot;
-                SuperMachine.ChangeState<KickBallMainState>();
-
+                SuperMachine.ChangeState<ChipBall>();
                 /*
                 Ball.Instance.Rigidbody.AddForceAtPosition(Owner.transform.up * chipSpeedUp, (Vector3)Owner.KickTarget, ForceMode.Impulse);
                 Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * chipSpeedForward, ForceMode.Impulse);
                 Ball.Instance.Rigidbody.AddTorque(-Owner.transform.right * chipTorqueUp, ForceMode.Impulse);
                 addDip = true;
-                */
+                /
             }
-            /*
+            */
             else
             {
                 //process if any key down
@@ -223,7 +252,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                         Owner.RPGMovement.SetTrackingOn();
                 }
             }
-            */
         }
 
         public override void Exit()
@@ -241,20 +269,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             {
                 return ((InFieldPlayerFSM)SuperMachine).Owner;
             }
-        }
-
-        IEnumerator DipAdd()
-        {
-            Ball.Instance.Rigidbody.AddForce(-Owner.transform.up * 0.1f, ForceMode.Impulse);
-            yield return new WaitForSeconds(1.5f);
-            addDip = false;
-        }
-
-        IEnumerator CurveAdd()
-        {
-            Ball.Instance.Rigidbody.AddForce(-Owner.transform.right * UnityEngine.Random.Range(curveMin, curveMax) * Time.deltaTime, ForceMode.Impulse);
-            yield return new WaitForSeconds(1.5f);
-            addCurve = false;
         }
     }
 }

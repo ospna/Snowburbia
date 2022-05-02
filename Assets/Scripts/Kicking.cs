@@ -5,6 +5,7 @@ using Assets.Scripts.Entities;
 using Assets.Scripts.StateMachines;
 using RobustFSM.Base;
 using static Assets.Scripts.Entities.Player;
+using static Assets.Scripts.Entities.Ball;
 
 
 public class Kicking : MonoBehaviour
@@ -36,8 +37,8 @@ public class Kicking : MonoBehaviour
     public KeyCode chipShotKeyCode = KeyCode.C;
 
     [Header("References")]
-    public GameObject ball;
-    public Rigidbody rb;
+    //public GameObject ball;
+    //public Rigidbody rb;
     public GameObject holdBall;
 
     [Header("Audio")]

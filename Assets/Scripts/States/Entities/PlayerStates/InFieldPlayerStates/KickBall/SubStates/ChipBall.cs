@@ -37,6 +37,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * chipSpeedUp, ForceMode.Impulse);
             Ball.Instance.Rigidbody.AddForce(Owner.transform.forward * chipSpeedForward, ForceMode.Impulse);
             Ball.Instance.Rigidbody.AddTorque(-Owner.transform.forward * chipTorqueUp, ForceMode.Impulse);
+
             //chipSound.Play();
             addDip = true;
 

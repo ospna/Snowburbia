@@ -34,7 +34,7 @@ namespace Assets.Scripts.Entities
         float _distancePassMin = 2f;
 
         [SerializeField]
-        float _distanceShotMaxValid = 35f;
+        float _distanceShotMaxValid = 50f;
 
         [SerializeField]
         float _distanceThreatMax = 2f;
@@ -43,10 +43,10 @@ namespace Assets.Scripts.Entities
         float _distanceThreatMin = 5f;
 
         [SerializeField]
-        float _ballPassArriveVelocity = 20;
+        float _ballPassArriveVelocity = 20f;
 
         [SerializeField]
-        float _ballShotArriveVelocity = 15f;
+        float _ballShotArriveVelocity = 20f;
 
         [SerializeField]
         float _threatTrackDistance = 1f;
@@ -378,7 +378,7 @@ namespace Assets.Scripts.Entities
         public bool CanPassInDirection(Vector3 direction)
         {
             //set the pass target
-            bool passToPlayerClosestToMe = Random.value <= 1f;
+            bool passToPlayerClosestToMe = Random.value <= 2f;
 
             //set the pass target
             KickTarget = null;
@@ -391,7 +391,7 @@ namespace Assets.Scripts.Entities
                 // who is in this direction
                 if (player != this
                     && player.PlayerType == PlayerTypes.InFieldPlayer
-                    && IsPositionInDirection(direction, player.Position, 40f))
+                    && IsPositionInDirection(direction, player.Position, 45f))
                 {
                     CanPass(player.Position, true, passToPlayerClosestToMe, player);
                 }

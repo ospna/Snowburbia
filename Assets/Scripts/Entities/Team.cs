@@ -21,13 +21,13 @@ namespace Assets.Scripts.Entities
         bool _isUserControlled;
 
         [SerializeField]
-        float _distancePassMax = 20f;
+        float _distancePassMax = 50f;
 
         [SerializeField]
-        float _distancePassMin = 5f;
+        float _distancePassMin = 2f;
 
         [SerializeField]
-        float _distanceShotValidMax = 30f;
+        float _distanceShotValidMax = 50f;
 
         [SerializeField]
         float _distanceTendGoal = 3f;
@@ -194,8 +194,7 @@ namespace Assets.Scripts.Entities
         {
             // get the closest player to point
             TeamPlayer player = Players.Where(tm => tm.Player.PlayerType == PlayerTypes.InFieldPlayer && tm.Player.InFieldPlayerFSM.IsCurrentState<TackledMainState>() == false)
-                .OrderBy(tm => Vector3.Distance(tm.Player.Position,
-                position)).First();
+                .OrderBy(tm => Vector3.Distance(tm.Player.Position, position)).First();
 
             // return player
             return player;

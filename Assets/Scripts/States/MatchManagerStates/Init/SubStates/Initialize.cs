@@ -19,7 +19,7 @@ namespace Assets.Scripts.States.MatchManagerStates.Init.SubStates
             //listen to team OnInit events
             Owner.TeamAway.OnInit += Instance_OnTeamInit;
             Owner.TeamHome.OnInit += Instance_OnTeamInit;
-
+            /*
             //set some team data
             Owner.TeamAway.Init(Owner.DistancePassMax,
                 Owner.DistancePassMin,
@@ -46,6 +46,7 @@ namespace Assets.Scripts.States.MatchManagerStates.Init.SubStates
                 Owner.VelocityShotArrive,
                 Owner.Power,
                 Owner.Speed);
+                */
 
             //set the team with the initial kick-off
             if (Random.value <= 0.5f)

@@ -20630,7 +20630,7 @@ MonoBehaviour:
   _maxWanderDistance: 15
   _distancePassMax: 50
   _distancePassMin: 2
-  _distanceShotMaxValid: 35
+  _distanceShotMaxValid: 50
   _distanceThreatMax: 2
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
@@ -39700,7 +39700,7 @@ MonoBehaviour:
   _maxWanderDistance: 15
   _distancePassMax: 50
   _distancePassMin: 2
-  _distanceShotMaxValid: 35
+  _distanceShotMaxValid: 50
   _distanceThreatMax: 2
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
@@ -39718,7 +39718,7 @@ MonoBehaviour:
   _oppositionMembers: []
   _teamMembers: []
   _pitchPoints: []
-  _ballContrallableDistance: 2
+  _ballContrallableDistance: 1
   _ballTacklableDistance: 3
   _playerType: 0
   _iconUserControlled: {fileID: 2206412379497961065}
@@ -40128,7 +40128,7 @@ MonoBehaviour:
   _maxWanderDistance: 15
   _distancePassMax: 50
   _distancePassMin: 2
-  _distanceShotMaxValid: 35
+  _distanceShotMaxValid: 50
   _distanceThreatMax: 2
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
@@ -42194,7 +42194,7 @@ MonoBehaviour:
   _maxWanderDistance: 15
   _distancePassMax: 50
   _distancePassMin: 2
-  _distanceShotMaxValid: 35
+  _distanceShotMaxValid: 50
   _distanceThreatMax: 2
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
@@ -82136,7 +82136,7 @@ MonoBehaviour:
   _maxWanderDistance: 15
   _distancePassMax: 50
   _distancePassMin: 2
-  _distanceShotMaxValid: 35
+  _distanceShotMaxValid: 50
   _distanceThreatMax: 2
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
@@ -83819,7 +83819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6582156910510482732
 Transform:
   m_ObjectHideFlags: 0
@@ -83854,7 +83854,7 @@ MonoBehaviour:
   _isUserControlled: 1
   _distancePassMax: 50
   _distancePassMin: 2
-  _distanceShotValidMax: 35
+  _distanceShotValidMax: 50
   _distanceTendGoal: 3
   _distanceThreatMax: 1
   _distanceThreatMin: 5
@@ -83989,7 +83989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582156910784164197}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3910231925144965799}
