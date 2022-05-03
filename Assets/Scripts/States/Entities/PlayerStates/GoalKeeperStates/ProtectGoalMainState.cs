@@ -25,10 +25,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
 
             //set some data
             _prevBallPosition = 1000 * Vector3.one;
-            _timeSinceLastUpdate = 0.05f;
+            _timeSinceLastUpdate = 0.15f;
 
             //set the rpg movement
             Owner.RPGMovement.SetSteeringOn();
+            Owner.RPGMovement.SetRotateFacePosition(_prevBallPosition);
             Owner.RPGMovement.Speed = Owner.TendGoalSpeed;
             Owner.TendGoalDistance = 1.5f;
 
@@ -59,7 +60,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
                     Vector3 ballRelativePosToGoal = Owner.TeamGoal.transform.InverseTransformPoint(ballPosition);
                     ballRelativePosToGoal.z = Owner.TendGoalDistance;
                     ballRelativePosToGoal.x /= 2f;
-                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -2f, 2f);
+                    ballRelativePosToGoal.x = Mathf.Clamp(ballRelativePosToGoal.x, -4f, 4f);
                     _steeringTarget = Owner.TeamGoal.transform.TransformPoint(ballRelativePosToGoal);
 
                     //add some noise to the target
@@ -81,7 +82,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
             _timeSinceLastUpdate -= Time.deltaTime;
 
             //set the ability to steer here
-            Owner.RPGMovement.Steer = Vector3.Distance(Owner.Position, _steeringTarget) >= .05f;
+            Owner.RPGMovement.Steer = Vector3.Distance(Owner.Position, _steeringTarget) >= .25f;
             Owner.RPGMovement.SetMoveTarget(_steeringTarget);
         }
 
