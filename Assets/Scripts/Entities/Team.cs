@@ -142,10 +142,7 @@ namespace Assets.Scripts.Entities
         {
             BallLaunched temp = OnBallLaunched;
             if (temp != null)
-                temp.Invoke(flightTime,
-                    velocity,
-                    initial,
-                    target);
+                temp.Invoke(flightTime, velocity, initial, target);
         }
 
         public void Invoke_OnOppFinishedInit()
@@ -278,7 +275,7 @@ namespace Assets.Scripts.Entities
         }
     }
 
-    [Serializable]
+//    [Serializable]
     public class TeamPlayer
     {
         public Player Player;

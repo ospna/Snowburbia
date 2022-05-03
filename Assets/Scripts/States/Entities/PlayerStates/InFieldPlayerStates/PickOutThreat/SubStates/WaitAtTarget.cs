@@ -17,7 +17,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             base.Enter();
 
             //init wait time
-            waitTime = 2;
+            waitTime = 1;
 
             // get the support spot
             _threat = Machine.GetState<SteerToThreat>().Threat;
@@ -46,7 +46,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = 2;
+                waitTime = 1;
 
                 //get the steering target
                 _newThreat = ((PickOutThreatMainState)Machine).Threat;
@@ -65,7 +65,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
                     else
                     {
                         // set the threat for the SteerToThreat state
-                        // Machine.GetState<SteerToThreat>().Threat = _newThreat;
+                        Machine.GetState<SteerToThreat>().Threat = _newThreat;
 
                         // get the steering target
                         Vector3 steeringTarget = Machine.GetState<SteerToThreat>().GetSteeringTarget();

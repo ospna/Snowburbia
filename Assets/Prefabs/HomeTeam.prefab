@@ -1779,7 +1779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043266358561008959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: -10}
+  m_LocalPosition: {x: 5, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156910200869549}
@@ -20635,7 +20635,7 @@ MonoBehaviour:
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
-  _threatTrackDistance: 1
+  _threatTrackDistance: 3
   _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
@@ -20649,7 +20649,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 1
+  _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 9141400054322819410}
   IsTeamInControl: 0
@@ -40133,7 +40133,7 @@ MonoBehaviour:
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
-  _threatTrackDistance: 1
+  _threatTrackDistance: 3
   _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
@@ -40147,7 +40147,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 1
+  _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 1174549699696890100}
   IsTeamInControl: 0
@@ -40792,7 +40792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2787399695406902383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -10}
+  m_LocalPosition: {x: -5, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156910200869549}
@@ -42165,7 +42165,7 @@ MonoBehaviour:
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
-  _threatTrackDistance: 1
+  _threatTrackDistance: 3
   _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
@@ -42179,7 +42179,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 1
+  _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 5321747353112903244}
   IsTeamInControl: 0
@@ -81951,7 +81951,7 @@ MonoBehaviour:
   _distanceThreatMin: 5
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
-  _threatTrackDistance: 1
+  _threatTrackDistance: 3
   _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
@@ -81965,7 +81965,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 1
+  _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 4451507388605182074}
   IsTeamInControl: 0
@@ -83427,7 +83427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6582156910510482732
 Transform:
   m_ObjectHideFlags: 0
@@ -83477,7 +83477,6 @@ MonoBehaviour:
   _kickOffRefDirection: {fileID: 6582156910820287515}
   _playerSupprtSpots: {fileID: 6582156910784164196}
   _rootPlayers: {fileID: 6582156912107647409}
-  Players: []
 --- !u!114 &6582156910510482730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83691,7 +83690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582156911010330170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -19}
+  m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156910200869549}
@@ -83944,7 +83943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582156911483201054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -19}
+  m_LocalPosition: {x: -0, y: 0, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156911740592321}
@@ -84009,7 +84008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582156911513104979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -19}
+  m_LocalPosition: {x: -0, y: 0, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156911662994917}

@@ -8,9 +8,7 @@ using TMPro;
 
 namespace Assets.Scripts.Managers
 {
-    /// <summary>
-    /// Manages the entire game
-    /// </summary>
+    // Manages the entire game
     public class GameManager : MonoBehaviour
     {
         [SerializeField]

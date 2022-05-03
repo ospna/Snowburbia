@@ -14,9 +14,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             {
                 Machine.ChangeState<ManualChase>();
             }
-            
-            if(!Owner.IsUserControlled)
-            {
+            else
+            { 
                 Machine.ChangeState<AutomaticChase>();
             }
         }

@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             // set the wait time
-            waitTime = 1f;
+            waitTime = .25f;
 
             // get the kick target
             _kickTarget = (Vector3)Owner.KickTarget;
@@ -65,15 +65,15 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
         {
             base.ManualExecute();
 
-            // pass to the ball if it's in front of me else go back to control ball
+            // pass the ball if it's in front of me else go back to control ball
             if (Owner.IsInfrontOfPlayer(_kickTarget))
             {
                 if (Owner.KickType == KickType.Pass)
                 {
                     Machine.ChangeState<CheckKickType>();
                 }
-                //else
-                    //Machine.ChangeState<CheckKickType>();
+                else
+                    Machine.ChangeState<CheckKickType>();
             }
         }
 

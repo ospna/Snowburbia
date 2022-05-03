@@ -60,7 +60,7 @@ namespace Assets.Scripts.States.Entities.Team.Init
 
             // register team to team player events
             RegisterGoalKeeperToOnBallLaunchedEvent();
-            //RegisterTeamToOppGoalEvents();
+            RegisterTeamToOppGoalEvents();
             RegisterTeamToTeamPlayerOnChaseBallEvent();
             RegisterTeamToTeamPlayerOnGainPossessionEvent();
 

@@ -17,7 +17,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.Enter();
 
             //init wait time
-            waitTime = .25f;
+            waitTime = 1f;
 
             // get the support spot
             _supportSpot = Machine.GetState<SteerToSupportSpot>().SupportSpot;
@@ -46,7 +46,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = .25f;
+                waitTime = 1f;
 
                 //get the steering target
                 _newSupportSpot = ((SupportAttackerMainState)Machine).SupportSpot;

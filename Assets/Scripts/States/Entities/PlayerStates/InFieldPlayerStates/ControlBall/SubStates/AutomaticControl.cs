@@ -19,7 +19,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             base.Enter();
 
             //set the range
-            maxNumOfTries = Random.Range(1, 5);
+            maxNumOfTries = Random.Range(1, 3);
             maxPassTime = Random.Range(rangePassTime.Min, rangePassTime.Max);
 
             //set the steering

@@ -65,8 +65,7 @@ namespace Assets.Scripts.States.Entities.Team.Defend
                 // raise the new player to say he is now the new closest player to ball
                 _closestPlayerToBall.Player.Invoke_OnBecameTheClosestPlayerToBall();
             }
-            else if(currClosestPlayerToPoint != null 
-                && currClosestPlayerToPoint.Player.InFieldPlayerFSM.IsCurrentState<ChaseBallMainState>() == false)
+            else if(currClosestPlayerToPoint != null && currClosestPlayerToPoint.Player.InFieldPlayerFSM.IsCurrentState<ChaseBallMainState>() == false)
             {
                 // raise the new player to say he is now the new closest player to ball
                 _closestPlayerToBall.Player.Invoke_OnBecameTheClosestPlayerToBall();
@@ -85,7 +84,7 @@ namespace Assets.Scripts.States.Entities.Team.Defend
             {
                 //find the percentage to move the player upfield
                 Vector3 ballGoalLocalPosition = Owner.Goal.transform.InverseTransformPoint(Ball.Instance.transform.position);
-                float playerMovePercentage = Mathf.Clamp01((ballGoalLocalPosition.z / _lengthPitch) - 0.5f);
+                float playerMovePercentage = Mathf.Clamp01((ballGoalLocalPosition.z / _lengthPitch) - 0.25f);
 
                 //move the home position a similar percentage up the field
                 Vector3 currentPlayerHomePosition = Vector3.Lerp(teamPlayer.DefendingHomePosition.transform.position,

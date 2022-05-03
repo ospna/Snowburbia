@@ -17,7 +17,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             base.Enter();
 
             //init wait time
-            waitTime = 2;
+            waitTime = 1;
 
             //get the steering target
             _steeringTarget = Owner.HomeRegion.position;
@@ -49,7 +49,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = 2;
+                waitTime = 1;
 
                 // get the support spot
                 _threat = ((PickOutThreatMainState)Machine).Threat;

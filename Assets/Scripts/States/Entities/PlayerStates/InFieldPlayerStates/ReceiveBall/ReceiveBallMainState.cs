@@ -72,7 +72,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Receiv
 
         private void Instance_OnTeamLostControl()
         {
-            SuperMachine.ChangeState<GoToHomeMainState>();
+            SuperMachine.ChangeState<ChaseBallMainState>();
         }
 
         public void SetSteeringTarget(float ballTime, Vector3 position)

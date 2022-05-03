@@ -95,10 +95,10 @@ namespace Assets.Scripts.Entities
         List<SupportSpot> _pitchPoints;
 
         [SerializeField]
-        float _ballContrallableDistance = 1f;
+        float _ballControllableDistance = 0.5f;
 
         [SerializeField]
-        float _ballTacklableDistance = 1f;
+        float _ballTacklableDistance = 0.5f;
 
         [SerializeField]
         PlayerTypes _playerType;
@@ -380,7 +380,7 @@ namespace Assets.Scripts.Entities
         public bool CanPassInDirection(Vector3 direction)
         {
             //set the pass target
-            bool passToPlayerClosestToMe = Random.value <= 2f;
+            bool passToPlayerClosestToMe = Random.value <= 4f;
 
             //set the pass target
             KickTarget = null;
@@ -694,7 +694,7 @@ namespace Assets.Scripts.Entities
 
         public bool IsBallWithinControlableDistance()
         {
-            return IsWithinDistance(Position, Ball.Instance.NormalizedPosition, _ballContrallableDistance + Radius);
+            return IsWithinDistance(Position, Ball.Instance.NormalizedPosition, _ballControllableDistance + Radius);
         }
 
         public bool IsBallWithinTacklableDistance()

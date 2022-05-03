@@ -185,11 +185,14 @@ namespace Assets.Scripts.Managers
 
         private void Update()
         {
+            /*
             if(Ball.Instance.Owner = null)
             {
-                TeamAway.FSM.SetCurrentState<AttackMainState>();
-                TeamHome.FSM.SetCurrentState<AttackMainState>();
+                TeamAway.FSM.SetCurrentState<AutomaticChase>();
+                TeamHome.FSM.SetCurrentState<ManualChase>();
             }
+            */
+
             /*
             //capture input
             float horizontalInput = Input.GetAxis("Horizontal");

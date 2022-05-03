@@ -61,6 +61,9 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
         private bool isShooting;
         private bool isChipping;
 
+        public Ball.BallLaunched OnBallLaunched;
+        public Ball.BallLaunched OnBallShot;
+
         public override void Enter()
         {
             base.Enter();
@@ -91,7 +94,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             // set the direction of movement
             Vector3 direction = Movement == Vector3.zero ? Owner.transform.forward : Movement;
 
-            /*
             if (Input.GetButtonDown("Jump"))
             {
 
@@ -130,18 +132,27 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     }
                 }
             }
-            */
+
+            /*
             if (Input.GetButtonDown("Jump"))
             {
 
-                // bool canPass = Owner.CanPassInDirection(direction);
-                bool canPass = Owner.CanPass(true);
+                Ball.Instance.Rigidbody.AddRelativeForce(Owner.transform.forward * passSpeed, ForceMode.Impulse);
 
-                if (canPass)
+                Ball.Instance.Launch(passSpeed, Owner.transform.forward);
+
+                Ball.Instance.Owner = null;
+
+                /*
+                // pass the ball if it's in front of me else go back to control ball
+                if (Owner.IsInfrontOfPlayer((Vector3)Owner.KickTarget)
                 {
-                    //go to kick-ball state
-                    Owner.KickType = KickType.Pass;
-                    SuperMachine.ChangeState<KickBallMainState>();
+                    if (Owner.KickType == KickType.Pass)
+                    {
+                        Machine.ChangeState<CheckKickType>();
+                    }
+                    else
+                        Machine.ChangeState<CheckKickType>();
                 }
 
 
@@ -172,7 +183,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     Owner.KickType = KickType.Pass;
                     SuperMachine.ChangeState<KickBallMainState>();
                 }
-                */
+                /
             }
             if (Input.GetButtonDown("Shoot") || Input.GetButtonDown("Fire1"))
             {
@@ -258,12 +269,33 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             }
         }
 
+        /*
+        // Kicks the ball
+        public void Kick(Vector3 to, float power)
+        {
+            Vector3 direction = to - Ball.Instance.NormalizedPosition;
+            direction.Normalize();
+
+            //change the velocity
+            Ball.Instance.Rigidbody.velocity = direction * power;
+
+            //invoke the ball launched event
+            Ball.BallLaunched temp = OnBallLaunched;
+            if (temp != null)
+            {
+                temp.Invoke(0f, power, Ball.Instance.NormalizedPosition, to);
+            }
+        }
+        */
+
         public override void Exit()
         {
             base.Exit();
 
             // disable the user controlled icon
             Owner.IconUserControlled.SetActive(false);
+
+            Ball.Instance.Owner = null;
         }
 
         public Player Owner
