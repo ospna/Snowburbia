@@ -11,7 +11,7 @@ namespace Assets.Scripts.States.Entities.Team.KickOff.SubStates
     public class TakeKickOff : BState
     {
         bool executed;
-        float waitTime = 1f;
+        float waitTime = 2f;
 
         Action InstructPlayerToTakeKickOff;
 

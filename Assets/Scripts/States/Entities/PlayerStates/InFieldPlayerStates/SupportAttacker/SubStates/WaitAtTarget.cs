@@ -8,7 +8,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
 {
     public class WaitAtTarget : BState
     {
-        int waitTime;
+        float waitTime;
         SupportSpot _newSupportSpot;
         SupportSpot _supportSpot;
 
@@ -17,7 +17,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.Enter();
 
             //init wait time
-            waitTime = 1;
+            waitTime = .25f;
 
             // get the support spot
             _supportSpot = Machine.GetState<SteerToSupportSpot>().SupportSpot;
@@ -40,13 +40,13 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.ManualExecute();
 
             //decrement wait time
-            waitTime -= 1;
+            waitTime -= Time.deltaTime;
 
             //if I waited enough then consider going home
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = 1;
+                waitTime = .25f;
 
                 //get the steering target
                 _newSupportSpot = ((SupportAttackerMainState)Machine).SupportSpot;
