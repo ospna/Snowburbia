@@ -92,31 +92,45 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Vector3 direction = Movement == Vector3.zero ? Owner.transform.forward : Movement;
 
             /*
-            //process if any key down
-            if (input == Vector3.zero)
+            if (Input.GetButtonDown("Jump"))
             {
-                if (Owner.RPGMovement.Steer == true)
-                    Owner.RPGMovement.SetSteeringOff();
 
-                if (Owner.RPGMovement.Track == true)
-                    Owner.RPGMovement.SetTrackingOff();
+                // bool canPass = Owner.CanPassInDirection(direction);
+                bool canPass = Owner.CanPass(true);
+
+                if (canPass)
+                {
+                    //go to kick-ball state
+                    Owner.KickType = KickType.Pass;
+                    SuperMachine.ChangeState<KickBallMainState>();
+                }
             }
-            else
+            if (Input.GetButtonDown("Shoot") || Input.GetButtonDown("Fire1"))
             {
-                // set the movement
-                Vector3 moveDirection = Movement == Vector3.zero ? Vector3.zero : Owner.transform.forward;
-                Owner.RPGMovement.SetMoveDirection(moveDirection);
-                Owner.RPGMovement.SetRotateFaceDirection(Movement);
+                // check if I can score
+                bool canScore = Owner.CanScore(true, true);
 
-                // set the steering to on
-                if (Owner.RPGMovement.Steer == false)
-                    Owner.RPGMovement.SetSteeringOn();
 
-                if (Owner.RPGMovement.Track == false)
-                    Owner.RPGMovement.SetTrackingOn();
+                if(canScore)
+                {
+                    Owner.KickType = KickType.Shot;
+                    SuperMachine.ChangeState<KickBallMainState>();
+                }
+                else
+                {
+                    // reconsider shot without considering the safety
+                    canScore = Owner.CanScore(false, false);
+
+                    // shoot if I can score
+                    if (canScore)
+                    {
+                        //go to kick-ball state
+                        Owner.KickType = KickType.Shot;
+                        SuperMachine.ChangeState<KickBallMainState>();
+                    }
+                }
             }
             */
-
             if (Input.GetButtonDown("Jump"))
             {
 
@@ -169,29 +183,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                 bool canScore = Owner.CanScore(true, true);
 
 
-                if(canScore)
-                {
-                    Owner.KickType = KickType.Shot;
-                    SuperMachine.ChangeState<KickBallMainState>();
-                }
-                else
-                {
-                    // reconsider shot without considering the safety
-                    canScore = Owner.CanScore(false, false);
-
-                    // shoot if I can score
-                    if (canScore)
-                    {
-                        //go to kick-ball state
-                        Owner.KickType = KickType.Shot;
-                        SuperMachine.ChangeState<KickBallMainState>();
-                    }
-                }
-                /*
-                // shoot if I can score
                 if (canScore)
                 {
-                    //go to kick-ball state
                     Owner.KickType = KickType.Shot;
                     SuperMachine.ChangeState<KickBallMainState>();
                 }
@@ -208,7 +201,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                         SuperMachine.ChangeState<KickBallMainState>();
                     }
                 }
-                */
             }
 
             /*
