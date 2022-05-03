@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Entities;
 using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.Team.Attack;
+using Assets.Scripts.States.Entities.Team.Defend;
 using static Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates.ManualChase;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates;
 using Assets.Scripts.Utilities;
@@ -26,7 +27,7 @@ namespace Assets.Scripts.Managers
         float _distanceShotValidMax = 50f;
 
         [SerializeField]
-        float _distanceTendGoal = 3f;
+        float _distanceTendGoal;
 
         [SerializeField]
         float _distanceThreatMax = 1f;
@@ -179,6 +180,7 @@ namespace Assets.Scripts.Managers
             FSM = GetComponent<MatchManagerFSM>();
 
             _refObject = Camera.main.transform;
+
         }
 
         private void Update()
@@ -190,13 +192,6 @@ namespace Assets.Scripts.Managers
 
             //calculate the direction to rotate to
             Vector3 input = new Vector3(horizontalInput, 0f, verticalInput);
-
-            // calculate camera relative direction to move:
-            RefObjectForward = Vector3.Scale(_refObject.forward, new Vector3(1, 0, 1)).normalized;
-            Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
-
-            // set the direction of movement
-            Vector3 direction = Movement == Vector3.zero ? _teamHome.transform.forward : Movement;
 
             //process if any key down
             if (input == Vector3.zero)

@@ -46,7 +46,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = 3;
+                waitTime = 1;
 
                 //get the steering target
                 _newSupportSpot = ((SupportAttackerMainState)Machine).SupportSpot;

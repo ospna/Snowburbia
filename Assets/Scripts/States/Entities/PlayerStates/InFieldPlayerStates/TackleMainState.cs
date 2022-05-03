@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackle
             base.Enter();
 
             //set the wait time
-            _waitTime = 0.15f;
+            _waitTime = 0.25f;
 
             //randomly find who will win this 50/50
             _isTackleSuccessful = Random.value <= 0.5f;
@@ -26,8 +26,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackle
             Owner.GetComponentInChildren<Animator>().SetBool("isTackling", true);
             Owner._animator.SetBool("isTackling", true);
 
-            //if tackle is successful, then message the ball owner
-            //that he has been tackled
             if (_isTackleSuccessful)
                 ActionUtility.Invoke_Action(Ball.Instance.Owner.OnTackled);
         }

@@ -52,7 +52,7 @@ namespace Assets.Scripts.Entities
         float _threatTrackDistance = 1f;
 
         [SerializeField]
-        float _tendGoalDistance = 1f;
+        float _tendGoalDistance;
 
         [SerializeField]
         Goal _oppGoal;
@@ -391,9 +391,7 @@ namespace Assets.Scripts.Entities
                 // find a pass to a player who isn't me
                 // who isn't a goal keeper
                 // who is in this direction
-                if (player != this
-                    && player.PlayerType == PlayerTypes.InFieldPlayer
-                    && IsPositionInDirection(direction, player.Position, 45f))
+                if (player != this && player.PlayerType == PlayerTypes.InFieldPlayer && IsPositionInDirection(direction, player.Position, 45f))
                 {
                     CanPass(player.Position, true, passToPlayerClosestToMe, player);
                 }
@@ -410,7 +408,7 @@ namespace Assets.Scripts.Entities
                     // who is in this direction
                     if (player != this
                         && player.PlayerType == PlayerTypes.InFieldPlayer
-                        && IsPositionInDirection(direction, player.Position, 40f))
+                        && IsPositionInDirection(direction, player.Position, 180f))
                     {
                         CanPass(player.Position, false, passToPlayerClosestToMe, player);
                     }

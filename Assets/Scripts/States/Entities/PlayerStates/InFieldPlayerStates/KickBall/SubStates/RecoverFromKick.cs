@@ -16,7 +16,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             //set the wait time 
-            waitTime = 0.75f;
+            waitTime = 0.05f;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isPassing", false);
             Owner._animator.SetBool("isPassing", false);

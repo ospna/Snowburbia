@@ -57,7 +57,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
 
         public void FindThreat()
         {
-            // find a player within my wander raduis who is not picked out
+            // find a player within my wander radiUs who is not picked out
             // and who is very close to my team goal
             Threat = Owner.OppositionMembers
                 .Where(oM => oM.IsPickedOut(Owner) == false

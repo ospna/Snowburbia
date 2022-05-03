@@ -39,8 +39,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             base.Execute();
 
             //check if ball is within control distance
-            if (Ball.Instance.Owner != null
-                && Owner.IsBallWithinControlableDistance())
+            if (Ball.Instance.Owner != null && Owner.IsBallWithinControlableDistance())
             {
                 //tackle player
                 SuperMachine.ChangeState<TackleMainState>();

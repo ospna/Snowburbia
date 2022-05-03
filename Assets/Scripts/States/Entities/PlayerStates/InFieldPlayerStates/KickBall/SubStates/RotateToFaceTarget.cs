@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             // set the wait time
-            waitTime = 1.25f;
+            waitTime = 1f;
 
             // get the kick target
             _kickTarget = (Vector3)Owner.KickTarget;
@@ -72,8 +72,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
                 {
                     Machine.ChangeState<CheckKickType>();
                 }
-                else
-                    Machine.ChangeState<CheckKickType>();
+                //else
+                    //Machine.ChangeState<CheckKickType>();
             }
         }
 

@@ -46,6 +46,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
             Owner.OnBecameTheClosestPlayerToBall += Instance_OnBecameTheClosestPlayerToBall;
             Owner.OnInstructedToReceiveBall += Instance_OnInstructedToReceiveBall;
 
+            
+
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
             Owner._animator.SetBool("isJogging", true);
         }

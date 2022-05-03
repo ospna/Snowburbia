@@ -3,6 +3,8 @@ using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.ControlBallMainState;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.TacklePlayer;
 using RobustFSM.Base;
+using Assets.Scripts.Utilities;
+using Assets.Scripts.Utilities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +78,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
                 SuperMachine.ChangeState<ControlBallMainState>();
             }
 
+            if (Input.GetButtonDown("Switch"))
+            {
+                //Owner.OnBecameTheClosestPlayerToBall;
+                ActionUtility.Invoke_Action(Owner.OnBecameTheClosestPlayerToBall);
+            }
+
             // set the movement
             Vector3 moveDirection = Movement == Vector3.zero ? Vector3.zero : Owner.transform.forward;
             Owner.RPGMovement.SetMoveDirection(moveDirection);
@@ -99,6 +107,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             //set the steering to on
             Owner.RPGMovement.SetSteeringOff();
             Owner.RPGMovement.SetTrackingOff();
+        }
+
+        private void Instance_OnBecameTheClosestPlayerToBall()
+        {
+
         }
 
         public Player Owner

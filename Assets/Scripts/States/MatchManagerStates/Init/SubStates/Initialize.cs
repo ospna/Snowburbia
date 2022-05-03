@@ -19,6 +19,7 @@ namespace Assets.Scripts.States.MatchManagerStates.Init.SubStates
             //listen to team OnInit events
             Owner.TeamAway.OnInit += Instance_OnTeamInit;
             Owner.TeamHome.OnInit += Instance_OnTeamInit;
+
             /*
             //set some team data
             Owner.TeamAway.Init(Owner.DistancePassMax,
@@ -54,6 +55,7 @@ namespace Assets.Scripts.States.MatchManagerStates.Init.SubStates
             else
                 Owner.TeamHome.HasInitialKickOff = true;
 
+         
             //set some variables
             Owner.CurrentHalf = 1;
             Owner.NextStopTime = Owner.NormalHalfLength;

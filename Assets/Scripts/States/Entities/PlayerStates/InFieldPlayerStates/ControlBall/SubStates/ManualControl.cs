@@ -187,7 +187,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                         SuperMachine.ChangeState<KickBallMainState>();
                     }
                 }
-
                 /*
                 // shoot if I can score
                 if (canScore)
@@ -274,7 +273,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             // disable the user controlled icon
             Owner.IconUserControlled.SetActive(false);
         }
-
 
         public Player Owner
         {

@@ -24,27 +24,31 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOver
             if (Owner.TeamAway.IsUserControlled)
             {
                 if (Owner.TeamAway.Goals > Owner.TeamHome.Goals)
-                    message = "You Won, what a extraordinary victory!";
+                    message = "YOU WON! What an incredible performance!";
                 else if (Owner.TeamAway.Goals < Owner.TeamHome.Goals)
-                    message = "You Lost, the Home team got away with the 3 points today.";
+                    message = "YOU LOST. It was just a bad day at the office.";
+                else if (Owner.TeamAway.Goals == 0 && Owner.TeamHome.Goals == 0)
+                    message = "And that's that, a bore draw.";
                 else
-                    message = "And that's that, a draw.";
+                    message = "A TIE. Both teams were incredible today!";
             }
             else if (Owner.TeamHome.IsUserControlled)
             {
                 if (Owner.TeamAway.Goals < Owner.TeamHome.Goals)
-                    message = "You Won, what an extraordinary victory";
+                    message = "YOU WON! What an incredible performance!";
                 else if (Owner.TeamAway.Goals > Owner.TeamHome.Goals)
-                    message = "You Lost, the Away team got away with the 3 points today.";
+                    message = "YOU LOST. It was just a bad day at the office.";
+                else if (Owner.TeamAway.Goals == 0 && Owner.TeamHome.Goals == 0)
+                    message = "And that's that, a bore draw.";
                 else
-                    message = "Draw";
+                    message = "A TIE. Both teams were incredible today!";
             }
             else
             {
                 if (Owner.TeamAway.Goals > Owner.TeamHome.Goals)
-                    message = "Away Team Won";
+                    message = "The Away Team Wins!";
                 else if (Owner.TeamAway.Goals < Owner.TeamHome.Goals)
-                    message = "Home Team Won";
+                    message = "The Home Team Wins!";
                 else
                     message = "Draw";
             }

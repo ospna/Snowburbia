@@ -20636,7 +20636,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
-  _tendGoalDistance: 1
+  _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -20649,7 +20649,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 3
+  _ballTacklableDistance: 1
   _playerType: 1
   _iconUserControlled: {fileID: 9141400054322819410}
   IsTeamInControl: 0
@@ -39706,7 +39706,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
-  _tendGoalDistance: 5
+  _tendGoalDistance: 1
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -40134,7 +40134,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
-  _tendGoalDistance: 1
+  _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -40147,7 +40147,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 3
+  _ballTacklableDistance: 1
   _playerType: 1
   _iconUserControlled: {fileID: 1174549699696890100}
   IsTeamInControl: 0
@@ -42200,7 +42200,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
-  _tendGoalDistance: 1
+  _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -42213,7 +42213,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 3
+  _ballTacklableDistance: 1
   _playerType: 1
   _iconUserControlled: {fileID: 5321747353112903244}
   IsTeamInControl: 0
@@ -82142,7 +82142,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 1
-  _tendGoalDistance: 1
+  _tendGoalDistance: 3
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -82155,7 +82155,7 @@ MonoBehaviour:
   _teamMembers: []
   _pitchPoints: []
   _ballContrallableDistance: 1
-  _ballTacklableDistance: 3
+  _ballTacklableDistance: 1
   _playerType: 1
   _iconUserControlled: {fileID: 4451507388605182074}
   IsTeamInControl: 0
@@ -84084,7 +84084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582156911010330170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -15}
+  m_LocalPosition: {x: 0, y: 0, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156910200869549}
@@ -84337,7 +84337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582156911483201054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -18.5}
+  m_LocalPosition: {x: -0, y: 0, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156911740592321}
@@ -84402,7 +84402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582156911513104979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -18}
+  m_LocalPosition: {x: -0, y: 0, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6582156911662994917}

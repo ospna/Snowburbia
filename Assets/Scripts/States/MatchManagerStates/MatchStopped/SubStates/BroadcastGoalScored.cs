@@ -45,17 +45,30 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchStopped.SubStates
 
             //raise the event that first half finished broadcasting
             ActionUtility.Invoke_Action(Owner.OnFinishBroadcastHalfStart);
+
+            ParticleSystem sps = GameObject.Find("Snow Particles").GetComponent<ParticleSystem>();
+            var no = sps.noise;
+            no.enabled = true;
+            no.strength = .25f;
+            no.quality = ParticleSystemNoiseQuality.High;
         }
 
         // Raises the half start event
         public void RaiseTheGoalScoredEvent()
         {
             //prepare an empty string
-            string message = "GOOOAL!!!";
+            string message = "GOOOAAAL!!!";
 
             //raise the event
             BroadcastHalfStart temp = Owner.OnBroadcastHalfStart;
             if (temp != null) temp.Invoke(message);
+
+            ParticleSystem sps = GameObject.Find("Snow Particles").GetComponent<ParticleSystem>();
+            var no = sps.noise;
+            no.enabled = true;
+            no.strength = 3.0f;
+            no.quality = ParticleSystemNoiseQuality.High;
+
         }
 
         // Returns the owner of this instance
