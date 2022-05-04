@@ -67,12 +67,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
 
             //check if ball is within control distance
-            if (Ball.Instance.Owner != null && Owner.IsBallWithinControlableDistance())
+            if (Ball.Instance.Owner != null && Owner.IsBallWithinControllableDistance())
             {
                 //tackle player
                 SuperMachine.ChangeState<TackleMainState>();
             }
-            else if (Owner.IsBallWithinControlableDistance())
+            else if (Owner.IsBallWithinControllableDistance())
             {
                 // control ball
                 SuperMachine.ChangeState<ControlBallMainState>();

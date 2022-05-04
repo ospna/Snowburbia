@@ -16,6 +16,7 @@ public class GoalTrigger : MonoBehaviour
             Action temp = OnCollidedWithBall;
             if (temp != null)
                 temp.Invoke();
+
         }
     }
 }

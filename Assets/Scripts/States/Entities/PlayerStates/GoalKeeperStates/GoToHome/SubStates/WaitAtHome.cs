@@ -23,7 +23,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.
             //update the track position
             Owner.RPGMovement.SetRotateFacePosition(Ball.Instance.NormalizedPosition);
 
-            if (Owner.IsBallWithinControlableDistance())
+            if (Owner.IsBallWithinControllableDistance())
             {
                 // find direction to deflect ball to
                 Vector3 localPoint = Owner.TeamGoal.transform.InverseTransformPoint(Owner.Position);

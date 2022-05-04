@@ -52,7 +52,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             base.Execute();
 
             //place ball infront of me
-            Owner.PlaceBallInfronOfMe();
+            Owner.PlaceBallInfrontOfMe();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
             Owner._animator.SetBool("isJogging", true);

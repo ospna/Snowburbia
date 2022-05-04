@@ -53,7 +53,6 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchStopped.SubStates
             no.quality = ParticleSystemNoiseQuality.High;
         }
 
-        // Raises the half start event
         public void RaiseTheGoalScoredEvent()
         {
             //prepare an empty string

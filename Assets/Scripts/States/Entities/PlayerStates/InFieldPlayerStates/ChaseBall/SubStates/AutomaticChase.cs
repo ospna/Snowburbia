@@ -23,7 +23,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             //get the steering target
             SteeringTarget = Ball.Instance.NormalizedPosition;
 
-            //set the steering to on
             Owner.RPGMovement.SetMoveTarget(SteeringTarget);
             Owner.RPGMovement.SetRotateFacePosition(SteeringTarget);
             Owner.RPGMovement.SetSteeringOn();
@@ -39,12 +38,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             base.Execute();
 
             //check if ball is within control distance
-            if (Ball.Instance.Owner != null && Owner.IsBallWithinControlableDistance())
+            if (Ball.Instance.Owner != null && Owner.IsBallWithinControllableDistance())
             {
                 //tackle player
                 SuperMachine.ChangeState<TackleMainState>();
             }
-            else if (Owner.IsBallWithinControlableDistance())
+            else if (Owner.IsBallWithinControllableDistance())
             {
                 // control ball
                 SuperMachine.ChangeState<ControlBallMainState>();

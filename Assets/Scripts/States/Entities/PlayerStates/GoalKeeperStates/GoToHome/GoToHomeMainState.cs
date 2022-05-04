@@ -29,7 +29,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.
             if (Owner.IsTeamInControl == false)
                 SuperMachine.ChangeState<ProtectGoalMainState>();
 
-            if (Owner.IsBallWithinControlableDistance())
+            if (Owner.IsBallWithinControllableDistance())
             {
                 // find direction to deflect ball to
                 Vector3 localPoint = Owner.TeamGoal.transform.InverseTransformPoint(Owner.Position);

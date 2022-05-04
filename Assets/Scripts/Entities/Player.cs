@@ -666,7 +666,7 @@ namespace Assets.Scripts.Entities
            float distanceThreatMax,
            float distanceThreatMin,
            float distanceThreatTrack,
-           float distanceWonderMax,
+           float distanceWanderMax,
            float velocityPassArrive,
            float velocityShotArrive,
            float power,
@@ -677,7 +677,7 @@ namespace Assets.Scripts.Entities
             _distanceShotMaxValid = distanceShotValidMax;
             _tendGoalDistance = distanceTendGoal;
             _threatTrackDistance = distanceThreatTrack;
-            _maxWanderDistance = distanceWonderMax;
+            _maxWanderDistance = distanceWanderMax;
             _ballPassArriveVelocity = velocityPassArrive;
             _ballShotArriveVelocity = velocityShotArrive;
             _distanceThreatMax = distanceThreatMax;
@@ -692,7 +692,7 @@ namespace Assets.Scripts.Entities
             return IsWithinDistance(Position, position, 0.25f);
         }
 
-        public bool IsBallWithinControlableDistance()
+        public bool IsBallWithinControllableDistance()
         {
             return IsWithinDistance(Position, Ball.Instance.NormalizedPosition, _ballControllableDistance + Radius);
         }
@@ -890,7 +890,7 @@ namespace Assets.Scripts.Entities
         }
 
         // Puts the ball infront of this player
-        public void PlaceBallInfronOfMe()
+        public void PlaceBallInfrontOfMe()
         {
             Ball.Instance.NormalizedPosition = Position + transform.forward * (Radius + _ballControlDistance);
             Ball.Instance.transform.rotation = transform.rotation;

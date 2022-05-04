@@ -58,7 +58,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             if (waitTime <= 0)
                 SuperMachine.ChangeState<ControlBallMainState>();
             else
-                Owner.PlaceBallInfronOfMe();
+                Owner.PlaceBallInfrontOfMe();
         }
 
         public override void ManualExecute()

@@ -186,12 +186,11 @@ namespace Assets.Scripts.Managers
         private void Update()
         {
             /*
-            if(Ball.Instance.Owner = null)
+            if(Ball.Instance.Owner != null)
             {
                 TeamAway.FSM.SetCurrentState<AutomaticChase>();
                 TeamHome.FSM.SetCurrentState<ManualChase>();
             }
-            */
 
             /*
             //capture input

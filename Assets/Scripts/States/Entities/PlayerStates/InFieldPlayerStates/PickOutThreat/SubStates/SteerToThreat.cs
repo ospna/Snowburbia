@@ -18,7 +18,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             base.Enter();
 
             //set wait time
-            _waitTime = 1f;
+            _waitTime = 2f;
 
             //set steering target
             Threat = ((PickOutThreatMainState)Machine).Threat;
@@ -58,7 +58,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
             if (_waitTime <= 0)
             {
                 //reset the wait time
-                _waitTime = 1f;
+                _waitTime = 2f;
 
                 //get the steering target
                 _steeringTarget = GetSteeringTarget();

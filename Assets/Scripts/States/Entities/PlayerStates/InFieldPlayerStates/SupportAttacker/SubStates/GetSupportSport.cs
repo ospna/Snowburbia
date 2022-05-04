@@ -12,8 +12,6 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
         {
             base.Enter();
 
-            // get the support spot ffrom the main state
-            //if no support spot then go to home
             SupportSpot supportSpot = ((SupportAttackerMainState)Machine).SupportSpot;
 
             if (supportSpot == null)

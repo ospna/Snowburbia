@@ -10,7 +10,7 @@ namespace Assets.Scripts.Managers
 
         public AudioSource _goalAS;
 
-        public AudioSource _matchAmbience;
+        public AudioSource _ambience;
 
         public void PlayBallKickedSound(float flightTime, float velocity, Vector3 initial, Vector3 target)
         {

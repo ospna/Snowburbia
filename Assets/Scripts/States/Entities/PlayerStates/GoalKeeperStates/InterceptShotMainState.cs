@@ -60,13 +60,14 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
                     Owner.RPGMovement.SetSteeringOff();
             }
 
-            // if time is exhausted then go to tend goal
             // if ball within control distance te deflect its path
             if (timeOfBallToInterceptPoint <= 0f)
             {
                 SuperMachine.ChangeState<ProtectGoalMainState>();
             }
-            if(Owner.IsBallWithinControlableDistance())
+
+
+            if(Owner.IsBallWithinControllableDistance())
             {
                 // find direction to deflect ball to
                 Vector3 localPoint = Owner.TeamGoal.transform.InverseTransformPoint(Owner.Position);

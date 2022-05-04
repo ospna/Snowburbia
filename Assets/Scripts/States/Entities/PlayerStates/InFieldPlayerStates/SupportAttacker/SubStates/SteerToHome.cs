@@ -21,7 +21,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.Enter();
 
             //init wait time
-            waitTime = 2;
+            waitTime = 1;
 
             //get the steering target
             SteeringTarget = Owner.HomeRegion.position;
@@ -62,7 +62,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             if (waitTime <= 0)
             {
                 //init wait time
-                waitTime = 2;
+                waitTime = 1;
 
                 // get the support spot
                 _supportSpot = ((SupportAttackerMainState)Machine).SupportSpot;

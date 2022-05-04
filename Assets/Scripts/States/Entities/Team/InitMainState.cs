@@ -60,7 +60,7 @@ namespace Assets.Scripts.States.Entities.Team.Init
 
             // register team to team player events
             RegisterGoalKeeperToOnBallLaunchedEvent();
-            RegisterTeamToOppGoalEvents();
+            //RegisterTeamToOppGoalEvents();
             RegisterTeamToTeamPlayerOnChaseBallEvent();
             RegisterTeamToTeamPlayerOnGainPossessionEvent();
 
@@ -94,7 +94,7 @@ namespace Assets.Scripts.States.Entities.Team.Init
                     Owner.DistanceThreatMax,
                     Owner.DistanceThreatMin,
                     Owner.DistanceThreatTrack,
-                    Owner.DistanceWonderMax,
+                    Owner.DistanceWanderMax,
                     Owner.VelocityPassArrive,
                     Owner.VelocityShotArrive,
                     Owner.Power,

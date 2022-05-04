@@ -42,7 +42,7 @@ namespace Assets.Scripts.Entities
         float _distanceThreatTrack = 1f;
 
         [SerializeField]
-        float _distanceWonderMax = 15f;
+        float _distanceWanderMax = 15f;
 
         [SerializeField]
         float _velocityPassArrive = 15f;
@@ -117,7 +117,7 @@ namespace Assets.Scripts.Entities
             float distanceThreatMax, 
             float distanceThreatMin, 
             float distanceThreatTrack,
-            float distanceWonderMax,
+            float distanceWanderMax,
             float velocityPassArrive,
             float velocityShotArrive,
             float power, 
@@ -129,7 +129,7 @@ namespace Assets.Scripts.Entities
             _distanceShotValidMax = distanceShotValidMax;
             _distanceTendGoal = distanceTendGoal;
             _distanceThreatTrack = distanceThreatTrack;
-            _distanceWonderMax = distanceWonderMax;
+            _distanceWanderMax = distanceWanderMax;
             _velocityPassArrive = velocityPassArrive;
             _velocityShotArrive = velocityShotArrive;
             _distanceThreatMax = distanceThreatMax;
@@ -150,13 +150,11 @@ namespace Assets.Scripts.Entities
             ActionUtility.Invoke_Action(OnOppFinishedInit);
         }
 
-        // Invokes the OnStop action of this instance in order to prepare for kick off
         public void Invoke_OnMessagedToTakeKickOff()
         {
             ActionUtility.Invoke_Action(OnMessagedToTakeKickOff);
         }
 
-        // Invokes the OnStop action of this instance in order to wait
         public void Invoke_OnMessagedToStop()
         {
             ActionUtility.Invoke_Action(OnMessagedToStop);
@@ -172,7 +170,6 @@ namespace Assets.Scripts.Entities
             // set the controlling player
             ControllingPlayer = player;
 
-            // raise the event that I have gained possession
             ActionUtility.Invoke_Action(OnGainPossession);
         }
 
@@ -231,27 +228,16 @@ namespace Assets.Scripts.Entities
 
         public Transform KickOffRefDirection { get => _kickOffRefDirection; set => _kickOffRefDirection = value; }
         public Transform PlayerSupportSpots { get => _playerSupprtSpots; set => _playerSupprtSpots = value; }
-
         public float DistancePassMax { get => _distancePassMax; set => _distancePassMax = value; }
         public float DistancePassMin { get => _distancePassMin; set => _distancePassMin = value; }
         public float Power { get => _power; set => _power = value; }
         public float Speed { get => _speed; set => _speed = value; }
-
-        public float DistanceThreatMin
-        {
-            get => _distanceThreatMin;
-            set => _distanceThreatMin = value;
-        }
-
-        public float DistanceThreatMax
-        {
-            get => _distanceThreatMax;
-            set => _distanceThreatMax = value;
-        }
+        public float DistanceThreatMin{ get => _distanceThreatMin; set => _distanceThreatMin = value; }
+        public float DistanceThreatMax{ get => _distanceThreatMax; set => _distanceThreatMax = value; }
         public float DistanceShotValidMax { get => _distanceShotValidMax; set => _distanceShotValidMax = value; }
         public float DistanceTendGoal { get => _distanceTendGoal; set => _distanceTendGoal = value; }
         public float DistanceThreatTrack { get => _distanceThreatTrack; set => _distanceThreatTrack = value; }
-        public float DistanceWonderMax { get => _distanceWonderMax; set => _distanceWonderMax = value; }
+        public float DistanceWanderMax { get => _distanceWanderMax; set => _distanceWanderMax = value; }
         public float VelocityPassArrive { get => _velocityPassArrive; set => _velocityPassArrive = value; }
         public float VelocityShotArrive { get => _velocityShotArrive; set => _velocityShotArrive = value; }
 
@@ -262,7 +248,6 @@ namespace Assets.Scripts.Entities
 
             if(chasingPlayer != currClosestPlayerToPoint.Player)
             {
-                // message the closest player to go out of chaseball
                 if (currClosestPlayerToPoint != null)
                 {
                     chasingPlayer.Invoke_OnIsNoLongerTheClosestPlayerToBall();
@@ -270,7 +255,6 @@ namespace Assets.Scripts.Entities
                     
                 // make the current closet player chase the ball
                 currClosestPlayerToPoint.Player.Invoke_OnBecameTheClosestPlayerToBall();
-
             }
         }
     }
@@ -301,7 +285,7 @@ namespace Assets.Scripts.Entities
             float distanceThreatMax,
             float distanceThreatMin,
             float distanceThreatTrack,
-            float distanceWonderMax,
+            float distanceWanderMax,
             float velocityPassArrive,
             float velocityShotArrive,
             float power,
@@ -317,7 +301,7 @@ namespace Assets.Scripts.Entities
                 distanceThreatMax,
                 distanceThreatMin,
                 distanceThreatTrack,
-                distanceWonderMax,
+                distanceWanderMax,
                 velocityPassArrive,
                 velocityShotArrive,
                 power, 

@@ -49,7 +49,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Receiv
                 _ballTime -= Time.deltaTime;
 
             //trap the ball if it is now in a trapping distance
-             if (Owner.IsBallWithinControlableDistance())
+             if (Owner.IsBallWithinControllableDistance())
                  Machine.ChangeState<ControlBallMainState>();
         }
 
@@ -72,7 +72,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Receiv
 
         private void Instance_OnTeamLostControl()
         {
-            SuperMachine.ChangeState<ChaseBallMainState>();
+            SuperMachine.ChangeState<GoToHomeMainState>();
         }
 
         public void SetSteeringTarget(float ballTime, Vector3 position)

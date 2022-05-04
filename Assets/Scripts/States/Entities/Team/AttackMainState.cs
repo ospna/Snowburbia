@@ -9,8 +9,6 @@ using UnityEngine;
 
 namespace Assets.Scripts.States.Entities.Team.Attack
 {
-    // The team finds positions higher up the pitch and instructs it's players to
-    // move up the pitch into goal scoring positions
     public class AttackMainState : BState
     {
         float _lengthPitch = 60;
@@ -39,7 +37,7 @@ namespace Assets.Scripts.States.Entities.Team.Attack
             {
                 //find the percentage to move the player upfield
                 Vector3 ballGoalLocalPosition = Owner.Goal.transform.InverseTransformPoint(Ball.Instance.transform.position);
-                float playerMovePercentage = Mathf.Clamp01((ballGoalLocalPosition.z / _lengthPitch) + 0.25f);
+                float playerMovePercentage = Mathf.Clamp01((ballGoalLocalPosition.z / _lengthPitch) + 0.5f);
 
                 //move the home position a similar percentage up the field
                 Vector3 currentPlayerHomePosition = Vector3.Lerp(teamPlayer.DefendingHomePosition.transform.position,

@@ -23,7 +23,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOn.SubStates
 
             // set hasn't invoked kick off event
             hasInvokedKickOffEvent = false;
-            waitTime = .25f;
+            waitTime = 2f;
 
             // put the ball at the kick-off position
             Ball.Instance.Trap();
