@@ -111,7 +111,7 @@ public class RPGMovement : MonoBehaviour
     public void Move(Vector3 direction)
     {
         //accelerate
-        CurrentSpeed = Mathf.MoveTowards(CurrentSpeed, Speed, Acceleration * Time.time);
+        CurrentSpeed = Mathf.MoveTowards(CurrentSpeed, Speed, Acceleration * Time.deltaTime);
 
         //move the character in this direction
         RigidBody.MovePosition(transform.position + MovementDirection.normalized * CurrentSpeed * Time.deltaTime);
