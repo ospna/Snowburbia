@@ -20,6 +20,36 @@ namespace Assets.Scripts.States.MatchManagerStates.Init.SubStates
             Owner.TeamAway.OnInit += Instance_OnTeamInit;
             Owner.TeamHome.OnInit += Instance_OnTeamInit;
 
+
+           /*//set some team data
+           Owner.TeamAway.Init(Owner.DistancePassMax,
+               Owner.DistancePassMin,
+               Owner.DistanceShotValidMax,
+               Owner.DistanceTendGoal,
+               Owner.DistanceThreatMax,
+               Owner.DistanceThreatMin,
+               Owner.DistanceThreatTrack,
+               Owner.DistanceWonderMax,
+               Owner.VelocityPassArrive,
+               Owner.VelocityShotArrive,
+               Owner.Power,
+               Owner.Speed);
+
+           Owner.TeamHome.Init(Owner.DistancePassMax,
+               Owner.DistancePassMin,
+               Owner.DistanceShotValidMax,
+               Owner.DistanceTendGoal,
+               Owner.DistanceThreatMax,
+               Owner.DistanceThreatMin,
+               Owner.DistanceThreatTrack,
+               Owner.DistanceWonderMax,
+               Owner.VelocityPassArrive,
+               Owner.VelocityShotArrive,
+               Owner.Power,
+               Owner.Speed);
+               */
+        
+
             //randomize who gets the starting kickoff
             if (Random.value <= 0.5f)
                 Owner.TeamAway.HasInitialKickOff = true;

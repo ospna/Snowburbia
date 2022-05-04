@@ -20636,7 +20636,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 3
-  _tendGoalDistance: 3
+  _tendGoalDistance: 5
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -20648,7 +20648,7 @@ MonoBehaviour:
   _oppositionMembers: []
   _teamMembers: []
   _pitchPoints: []
-  _ballContrallableDistance: 1
+  _ballControllableDistance: 0.5
   _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 9141400054322819410}
@@ -39718,7 +39718,7 @@ MonoBehaviour:
   _oppositionMembers: []
   _teamMembers: []
   _pitchPoints: []
-  _ballContrallableDistance: 1
+  _ballControllableDistance: 0.5
   _ballTacklableDistance: 3
   _playerType: 0
   _iconUserControlled: {fileID: 2206412379497961065}
@@ -40146,7 +40146,7 @@ MonoBehaviour:
   _oppositionMembers: []
   _teamMembers: []
   _pitchPoints: []
-  _ballContrallableDistance: 1
+  _ballControllableDistance: 0.5
   _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 1174549699696890100}
@@ -42166,7 +42166,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 3
-  _tendGoalDistance: 3
+  _tendGoalDistance: 5
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -42178,7 +42178,7 @@ MonoBehaviour:
   _oppositionMembers: []
   _teamMembers: []
   _pitchPoints: []
-  _ballContrallableDistance: 1
+  _ballControllableDistance: 0.5
   _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 5321747353112903244}
@@ -81952,7 +81952,7 @@ MonoBehaviour:
   _ballPassArriveVelocity: 20
   _ballShotArriveVelocity: 25
   _threatTrackDistance: 3
-  _tendGoalDistance: 3
+  _tendGoalDistance: 5
   _oppGoal: {fileID: 0}
   _teamGoal: {fileID: 0}
   _accuracy: 0
@@ -81964,7 +81964,7 @@ MonoBehaviour:
   _oppositionMembers: []
   _teamMembers: []
   _pitchPoints: []
-  _ballContrallableDistance: 1
+  _ballControllableDistance: 0.5
   _ballTacklableDistance: 0.5
   _playerType: 1
   _iconUserControlled: {fileID: 4451507388605182074}
@@ -83462,12 +83462,12 @@ MonoBehaviour:
   _distancePassMax: 50
   _distancePassMin: 2
   _distanceShotValidMax: 50
-  _distanceTendGoal: 3
-  _distanceThreatMax: 1
+  _distanceTendGoal: 5
+  _distanceThreatMax: 2
   _distanceThreatMin: 5
-  _distanceThreatTrack: 1
-  _distanceWonderMax: 15
-  _velocityPassArrive: 15
+  _distanceThreatTrack: 3
+  _distanceWanderMax: 15
+  _velocityPassArrive: 20
   _velocityShotArrive: 20
   _power: 20
   _speed: 5

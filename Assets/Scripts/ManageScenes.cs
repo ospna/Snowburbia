@@ -6,13 +6,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-//using RobustFSM.Base;
-//using Assets.Scripts.StateMachines;
-//using static Assets.Scripts.Entities.Team;
 
 public class ManageScenes : MonoBehaviour
 {
-
     public static bool isPaused = false;
 
     public GameObject inGameUI;
@@ -129,41 +125,6 @@ public class ManageScenes : MonoBehaviour
         isPaused = true;
     }
 
-    /*
-    public void Settings()
-    {
-        settingsMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-        isPaused = true;
-    }
-
-    public void Back()
-    {
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.None;
-        WaitForLoad();
-    }
-    */
-
-    public void TitleScreen()
-    {
-        SceneManager.LoadScene("TitleScreen");
-        Time.timeScale = 1f;
-        //Cursor.lockState = CursorLockMode.None;
-        WaitForLoad();
-    }
-
-    /*
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.None;
-        WaitForLoad();
-    }
-    */
-
     public void OpenOptions()
     {
         optionsMenu.SetActive(true);
@@ -207,6 +168,40 @@ public class ManageScenes : MonoBehaviour
     {
         SceneManager.LoadScene("Home");
         Time.timeScale = 1f;
+        WaitForLoad();
+    }
+
+    public void Settings()
+    {
+        settingsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        isPaused = true;
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        WaitForLoad();
+    }
+    */
+
+    /*
+    public void TitleScreen()
+    {
+        SceneManager.LoadScene("TitleScreen");
+        Time.timeScale = 1f;
+        //Cursor.lockState = CursorLockMode.None;
+        WaitForLoad();
+    }
+
+    /*
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
         WaitForLoad();
     }
     */

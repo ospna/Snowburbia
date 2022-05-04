@@ -997,6 +997,5 @@ namespace Assets.Scripts.Entities
         public Player PrevPassReceiver { get => _prevPassReceiver; set => _prevPassReceiver = value; }
         public GameObject IconUserControlled { get => _iconUserControlled; set => _iconUserControlled = value; }
         public Animator Animator { get => _animator; set => _animator = value; }
-        //public PlayerController playerController { get => _playerController; set => _playerController = value; }
     }
 }

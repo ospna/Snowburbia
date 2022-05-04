@@ -22597,22 +22597,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1387849355}
-    - target: {fileID: 2406947685099188760, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _tendGoalDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406947685099188760, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406947685099188760, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406947685099188760, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceShotMaxValid
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 3560500967422882962, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -22669,58 +22653,6 @@ PrefabInstance:
       propertyPath: _opponent
       value: 
       objectReference: {fileID: 3560500966016988354}
-    - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceTendGoal
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _velocityPassArrive
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3560500967422882965, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatTrack
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5315652609552522481, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5315652609552522481, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5315652609552522481, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceShotMaxValid
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5377434856155561623, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceShotMaxValid
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6564207673772588257, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _tendGoalDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6564207673772588257, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6564207673772588257, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6564207673772588257, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceShotMaxValid
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 6857456205186380971, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -22737,22 +22669,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 456514179}
-    - target: {fileID: 8229329026557661783, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _tendGoalDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8229329026557661783, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8229329026557661783, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8229329026557661783, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
-      propertyPath: _distanceShotMaxValid
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 9195450863243763870, guid: 7f104687c3eec8541a09021688fc4012, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -50961,7 +50877,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 89099418}
         m_TargetAssemblyTypeName: ManageScenes, Assembly-CSharp
-        m_MethodName: TitleScreen
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -54931,18 +54847,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1459171739}
-    - target: {fileID: 1730938289012540393, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _tendGoalDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1730938289012540393, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1730938289012540393, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2206412379497961063, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -54951,14 +54855,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 184161128}
-    - target: {fileID: 2590988118806056271, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2590988118806056271, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2618234016221297197, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -54966,18 +54862,6 @@ PrefabInstance:
     - target: {fileID: 3064632561357520048, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542419808591768927, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _tendGoalDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542419808591768927, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542419808591768927, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4451507388605182068, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_Mesh
@@ -54999,18 +54883,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1122407205}
-    - target: {fileID: 5428744375267615654, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _tendGoalDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5428744375267615654, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5428744375267615654, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: _goal
       value: 
@@ -55019,30 +54891,6 @@ PrefabInstance:
       propertyPath: _opponent
       value: 
       objectReference: {fileID: 1860320940}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceTendGoal
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _isUserControlled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatMin
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _velocityPassArrive
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6582156910510482731, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
-      propertyPath: _distanceThreatTrack
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6582156910510482732, guid: c2c0d4cbd2a95074198d8ea47b1781b5, type: 3}
       propertyPath: m_RootOrder
       value: 0

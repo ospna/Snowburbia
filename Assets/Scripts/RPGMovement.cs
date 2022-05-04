@@ -34,6 +34,7 @@ public class RPGMovement : MonoBehaviour
         RigidBody = GetComponent<Rigidbody>();
         _refObject = Camera.main.transform;
         CurrentSpeed = 0f;
+        Acceleration = 4f;
     }
 
     private void FixedUpdate()

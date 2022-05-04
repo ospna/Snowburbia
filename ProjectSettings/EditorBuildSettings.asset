@@ -5,15 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/TitleScreen.unity
-    guid: e95f6357178eef44ba26b56d536f1593
-  - enabled: 0
-    path: Assets/Scenes/SuburbanLeague.unity
-    guid: bfdd3b9a79ce62b42947d3f1069b800a
   - enabled: 1
     path: Assets/Scenes/WSL.unity
     guid: c1ad9a79ec9a161429eff1d15ba3a0fd
