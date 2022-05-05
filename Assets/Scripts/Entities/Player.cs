@@ -968,7 +968,7 @@ namespace Assets.Scripts.Entities
                 // set the rpg movement
                 if (_rpgMovement == null)
                 {
-                    gameObject.AddComponent<RPGMovement>();
+                    //gameObject.AddComponent<RPGMovement>();
                     _rpgMovement = GetComponent<RPGMovement>();
                 }
 

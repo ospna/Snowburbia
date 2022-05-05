@@ -84,9 +84,9 @@ public class RPGMovement : MonoBehaviour
     // Initializes this instance with passed data
     public void Init(float acceleration, float agility, float rotationSpeed, float speed)
     {
-        Acceleration = acceleration;
+        Acceleration = acceleration = 4f;
         RotationSpeed = rotationSpeed;
-        Speed = speed;
+        Speed = speed = 4f;
     }
 
     // Moves this instance in the specified direction
