@@ -20,6 +20,7 @@ namespace Assets.Scripts.Managers
         public void PlayGoalScoredSound(string message, string message1)
         {
             _goalCheer.Play();
+            _goalCheer.volume = .5f;
         }
     }
 }
