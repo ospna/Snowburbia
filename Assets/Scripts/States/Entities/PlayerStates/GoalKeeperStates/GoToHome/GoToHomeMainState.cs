@@ -43,7 +43,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.GoToHome.
             }
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
         }
 
         public Player Owner

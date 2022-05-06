@@ -49,7 +49,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
             
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
         }
 
         public override void ManualExecute()
@@ -85,7 +86,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
             }
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
         }
 
         public override void Exit()
@@ -97,7 +99,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.GoToHo
             Owner.OnInstructedToReceiveBall -= Instance_OnInstructedToReceiveBall;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
-            Owner._animator.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isJogging", false);
+            Owner.gingAnim.SetBool("isJogging", false);
         }
 
         private void Instance_OnBecameTheClosestPlayerToBall()

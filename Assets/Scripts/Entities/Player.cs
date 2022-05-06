@@ -162,7 +162,9 @@ namespace Assets.Scripts.Entities
 
         public SupportSpot SupportSpot { get; set; }
 
-        public Animator _animator { get; set; }
+        public Animator snowAnim { get; set; }
+
+        public Animator gingAnim { get; set; }
 
         //public PlayerController _playerController { get; set; }
 
@@ -177,7 +179,8 @@ namespace Assets.Scripts.Entities
             InFieldPlayerFSM = GetComponent<InFieldPlayerFSM>();
             RPGMovement = GetComponent<RPGMovement>();
             SupportSpot = GetComponent<SupportSpot>();
-            _animator = GetComponentInChildren<Animator>();
+            snowAnim = GetComponentInChildren<Animator>();
+            gingAnim = GetComponentInChildren<Animator>();
 
             // cache some component data
             _radius = GetComponent<CapsuleCollider>().radius;
@@ -996,6 +999,7 @@ namespace Assets.Scripts.Entities
         public float DistancePassMax { get => _distancePassMax; set => _distancePassMax = value; }
         public Player PrevPassReceiver { get => _prevPassReceiver; set => _prevPassReceiver = value; }
         public GameObject IconUserControlled { get => _iconUserControlled; set => _iconUserControlled = value; }
-        public Animator Animator { get => _animator; set => _animator = value; }
+        public Animator SnowmanAnimator { get => snowAnim; set => snowAnim = value; }
+        public Animator GingerAnimator { get => gingAnim; set => gingAnim = value; }
     }
 }

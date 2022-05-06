@@ -29,7 +29,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Owner.RPGMovement.SetTrackingOn();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
 
         }
 
@@ -50,7 +51,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             }
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
 
             //get the steering target
             SteeringTarget = Ball.Instance.NormalizedPosition;
@@ -69,7 +71,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Owner.RPGMovement.SetTrackingOff();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
-            Owner._animator.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isJogging", false);
+            Owner.gingAnim.SetBool("isJogging", true);
         }
 
         public Player Owner

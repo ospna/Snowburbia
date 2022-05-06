@@ -33,7 +33,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             Owner.RPGMovement.SetTrackingOn();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
         }
 
         public override void Execute()
@@ -45,7 +46,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
                 Machine.ChangeState<WaitAtTarget>();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
-            Owner._animator.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isJogging", false);
+            Owner.gingAnim.SetBool("isJogging", false);
         }
 
         public override void ManualExecute()
@@ -56,7 +58,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             waitTime -= 1;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
 
             //if I waited enough then consider going home
             if (waitTime <= 0)

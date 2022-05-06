@@ -24,7 +24,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackle
             _isTackleSuccessful = Random.value <= 0.5f;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isTackling", true);
-            Owner._animator.SetBool("isTackling", true);
+            Owner.gingAnim.SetBool("isTackling", true);
 
             if (_isTackleSuccessful)
                 ActionUtility.Invoke_Action(Ball.Instance.Owner.OnTackled);
@@ -38,7 +38,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackle
             _waitTime -= Time.deltaTime;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isTackling", true);
-            Owner._animator.SetBool("isTackling", true);
+            Owner.gingAnim.SetBool("isTackling", true);
 
             if (_waitTime <= 0)
             {
@@ -59,7 +59,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Tackle
             base.Exit();
             {
                 Owner.GetComponentInChildren<Animator>().SetBool("isTackling", false);
-                Owner._animator.SetBool("isTackling", false);
+                Owner.gingAnim.SetBool("isTackling", false);
             }
         }
 

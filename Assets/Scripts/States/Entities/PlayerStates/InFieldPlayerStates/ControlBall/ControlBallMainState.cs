@@ -39,7 +39,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Ball.Instance.Rigidbody.isKinematic = true;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
 
             // raise event that I'm controlling the ball
             ControlBallDel temp = Owner.OnControlBall;
@@ -55,7 +56,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Owner.PlaceBallInfrontOfMe();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
         }
 
         public override void Exit()
@@ -69,7 +71,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Owner.OnTackled -= Instance_OnTackled;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
-            Owner._animator.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isJogging", false);
+            Owner.gingAnim.SetBool("isJogging", false);
 
             //unset the ball to is kinematic
             Ball.Instance.Owner = null;

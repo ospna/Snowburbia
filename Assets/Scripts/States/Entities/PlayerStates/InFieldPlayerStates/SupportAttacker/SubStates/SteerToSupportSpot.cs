@@ -41,7 +41,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             }
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
         }
 
         public override void Execute()
@@ -53,7 +54,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
                 Machine.ChangeState<WaitAtTarget>();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
-            Owner._animator.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isJogging", false);
+            Owner.gingAnim.SetBool("isJogging", false);
         }
 
         public override void ManualExecute()
@@ -61,7 +63,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.ManualExecute();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
 
             //decrement wait time
             waitTime -= 1;
@@ -119,7 +122,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Suppor
             base.Exit();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
-            Owner._animator.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isJogging", false);
+            Owner.gingAnim.SetBool("isJogging", false);
         }
 
         public Player Owner

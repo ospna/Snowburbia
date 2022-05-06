@@ -16,13 +16,13 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.KickBa
             base.Enter();
 
             //set the wait time 
-            waitTime = 0.25f;
+            waitTime = 0.15f;
 
             Owner.GetComponentInChildren<Animator>().SetBool("isPassing", false);
-            Owner._animator.SetBool("isPassing", false);
+            Owner.gingAnim.SetBool("isPassing", false);
 
             Owner.GetComponentInChildren<Animator>().SetBool("isShooting", false);
-            Owner._animator.SetBool("isShooting", false);
+            Owner.gingAnim.SetBool("isShooting", false);
 
         }
 

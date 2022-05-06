@@ -74,6 +74,16 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             // set the ref object
             _refObject = Camera.main.transform;
 
+            Owner.GetComponent<Animator>().SetBool("isJogging", true);
+            Owner.GetComponent<Animator>().SetBool("isRunning", true);
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner.GetComponentInChildren<Animator>().SetBool("isRunning", true);
+            Owner.GetComponentInChildren<Animator>().SetBool("isIdle", false);
+            Owner.snowAnim.SetBool("isIdle", true);
+            Owner.gingAnim.SetBool("isIdle", false);
+            Owner.gingAnim.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isRunning", true);
+
         }
 
         public override void Execute()
@@ -93,6 +103,16 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
 
             // set the direction of movement
             Vector3 direction = Movement == Vector3.zero ? Owner.transform.forward : Movement;
+
+            Owner.GetComponent<Animator>().SetBool("isJogging", true);
+            Owner.GetComponent<Animator>().SetBool("isRunning", true);
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+            Owner.GetComponentInChildren<Animator>().SetBool("isRunning", true);
+            Owner.GetComponentInChildren<Animator>().SetBool("isIdle", false);
+            Owner.snowAnim.SetBool("isIdle", true);
+            Owner.gingAnim.SetBool("isIdle", false);
+            Owner.gingAnim.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isRunning", true);
 
             if (Input.GetButtonDown("Jump"))
             {
@@ -259,6 +279,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
                     Owner.RPGMovement.SetMoveDirection(moveDirection);
                     Owner.RPGMovement.SetRotateFaceDirection(Movement);
 
+                    Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
+                    Owner.GetComponentInChildren<Animator>().SetBool("isRunning", true);
+                    Owner.gingAnim.SetBool("isJogging", true);
+                    Owner.snowAnim.SetBool("isRunning", true);
+
                     // set the steering to on
                     if (Owner.RPGMovement.Steer == false)
                         Owner.RPGMovement.SetSteeringOn();
@@ -296,6 +321,13 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.Contro
             Owner.IconUserControlled.SetActive(false);
 
             Ball.Instance.Owner = null;
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
+            Owner.GetComponentInChildren<Animator>().SetBool("isRunning", false);
+            Owner.GetComponentInChildren<Animator>().SetBool("isIdle", false);
+            Owner.snowAnim.SetBool("isIdle", false);
+            Owner.gingAnim.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isRunning", false);
         }
 
         public Player Owner

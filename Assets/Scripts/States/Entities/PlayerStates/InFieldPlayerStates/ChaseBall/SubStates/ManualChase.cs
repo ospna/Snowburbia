@@ -38,8 +38,10 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             _refObject = Camera.main.transform;
             //_refObject = vCam.transform.pos;
 
+            Owner.GetComponentInChildren<Animator>().SetBool("isRunning", true);
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isRunning", true);
+            Owner.gingAnim.SetBool("isJogging", true);
 
             // set update logic
             updateLogic = true;
@@ -71,7 +73,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Vector3 Movement = (input.z * RefObjectForward) + (input.x * _refObject.right);
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
-            Owner._animator.SetBool("isJogging", true);
+            Owner.snowAnim.SetBool("isJogging", true);
+            Owner.gingAnim.SetBool("isJogging", true);
+
+            Owner.GetComponentInChildren<Animator>().SetBool("isRunning", true);
+            Owner.snowAnim.SetBool("isRunning", true);
 
             //check if ball is within control distance
             if (Ball.Instance.Owner != null && Owner.IsBallWithinControllableDistance())
@@ -117,7 +123,8 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Owner.RPGMovement.SetTrackingOff();
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", false);
-            Owner._animator.SetBool("isJogging", false);
+            Owner.snowAnim.SetBool("isJogging", false);
+            Owner.gingAnim.SetBool("isJogging", false);
         }
 
         private void Instance_OnBecameTheClosestPlayerToBall()

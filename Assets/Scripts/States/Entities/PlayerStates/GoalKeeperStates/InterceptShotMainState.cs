@@ -47,7 +47,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
             base.Execute();
 
             Owner.GetComponentInChildren<Animator>().SetBool("CanSave", true);
-            Owner._animator.SetBool("CanSave", true);
+            Owner.gingAnim.SetBool("CanSave", true);
 
             // keep steering to target
             Owner.RPGMovement.SetMoveTarget(_steerTarget);
@@ -89,7 +89,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.Intercept
         {
             base.Exit();
 
-            Owner._animator.SetBool("CanSave", false);
+            Owner.gingAnim.SetBool("CanSave", false);
             Owner.GetComponentInChildren<Animator>().SetBool("CanSave", false);
 
             // reset steering
