@@ -26,7 +26,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOver
                 if (Owner.TeamAway.Goals > Owner.TeamHome.Goals)
                     message = "YOU WON! What an incredible performance!";
                 else if (Owner.TeamAway.Goals < Owner.TeamHome.Goals)
-                    message = "YOU LOST. It was just a bad day at the office.";
+                    message = "YOU LOST. It was a bad day at the office.";
                 else if (Owner.TeamAway.Goals == 0 && Owner.TeamHome.Goals == 0)
                     message = "And that's that, a bore draw.";
                 else
@@ -37,7 +37,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchOver
                 if (Owner.TeamAway.Goals < Owner.TeamHome.Goals)
                     message = "YOU WON! What an incredible performance!";
                 else if (Owner.TeamAway.Goals > Owner.TeamHome.Goals)
-                    message = "YOU LOST. It was just a bad day at the office.";
+                    message = "YOU LOST. It was a bad day at the office.";
                 else if (Owner.TeamAway.Goals == 0 && Owner.TeamHome.Goals == 0)
                     message = "And that's that, a bore draw.";
                 else

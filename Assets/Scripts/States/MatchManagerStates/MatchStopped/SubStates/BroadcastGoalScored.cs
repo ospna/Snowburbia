@@ -19,7 +19,7 @@ namespace Assets.Scripts.States.MatchManagerStates.MatchStopped.SubStates
             base.Enter();
 
             //set the wait time
-            waitTime = 3f;
+            waitTime = 5f;
 
             //raise the half-start event
             RaiseTheGoalScoredEvent();

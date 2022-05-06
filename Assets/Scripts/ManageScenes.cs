@@ -14,6 +14,8 @@ public class ManageScenes : MonoBehaviour
     public GameObject inGameUI;
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public GameObject finalMenu;
+    public GameObject halfTimeMenu;
 
     public Toggle fsTog;
     //public static Toggle aiTog;
@@ -29,7 +31,6 @@ public class ManageScenes : MonoBehaviour
     void Start()
     {
         fsTog.isOn = Screen.fullScreen;
-
         /*
         if(PlayerPrefs.GetInt("ToggleSelected") == 0)
         {
@@ -121,7 +122,6 @@ public class ManageScenes : MonoBehaviour
         inGameUI.SetActive(false);
         optionsMenu.SetActive(false);
         Time.timeScale = 0f;
-        //Cursor.lockState = CursorLockMode.None;
         isPaused = true;
     }
 
@@ -130,12 +130,33 @@ public class ManageScenes : MonoBehaviour
         optionsMenu.SetActive(true);
         pauseMenu.SetActive(false);
         inGameUI.SetActive(false);
-        //Cursor.lockState = CursorLockMode.None;
     }
 
     public void CloseOptions()
     {
         optionsMenu.SetActive(false);
+        
+        if(isPaused == true)
+        {
+            pauseMenu.SetActive(true);
+        }
+    }
+
+    public void Rematch()
+    {
+        finalMenu.SetActive(false);
+        inGameUI.SetActive(true);
+        Time.timeScale = 1f;
+    }
+
+    public void Forfeit()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("WSL");
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        inGameUI.SetActive(false);
+        halfTimeMenu.SetActive(false);
     }
 
     public void ResLeft()
@@ -162,49 +183,6 @@ public class ManageScenes : MonoBehaviour
     {
         resolutionLabel.text = resolutions[selectedRes].hor.ToString() + " x " + resolutions[selectedRes].vert.ToString();
     }
-
-    /*
-    public void Home()
-    {
-        SceneManager.LoadScene("Home");
-        Time.timeScale = 1f;
-        WaitForLoad();
-    }
-
-    public void Settings()
-    {
-        settingsMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-        isPaused = true;
-    }
-
-    public void Back()
-    {
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.None;
-        WaitForLoad();
-    }
-    */
-
-    /*
-    public void TitleScreen()
-    {
-        SceneManager.LoadScene("TitleScreen");
-        Time.timeScale = 1f;
-        //Cursor.lockState = CursorLockMode.None;
-        WaitForLoad();
-    }
-
-    /*
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.None;
-        WaitForLoad();
-    }
-    */
 
     // Allows the user to quit the game
     public void Quit()
