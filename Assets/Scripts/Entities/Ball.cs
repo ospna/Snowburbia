@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseBall.SubStates;
 using Patterns.Singleton;
 using UnityEngine;
 
@@ -31,6 +32,8 @@ namespace Assets.Scripts.Entities
 
         public Player Owner { get; set; }
 
+        public Team _team { get; set; }
+
         public Rigidbody Rigidbody { get; set; }
         public SphereCollider SphereCollider { get; set; }
 
@@ -47,6 +50,15 @@ namespace Assets.Scripts.Entities
         private void FixedUpdate()
         {
             ApplyFriction();
+
+            /*
+            if(Owner == null)
+            {
+                //Owner.InFieldPlayerFSM.SetCurrentState<AutomaticChase>();
+                //Owner.OnChaseBall(Owner);
+                _team.Invoke_OnPlayerChaseBall(Owner);
+            }
+            */
         }
 
         // Applies friction to this instance

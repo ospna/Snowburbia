@@ -689,7 +689,7 @@ namespace Assets.Scripts.Entities
         // Checks whether the player is at target
         public bool IsAtTarget(Vector3 position)
         {
-            return IsWithinDistance(Position, position, 0.25f);
+            return IsWithinDistance(Position, position, .05f);
         }
 
         public bool IsBallWithinControllableDistance()
