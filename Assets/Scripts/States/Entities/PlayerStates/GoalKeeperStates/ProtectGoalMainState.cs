@@ -25,7 +25,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
 
             //set some data
             _prevBallPosition = 1000 * Vector3.one;
-            _timeSinceLastUpdate = 0.05f;
+            _timeSinceLastUpdate = 0.15f;
 
             //set the rpg movement
             Owner.RPGMovement.SetSteeringOn();
@@ -111,7 +111,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.GoalKeeperStates.ProtectGo
             // make a raycast and test if it hits target
             RaycastHit hitInfo;
             bool willBallHitAGoal = Physics.SphereCast(Ball.Instance.NormalizedPosition,
-                        Ball.Instance.SphereCollider.radius, direction, out hitInfo, 400, _goalLayerMask);
+                        Ball.Instance.SphereCollider.radius, direction, out hitInfo, 500, _goalLayerMask);
             
             // get the goal from the goal trigger
             if (willBallHitAGoal)
