@@ -44,9 +44,11 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.PickOu
         {
             base.Execute();
 
+            /*
             //check if now at target and switch to wait for ball
             if (Owner.IsAtTarget(_steeringTarget))
                 Machine.ChangeState<WaitAtTarget>();
+                */
         }
 
         public override void ManualExecute()

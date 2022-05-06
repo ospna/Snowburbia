@@ -39,7 +39,7 @@ namespace Assets.Scripts.Managers
         float _distanceThreatTrack = 1f;
 
         [SerializeField]
-        float _distanceWonderMax = 15f;
+        float _distanceWanderMax = 15f;
 
         [SerializeField]
         float _velocityPassArrive = 20f;
@@ -249,7 +249,7 @@ namespace Assets.Scripts.Managers
         public float DistancePassMax { get => _distancePassMax; set => _distancePassMax = value; }
         public float DistancePassMin { get => _distancePassMin; set => _distancePassMin = value; }
         public Transform TransformCentreSpot { get => _transformCentreSpot; set => _transformCentreSpot = value; }
-        public float DistanceWonderMax { get => _distanceWonderMax; set => _distanceWonderMax = value; }
+        public float DistanceWanderMax { get => _distanceWanderMax; set => _distanceWanderMax = value; }
         public float DistanceShotValidMax { get => _distanceShotValidMax; set => _distanceShotValidMax = value; }
         public float VelocityPassArrive { get => _velocityPassArrive; set => _velocityPassArrive = value; }
         public float VelocityShotArrive { get => _velocityShotArrive; set => _velocityShotArrive = value; }

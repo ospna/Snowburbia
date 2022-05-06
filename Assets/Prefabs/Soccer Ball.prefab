@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23737651838244920}
   - component: {fileID: 135134225773752490}
   - component: {fileID: 1357200849}
-  - component: {fileID: 1598936493}
+  - component: {fileID: 516227791}
   m_Layer: 0
   m_Name: Soccer Ball
   m_TagString: SoccerBall
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1975457108487340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1598936493
+--- !u!114 &516227791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,33 +124,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1975457108487340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4936c86c69ee66b4da1809a9171658b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b53fa4f8b79ea940b40b5207d629f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerIndicator: {fileID: 0}
-  playerFocus: {fileID: 0}
-  lbFocus: {fileID: 0}
-  rbFocus: {fileID: 0}
-  cmFocus: {fileID: 0}
-  gkFocus: {fileID: 0}
-  ai_playerFocus: {fileID: 0}
-  ai_lbFocus: {fileID: 0}
-  ai_rbFocus: {fileID: 0}
-  ai_cmFocus: {fileID: 0}
-  ai_gkFocus: {fileID: 0}
-  GoalText: {fileID: 0}
-  holdBall: {fileID: 0}
-  lb_holdBall: {fileID: 0}
-  rb_holdBall: {fileID: 0}
-  cm_holdBall: {fileID: 0}
-  gk_holdBall: {fileID: 0}
-  ai_holdBall: {fileID: 0}
-  ai_lb_holdBall: {fileID: 0}
-  ai_rb_holdBall: {fileID: 0}
-  ai_cm_holdBall: {fileID: 0}
-  ai_gk_holdBall: {fileID: 0}
-  gameActive: 1
-  playerHasBall: 1
-  aiPlayerHasBall: 1
-  passPlayed: 0
-  aiPassPlayed: 0
+  _friction: 5
+  _gravity: 9.11
+  _groundMaskName: Ground

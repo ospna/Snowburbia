@@ -215,17 +215,17 @@ namespace Assets.Scripts.Entities
                 if (isPlayerMe)
                     continue;
 
+                /*
                 // we don't want to pass to the last receiver
                 bool isPlayePrevPassReceiver = player == _prevPassReceiver;
                 if (isPlayePrevPassReceiver)
                     continue;
+                    */
 
-                /*
                 // can't pass to the goalie
                 bool isPlayerGoalKeeper = player.PlayerType == PlayerTypes.Goalkeeper;
                 if (isPlayerGoalKeeper)
                     continue;
-                */
 
                 // check if player can pass
                 CanPass(player.Position, considerPassSafety, passToPlayerClosestToMe, player);

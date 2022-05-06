@@ -2,6 +2,7 @@
 using Assets.Scripts.StateMachines;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ControlBall.ControlBallMainState;
 using Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.TacklePlayer;
+using Assets.Scripts.States.Entities.Team;
 using RobustFSM.Base;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.Utilities.Enums;
@@ -41,7 +42,7 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             Owner._animator.SetBool("isJogging", true);
 
             // set update logic
-            //updateLogic = true;
+            updateLogic = true;
 
             //get the steering target
             //SteeringTarget = Ball.Instance.NormalizedPosition;
@@ -84,11 +85,12 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
                 SuperMachine.ChangeState<ControlBallMainState>();
             }
 
+            /*
             if (Input.GetButtonDown("Switch"))
             {
-                //Owner.OnBecameTheClosestPlayerToBall;
-                ActionUtility.Invoke_Action(Owner.OnBecameTheClosestPlayerToBall);
+                Owner.Team
             }
+            */
 
             // set the movement
             Vector3 moveDirection = Movement == Vector3.zero ? Vector3.zero : Owner.transform.forward;

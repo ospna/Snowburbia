@@ -13,7 +13,7 @@ namespace Assets.Scripts.StateMachines
         public override void AddStates()
         {
             //set the update frequency
-            SetUpdateFrequency(.5f);
+            SetUpdateFrequency(.25f);
 
             //add the states
             AddState<AttackMainState>();

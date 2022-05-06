@@ -49,6 +49,14 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
                     chase.Invoke(Owner);
                 }
             }
+            else
+            {
+                ChaseBallDel chase = Owner.OnChaseBall;
+                if (chase != null)
+                {
+                    chase.Invoke(Owner);
+                }
+            }
 
             Owner.GetComponentInChildren<Animator>().SetBool("isJogging", true);
             Owner._animator.SetBool("isJogging", true);

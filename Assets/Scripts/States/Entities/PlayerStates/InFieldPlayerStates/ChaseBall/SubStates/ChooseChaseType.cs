@@ -18,6 +18,17 @@ namespace Assets.Scripts.States.Entities.PlayerStates.InFieldPlayerStates.ChaseB
             { 
                 Machine.ChangeState<AutomaticChase>();
             }
+
+            if (Owner.IsUserControlled && Ball.Instance.Owner == null)
+            {
+                Machine.ChangeState<ManualChase>();
+            }
+
+            if (!Owner.IsUserControlled && Ball.Instance.Owner == null)
+            {
+                Machine.ChangeState<AutomaticChase>();
+            }
+
         }
 
         public Player Owner

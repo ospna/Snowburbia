@@ -161,10 +161,12 @@ namespace Assets.Scripts.States.Entities.Team.Init
             Owner.Players.ForEach(tM => Owner.OnLostPossession += tM.Player.Invoke_OnTeamLostControl);
         }
 
+        /*
         public void RegisterTeamToOppGoalEvents()
         {
             Owner.Opponent.Goal.OnCollideWithBall += Owner.OnTeamScoredAGoal;
         }
+        */
 
         public void RegisterTeamToTeamPlayerOnChaseBallEvent()
         {
